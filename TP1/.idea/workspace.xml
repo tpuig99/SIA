@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Bag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/cell/Bag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/cell/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/cell/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/cell/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -46,6 +48,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -71,6 +84,7 @@
       <workItem from="1596807341976" duration="784000" />
       <workItem from="1596808244093" duration="80000" />
       <workItem from="1596808359325" duration="13000" />
+      <workItem from="1596811303105" duration="1585000" />
     </task>
     <servers />
   </component>
@@ -86,21 +100,63 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1596807532789" />
-    <state width="1323" height="180" key="GridCell.Tab.0.bottom" timestamp="1596808373071">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1202" height="185" key="GridCell.Tab.0.bottom" timestamp="1596812674795">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1202" height="185" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1596812674795" />
     <state width="1323" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596808373071" />
-    <state width="1323" height="180" key="GridCell.Tab.0.center" timestamp="1596808373071">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1202" height="185" key="GridCell.Tab.0.center" timestamp="1596812674795">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1202" height="185" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1596812674795" />
     <state width="1323" height="180" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596808373071" />
-    <state width="1323" height="180" key="GridCell.Tab.0.left" timestamp="1596808373070">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1202" height="185" key="GridCell.Tab.0.left" timestamp="1596812674795">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1202" height="185" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1596812674795" />
     <state width="1323" height="180" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596808373070" />
-    <state width="1323" height="180" key="GridCell.Tab.0.right" timestamp="1596808373071">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1202" height="185" key="GridCell.Tab.0.right" timestamp="1596812674795">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1202" height="185" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1596812674795" />
     <state width="1323" height="180" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596808373071" />
+    <state width="1202" height="185" key="GridCell.Tab.1.bottom" timestamp="1596812682000">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1202" height="185" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1596812682000" />
+    <state width="1202" height="185" key="GridCell.Tab.1.center" timestamp="1596812682000">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1202" height="185" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1596812682000" />
+    <state width="1202" height="185" key="GridCell.Tab.1.left" timestamp="1596812682000">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1202" height="185" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1596812681999" />
+    <state width="1202" height="185" key="GridCell.Tab.1.right" timestamp="1596812682000">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1202" height="185" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1596812682000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/game/GameState.java</url>
+          <line>62</line>
+          <properties class="game.GameState" method="moveLeft">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/game/GameState.java</url>
+          <line>71</line>
+          <properties class="game.GameState" method="moveRight">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

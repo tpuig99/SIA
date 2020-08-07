@@ -10,7 +10,6 @@ public class GameState implements GameOptions {
     public Cell[][] board;
     public Player player;
 
-
     public String[] map1 =     {"      ###      ",
                                 "      #.#      ",
                                 "  #####.#####  ",
@@ -46,6 +45,8 @@ public class GameState implements GameOptions {
         if (player.y < BOARD_SIZE - 1 && isCellEmpty(player.x, player.y + 1)) {
             swap(player.x, player.y, player.x, player.y + 1);
             player.y++;
+        } else {
+            board = player.moveDown(board);
         }
     }
 
@@ -53,6 +54,8 @@ public class GameState implements GameOptions {
         if (player.y > 0 && isCellEmpty(player.x, player.y - 1)) {
             swap(player.x, player.y, player.x, player.y - 1);
             player.y--;
+        } else {
+            board = player.moveUp(board);
         }
     }
 
@@ -60,6 +63,8 @@ public class GameState implements GameOptions {
         if (player.x > 0 && isCellEmpty(player.x - 1, player.y)) {
             swap(player.x, player.y, player.x - 1, player.y);
             player.x--;
+        } else {
+            board = player.moveLeft(board);
         }
     }
 
@@ -67,6 +72,8 @@ public class GameState implements GameOptions {
         if (player.x < BOARD_SIZE - 1 && isCellEmpty(player.x + 1, player.y)) {
             swap(player.x, player.y, player.x + 1, player.y);
             player.x++;
+        }else {
+            board = player.moveRight(board);
         }
     }
 
@@ -112,7 +119,10 @@ public class GameState implements GameOptions {
                         board[i][j] = player;
                         break;
                     case '$':
-                        board[i][j] = new Bag();
+                        Bag bag = new Bag();
+                        board[i][j] = bag;
+                        bag.x = i;
+                        bag.y = j;
                         break;
                     case '#':
                         board[i][j] = new Wall();
