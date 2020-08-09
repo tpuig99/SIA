@@ -171,12 +171,15 @@ public class Bag extends LivingCell {
     }
 
     public boolean isMovable(Cell[][] board){
-        if(!(canMove(board,down) && canMove(board,left)) || !(canMove(board,down) && canMove(board,right))){
+        if(!(canMove(board,down) || canMove(board,left)) || !(canMove(board,down) || canMove(board,right))){
             return false;
         }
-        if(!(canMove(board,up) && canMove(board,left)) || !(canMove(board,up) && canMove(board,right))){
+        if(!(canMove(board,up) || canMove(board,left)) || !(canMove(board,up) || canMove(board,right))){
             return false;
         }
         return true;
+    }
+    public boolean isOnGoal(){
+        return goal != null;
     }
 }

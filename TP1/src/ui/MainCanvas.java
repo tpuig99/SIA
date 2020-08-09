@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
 public class MainCanvas extends Canvas implements KeyListener {
 
@@ -23,7 +24,6 @@ public class MainCanvas extends Canvas implements KeyListener {
 
         gameState = new GameState();
         gameLoop = new GameLoop(gameState);
-
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
     }

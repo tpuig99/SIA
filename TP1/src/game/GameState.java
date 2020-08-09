@@ -2,6 +2,7 @@ package game;
 
 import game.cell.*;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import static game.Constants.*;
@@ -9,6 +10,7 @@ import static game.Constants.*;
 public class GameState implements GameOptions {
     public Cell[][] board;
     public Player player;
+    private ArrayList<Bag> bags;
 
     public String[] map1 =     {"      ###      ",
                                 "      #.#      ",
@@ -101,6 +103,7 @@ public class GameState implements GameOptions {
 
     public void resetGame() {
         board = new Cell[WIDTH][HEIGHT];
+        bags = new ArrayList<>();
         for (int i = 0; i < WIDTH; i++) {
             for (int j = 0; j < HEIGHT; j++) {
                 board[i][j] = new EmptyCell();
@@ -123,6 +126,7 @@ public class GameState implements GameOptions {
                         board[i][j] = bag;
                         bag.x = i;
                         bag.y = j;
+                        bags.add(bag);
                         break;
                     case '#':
                         board[i][j] = new Wall();
@@ -132,6 +136,21 @@ public class GameState implements GameOptions {
                 }
             }
         }
+    }
+    public boolean isMovable(){
+        for (Bag bag:bags) {
+            if(!bag.isOnGoal() && !bag.isMovable(board))
+                return false;
+        }
+        return true;
+    }
+
+    public boolean won(){
+        for (Bag bag:bags) {
+            if(!bag.isOnGoal())
+                return false;
+        }
+        return true;
     }
 
 }
