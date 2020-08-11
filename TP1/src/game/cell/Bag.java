@@ -187,4 +187,9 @@ public class Bag extends LivingCell {
     public boolean equals(Object obj) {
         return obj instanceof Bag && ((Bag) obj).y==y && ((Bag) obj).x==x && ((Bag) obj).goal==goal;
     }
+
+    @Override
+    public int hashCode() {
+        return (2^x)*(3^y);
+    }
 }

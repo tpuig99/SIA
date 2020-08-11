@@ -9,6 +9,11 @@ public class Player extends LivingCell {
         return Color.BLUE;
     }
 
+    @Override
+    public int hashCode() {
+        return (5^x)*(7^y);
+    }
+
     public Cell[][] moveDown(Cell[][] board) {
         if(board[x][y+1] instanceof Bag){
             board = ((Bag) board[x][y+1]).moveDown(board);

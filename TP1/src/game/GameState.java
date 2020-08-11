@@ -10,7 +10,7 @@ import static game.Constants.*;
 public class GameState implements GameOptions {
     public Cell[][] board;
     public Player player;
-    private ArrayList<Bag> bags;
+    public ArrayList<Bag> bags;
 
     public String[] map1 =     {"      ###      ",
                                 "      #.#      ",

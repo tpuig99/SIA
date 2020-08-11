@@ -9,4 +9,5 @@ public interface Cell{
 
     Color getColor();
 
+
 }
