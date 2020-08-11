@@ -48,6 +48,11 @@ public class Player extends LivingCell {
         return board;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Player && ((Player) obj).x == x && ((Player) obj).y==y;
+    }
+
     public Cell[][] moveRight(Cell[][] board) {
         if((board[x+1][y] instanceof Bag)){
             board = ((Bag) board[x+1][y]).moveRight(board);

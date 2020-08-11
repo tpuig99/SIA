@@ -7,4 +7,9 @@ public class Wall implements Cell {
     public Color getColor() {
         return Color.BLACK;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Wall;
+    }
 }

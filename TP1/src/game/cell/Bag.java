@@ -182,4 +182,9 @@ public class Bag extends LivingCell {
     public boolean isOnGoal(){
         return goal != null;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Bag && ((Bag) obj).y==y && ((Bag) obj).x==x && ((Bag) obj).goal==goal;
+    }
 }

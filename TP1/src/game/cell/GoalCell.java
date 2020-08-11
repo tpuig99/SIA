@@ -7,4 +7,9 @@ public class GoalCell implements Cell {
     public Color getColor() {
         return Color.YELLOW;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof GoalCell;
+    }
 }
