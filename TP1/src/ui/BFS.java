@@ -9,14 +9,14 @@ import java.util.*;
 public class BFS {
     private GameState solution;
     private Queue<GameState> search;
-    private Set<GameState> visited;
+    private Set<String> visited;
 
     public void findSolutionBFS(GameState start) {
         start.setParent(null);
         search = new LinkedList<>();
         visited = new HashSet<>();
 
-        visited.add(start);
+        visited.add(start.getBoardHash());
         search.offer(start);
 
         while (!search.isEmpty()) {
@@ -29,16 +29,24 @@ public class BFS {
 
             for (Constants.Direction direction : Constants.Direction.values()) { // for each direction
                 GameState auxiliarGame = current.getCopy();
+                System.out.printf("Board before going %s\n", direction);
+                auxiliarGame.printBoard();
+
                 auxiliarGame.moveInDirection(direction);
-                if (!auxiliarGame.equals(current)) {        // if the movement was successful
-                    if(!visited.contains(auxiliarGame)) {   // if the state was nos previously visited
-                        System.out.printf("Player: (%s,%s). Bags: %s%n",
-                                auxiliarGame.player.x, auxiliarGame.player.y, auxiliarGame.bags.toString());
-                        visited.add(auxiliarGame);
+
+                System.out.printf("Board after going %s\n", direction);
+                auxiliarGame.printBoard();
+
+                if (!(auxiliarGame.getBoardHash().equals(current.getBoardHash()))) {        // if the movement was successful
+                    System.out.println("Board changed!");
+                    if(!visited.contains(auxiliarGame.getBoardHash())) {   // if the state was nos previously visited
+                        System.out.printf("Board not visited and after going %s\n", direction);
+                        visited.add(auxiliarGame.getBoardHash());
                         auxiliarGame.setParent(new ParentState(current, direction));
                         search.offer(auxiliarGame);         // add next node to the search graph
                     }
                 }
+                System.out.println("///////////Finished Iter///////////");
             }
         }
     }

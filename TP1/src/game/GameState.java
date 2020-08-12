@@ -192,8 +192,37 @@ public class GameState implements GameOptions {
         return gameState;
     }
 
+    public void printBoard() {
+        for (int j = 0; j < HEIGHT; j++) {
+            for (int i = 0; i < WIDTH; i++) {
+                if (board[i][j] instanceof EmptyCell) {
+                    System.out.print(' ');
+                }
+                else if (board[i][j] instanceof Player) {
+                    System.out.print('@');
+                }
+                else if (board[i][j] instanceof Bag) {
+                    System.out.print('$');
+                }
+                else if (board[i][j] instanceof Wall) {
+                    System.out.print('#');
+                }
+                else if (board[i][j] instanceof GoalCell) {
+                    System.out.print('.');
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public ParentState getParent() { return parent; }
     public void setParent(ParentState parent) { this.parent = parent; }
+
+    public String getBoardHash() {
+        StringBuilder stringBuilder = new StringBuilder(String.format("%s:%s;",this.player.x,this.player.y));
+        for (Bag bag : bags) { stringBuilder.append(String.format("%s:%s;",bag.x,bag.y)); }
+        return stringBuilder.toString();
+    }
 
     @Override
     public boolean equals(Object o) {
