@@ -5,4 +5,6 @@ public class Constants {
     public static final int HEIGHT = 10;
     public static final int BOARD_SIZE = 20;
     public static final int SCALE = 25;
+    public enum Direction { down, up, left, right };
+    public enum GameStatus { unfinished, won, lost };
 }

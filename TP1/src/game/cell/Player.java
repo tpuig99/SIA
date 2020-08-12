@@ -53,9 +53,16 @@ public class Player extends LivingCell {
         return board;
     }
 
+    public Player getCopy() {
+        Player copy = new Player();
+        copy.x = super.x;
+        copy.y = super.y;
+        return copy;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Player && ((Player) obj).x == x && ((Player) obj).y==y;
+        return obj instanceof Player && super.equals(obj);
     }
 
     public Cell[][] moveRight(Cell[][] board) {

@@ -183,9 +183,16 @@ public class Bag extends LivingCell {
         return goal != null;
     }
 
+    public Bag getCopy() {
+        Bag copy = new Bag();
+        copy.x = super.x;
+        copy.y = super.y;
+        return copy;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Bag && ((Bag) obj).y==y && ((Bag) obj).x==x && ((Bag) obj).goal==goal;
+        return obj instanceof Bag && super.equals(obj);
     }
 
     @Override

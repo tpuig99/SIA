@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Bag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/cell/Bag.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/cell/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/DFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/cell/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/cell/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/LivingCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/cell/LivingCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/cell/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/cell/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/DFS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +40,34 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="game" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.MainDFS">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.Main" />
+      <module name="TP1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainBFS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.MainBFS" />
       <module name="TP1" />
       <extension name="coverage">
         <pattern>
@@ -68,15 +92,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -84,6 +106,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainDFS" />
+        <item itemvalue="Application.MainBFS" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -108,6 +131,7 @@
       <workItem from="1596832894899" duration="1326000" />
       <workItem from="1596905836317" duration="14025000" />
       <workItem from="1597147599909" duration="20453000" />
+      <workItem from="1597254668261" duration="10369000" />
     </task>
     <servers />
   </component>
@@ -115,11 +139,15 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser" timestamp="1597164979018">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1597262725498">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1597164979018" />
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1596772820126" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597262725498" />
+    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597254770077">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1597254770077" />
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596807532789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -128,42 +156,46 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="408" height="466" key="DebuggerActiveHint/0.0.1280.680@0.0.1280.680" timestamp="1596998290810" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.0.bottom" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596808373071" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
+    <state width="1323" height="143" key="GridCell.Tab.0.center" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="180" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596808373071" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
+    <state width="1323" height="143" key="GridCell.Tab.0.left" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="180" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596808373070" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
+    <state width="1323" height="143" key="GridCell.Tab.0.right" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="180" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596808373071" />
-    <state width="1237" height="176" key="GridCell.Tab.1.bottom" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
+    <state width="1323" height="143" key="GridCell.Tab.1.bottom" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1237" height="176" key="GridCell.Tab.1.center" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
+    <state width="1323" height="143" key="GridCell.Tab.1.center" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1237" height="176" key="GridCell.Tab.1.left" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
+    <state width="1323" height="143" key="GridCell.Tab.1.left" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1237" height="176" key="GridCell.Tab.1.right" timestamp="1597182738352">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="143" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
+    <state width="1323" height="143" key="GridCell.Tab.1.right" timestamp="1597265481042">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
+    <state width="1323" height="143" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597265481042" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -174,11 +206,16 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/DFS.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/src/ui/BFS.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TP1$MainBFS.ic" NAME="MainBFS Coverage Results" MODIFIED="1597263487742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ui.*</FILTER>
+    </SUITE>
   </component>
 </project>

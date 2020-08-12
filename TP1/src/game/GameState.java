@@ -3,11 +3,12 @@ package game;
 import game.cell.*;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Objects;
 
 import static game.Constants.*;
 
 public class GameState implements GameOptions {
+    private ParentState parent;
     public Cell[][] board;
     public Player player;
     public ArrayList<Bag> bags;
@@ -27,19 +28,20 @@ public class GameState implements GameOptions {
         resetGame();
     }
 
-    public void moveRandomlyPlayer() {
-        Random rand = new Random();
-        int x = rand.nextInt(4);
-
-        switch (x % 4) {
-            case 0: moveDown();
-            break;
-            case 1: moveUp();
-            break;
-            case 2: moveLeft();
-            break;
-            case 3: moveRight();
-            break;
+    public void moveInDirection (Direction direction) {
+        switch (direction) {
+            case up:
+                moveUp();
+                break;
+            case down:
+                moveDown();
+                break;
+            case left:
+                moveLeft();
+                break;
+            case right:
+                moveRight();
+                break;
         }
     }
 
@@ -179,4 +181,31 @@ public class GameState implements GameOptions {
         return b2;
     }
 
+    public GameState getCopy() {
+        GameState gameState = new GameState();
+        gameState.player = player.getCopy();
+        ArrayList<Bag> bagArrayList= new ArrayList<>();
+        for (Bag bag : bags) {
+            bagArrayList.add(bag.getCopy());
+        }
+        gameState.bags = bagArrayList;
+        return gameState;
+    }
+
+    public ParentState getParent() { return parent; }
+    public void setParent(ParentState parent) { this.parent = parent; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameState gameState = (GameState) o;
+        return getPlayer().equals(gameState.player) &&
+                bags.equals(gameState.bags);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPlayer(), bags);
+    }
 }
