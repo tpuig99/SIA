@@ -15,13 +15,12 @@ public class GameLoop {
 
     public GameLoop(GameState gameState) {
         this.gameState = gameState;
-        map = gameState.getFullBoard();
+        map = gameState.getBoard().getCells();
         lastUpdate = System.nanoTime();
     }
 
     public void loop(Graphics graphics, GameState gameState) {
         this.gameState = gameState;
-        map = gameState.getFullBoard();
         repaintScreen(graphics);
         long time = System.nanoTime();
         if (time - lastUpdate > ONE_SECOND / 2) {
@@ -29,7 +28,7 @@ public class GameLoop {
             lastUpdate = time;
         }
         if (gameState.solved()) {
-            throw new RuntimeException("ganaste xdxdxdxd");
+            System.out.println("Ganaste");;
         }
     }
 
@@ -44,16 +43,23 @@ public class GameLoop {
 
     private Color defineColor(int x, int y) {
         switch (map[x][y]) {
-            case PLAYER:
-                return Color.BLUE;
-            case BAG:
-                if (gameState.isGoalCell(x, y)) {
-                    return Color.GREEN;
+            case FREE:
+                if ((int) gameState.getPlayer().getX() == x && (int) gameState.getPlayer().getY() == y) {
+                    return Color.BLUE;
                 }
-                else return Color.RED;
+                else if (gameState.checkBagInPosition(x, y)) {
+                    return Color.RED;
+                }
+                return Color.LIGHT_GRAY;
             case WALL:
                 return Color.BLACK;
             case GOAL:
+                if ((int) gameState.getPlayer().getX() == x && (int) gameState.getPlayer().getY() == y) {
+                    return Color.BLUE;
+                }
+                else if (gameState.checkBagInPosition(x, y)) {
+                    return Color.GREEN;
+                }
                 return Color.YELLOW;
             default:
                 return Color.LIGHT_GRAY;

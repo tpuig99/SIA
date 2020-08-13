@@ -1,8 +1,13 @@
 package ui;
 
+import com.sun.org.apache.bcel.internal.classfile.ConstantString;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import game.Constants;
 import game.GameLoop;
 import game.GameState;
+import searchMethods.BFS;
+import searchMethods.SearchMethod;
+import searchMethods.SearchMethodName;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,23 +17,72 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class MainCanvas extends Canvas implements KeyListener {
 
     private boolean repaintInProgress = false;
     private GameLoop gameLoop;
+    private Stack<Constants.Direction> steps;
     private GameState gameState;
 
     MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
         addKeyListener(this);
+
+        steps = executeSearchMethod(SearchMethodName.BFS);
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
-        gameState = new GameState(6, 3, Constants.map2);
+        gameState = new GameState(15, 10, Constants.map1);
         gameLoop = new GameLoop(gameState);
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
+    }
+
+    private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name) {
+        GameState solution = null;
+        SearchMethod searchMethod = null;
+        switch (name) {
+            case BFS:
+                searchMethod = new BFS();
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            default:
+                break;
+        }
+        return retrieveSteps(solution, searchMethod);
+    }
+
+    private Stack<Constants.Direction> retrieveSteps (GameState solution, SearchMethod searchMethod) {
+        GameState curr = solution;
+        int moves = 0;
+
+        Stack<Constants.Direction> steps = new Stack<>();
+        while (curr != null) {
+            if (curr.getParent() != null) {
+                steps.push(curr.getDirectionFromParent());
+            }
+            curr = curr.getParent();
+            moves++;
+        }
+
+        String status = "ÉXITO";
+        if(searchMethod.getTimeOut())
+            status = "ABORTADO POR TIEMPO";
+        else if(solution == null)
+            status = "SOLUCIÓN NO ENCONTRADA";
+        System.out.printf("Algoritmo de búsqueda: %s [%s]\n", searchMethod.getName(), status);
+        System.out.printf("Tiempo total: %.2fs\n", searchMethod.getTotalTimeMillis() / 1000.0);
+        System.out.printf("Tiempo invertido en cálculo de la heurística: %.2fs\n", searchMethod.getTimeSpentOnHeuristicMillis() / 1000.0);
+        System.out.printf("Tiempo invertido en el método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getTimeSpentOnHeuristicMillis()) / 1000.0);
+        System.out.printf("Cantidad total de nodos expandidos: %d\n", searchMethod.getTotalNodesExpanded());
+        System.out.printf("Cantidad de nodos en la frontera al final la ejecución: %d\n", searchMethod.getLatestFrontierNodeCount());
+        if (solution != null) {
+            System.out.println("Costo de la solución: " + moves);
+            System.out.println("Profundidad de la solución: " + moves);
+        }
+        return steps;
     }
 
     public void doRepaint() {
@@ -46,6 +100,20 @@ public class MainCanvas extends Canvas implements KeyListener {
         repaintInProgress = false;
     }
 
+    public void performSteps (Stack<Constants.Direction> steps) {
+        while (!steps.empty()) {
+            GameState aux = null;
+            switch (steps.pop()) {
+                case up: aux = gameState.moveInDirection(Constants.Direction.up); break;
+                case down: aux = gameState.moveInDirection(Constants.Direction.down); break;
+                case left: aux = gameState.moveInDirection(Constants.Direction.left); break;
+                case right: aux = gameState.moveInDirection(Constants.Direction.right); break;
+            }
+            gameState = aux;
+            doRepaint();
+        }
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -53,17 +121,8 @@ public class MainCanvas extends Canvas implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
-        GameState aux = null;
-
-        if (key == KeyEvent.VK_DOWN) aux = gameState.move(0,1);
-        else if (key == KeyEvent.VK_UP) aux = gameState.move(0,-1);
-        else if (key == KeyEvent.VK_RIGHT) aux = gameState.move(1,0);
-        else if (key == KeyEvent.VK_LEFT) aux = gameState.move(-1,0);
-
-        if (aux != null) {
-            gameState = aux;
-            doRepaint();
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            performSteps(steps);
         }
     }
 

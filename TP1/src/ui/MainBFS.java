@@ -7,7 +7,7 @@ import java.util.Stack;
 public class MainBFS {
     /*
     public static void main(String[] args) {
-        GameState gameState = new GameState(15, 10, Constants.map1);
+        GameState gameState = new GameState(6, 3, Constants.map1);
         BFS bfs = new BFS();
         bfs.findSolutionBFS(gameState);
         Stack<Constants.Direction> solution = bfs.getSolution();
@@ -16,6 +16,7 @@ public class MainBFS {
             System.out.println(solution.pop());
         }
     }
+
 
      */
 }
