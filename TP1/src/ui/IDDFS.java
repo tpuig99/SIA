@@ -18,6 +18,7 @@ public class IDDFS {
         public static final int left = 2;
         public static final int right = 3;
         GameState game;
+        HashSet<String> history = new HashSet<>();
         int finished = 0; //0 not, 1 won, 2 lose
 
         public IDDFS(GameState game) {
@@ -26,7 +27,6 @@ public class IDDFS {
 
         public ArrayList<Integer> iddfs(ArrayList<ArrayList<Integer>> solutions, ArrayList<Integer> solution){
             GameState auxiliarGame = new GameState();
-            HashSet<String> history = new HashSet<>();
             completeBoard(solution,auxiliarGame,history);
             //System.out.printf("Player x:%d y:%d. %s\n\n",game.player.x,game.player.y,auxiliarGame.player.x,auxiliarGame.player.y,code);
             iddfsStep(solutions,solution,auxiliarGame);
@@ -44,6 +44,7 @@ public class IDDFS {
                 if(!history.contains(boardHash(auxiliarGame))) {
                     //System.out.printf("MOVE DOWN AND HAS BEEN A CHANGE. Player x1:%d y1:%d x2:%d y2:%d.\n\n", game.player.x, game.player.y, auxiliarGame.player.x, auxiliarGame.player.y);
                     solution.add(down);
+                    history.add(boardHash(auxiliarGame));
                     iddfsStep(solutions, solution, game);
                     if (finished == 1)
                         return solution;
@@ -58,6 +59,7 @@ public class IDDFS {
                 //System.out.printf("%s --> AFTER left %s\n",code,boardHash(auxiliarGame));
                 if(!history.contains(boardHash(auxiliarGame))) {
                     solution.add(left);
+                    history.add(boardHash(auxiliarGame));
                     iddfsStep(solutions, solution, game);
                     if (finished == 1)
                         return solution;
@@ -72,6 +74,7 @@ public class IDDFS {
             if(!boardCompare(auxiliarGame.board, game.board)){
                 if(!history.contains(boardHash(auxiliarGame))) {
                     solution.add(up);
+                    history.add(boardHash(auxiliarGame));
                     iddfsStep(solutions, solution, game);
                     if (finished == 1)
                         return solution;
@@ -86,6 +89,7 @@ public class IDDFS {
             if(!boardCompare(auxiliarGame.board, game.board)){
                 if(!history.contains(boardHash(auxiliarGame))) {
                     solution.add(right);
+                    history.add(boardHash(auxiliarGame));
                     iddfsStep(solutions, solution, game);
                     if (finished == 1)
                         return solution;
@@ -104,7 +108,6 @@ public class IDDFS {
         }
         void completeBoard(ArrayList<Integer> solution, GameState auxiliarGame, HashSet<String> history){
             auxiliarGame.resetGame();
-            history.clear();
             for (int dir:solution) {
                 switch (dir){
                     case up:{
@@ -124,7 +127,6 @@ public class IDDFS {
                         break;
                     }
                 }
-                history.add(boardHash(auxiliarGame));
             }
         }
         public ArrayList<Integer> getSolution() {
