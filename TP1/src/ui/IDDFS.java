@@ -27,7 +27,7 @@ public class IDDFS {
 
         public ArrayList<Integer> iddfs(ArrayList<ArrayList<Integer>> solutions, ArrayList<Integer> solution){
             GameState auxiliarGame = new GameState();
-            completeBoard(solution,auxiliarGame,history);
+            completeBoard(solution,auxiliarGame);
             //System.out.printf("Player x:%d y:%d. %s\n\n",game.player.x,game.player.y,auxiliarGame.player.x,auxiliarGame.player.y,code);
             iddfsStep(solutions,solution,auxiliarGame);
             if(finished == 1){
@@ -50,7 +50,7 @@ public class IDDFS {
                         return solution;
                     solution.remove(solution.size()-1);
                 }
-                    completeBoard(solution,auxiliarGame,history);
+                    completeBoard(solution,auxiliarGame);
 
             }
             auxiliarGame.moveLeft();
@@ -66,7 +66,7 @@ public class IDDFS {
                     solution.remove(solution.size()-1);
 
                 }
-                completeBoard(solution,auxiliarGame,history);
+                completeBoard(solution,auxiliarGame);
             }
             auxiliarGame.moveUp();
             //System.out.printf("%s --> AFTER up %s\n",code,boardHash(auxiliarGame));
@@ -81,7 +81,7 @@ public class IDDFS {
                     solution.remove(solution.size()-1);
 
                 }
-                    completeBoard(solution,auxiliarGame,history);
+                    completeBoard(solution,auxiliarGame);
             }
             auxiliarGame.moveRight();
             //System.out.printf("%s --> AFTER right %s\n",code,boardHash(auxiliarGame));
@@ -96,7 +96,7 @@ public class IDDFS {
                     solution.remove(solution.size()-1);
 
                 }
-                    completeBoard(solution,auxiliarGame,history);
+                    completeBoard(solution,auxiliarGame);
             }
             finished = 0;
             return solution;
@@ -106,7 +106,7 @@ public class IDDFS {
                     Integer.toString(game.bags.get(0).x) + Integer.toString(game.bags.get(0).y) + '-' +
                     Integer.toString(game.bags.get(1).x) + Integer.toString(game.bags.get(1).y)  ;
         }
-        void completeBoard(ArrayList<Integer> solution, GameState auxiliarGame, HashSet<String> history){
+        void completeBoard(ArrayList<Integer> solution, GameState auxiliarGame){
             auxiliarGame.resetGame();
             for (int dir:solution) {
                 switch (dir){
