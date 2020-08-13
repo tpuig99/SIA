@@ -17,6 +17,7 @@ public class MainCanvas extends Canvas implements KeyListener {
     private boolean repaintInProgress = false;
     private GameLoop gameLoop;
     private GameState gameState;
+    private boolean active = false;
 
     MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
@@ -24,8 +25,11 @@ public class MainCanvas extends Canvas implements KeyListener {
 
         gameState = new GameState();
         gameLoop = new GameLoop(gameState);
-        Repainter repainter = new Repainter(this);
-        new Timer(16, repainter).start();
+        DFS dfs = new DFS(gameState);
+        ArrayList<Integer> solution = dfs.getSolution();
+
+        RepainterSearch repainter = new RepainterSearch(this,solution);
+        new Timer(50, repainter).start();
     }
 
     public void doRepaint() {
@@ -47,6 +51,8 @@ public class MainCanvas extends Canvas implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
+        if(key == KeyEvent.VK_SPACE)
+            active = true;
         if (key == KeyEvent.VK_DOWN) gameState.moveDown();
         else if (key == KeyEvent.VK_UP) gameState.moveUp();
         else if (key == KeyEvent.VK_RIGHT) gameState.moveRight();
@@ -71,6 +77,41 @@ public class MainCanvas extends Canvas implements KeyListener {
         }
 
         public void actionPerformed(ActionEvent event) {
+            canvas.doRepaint();
+        }
+    }
+
+    public class RepainterSearch implements ActionListener {
+        MainCanvas canvas;
+        ArrayList<Integer> solution;
+        int index = 0;
+
+        RepainterSearch(MainCanvas canvas,ArrayList<Integer> solution) {
+            this.canvas = canvas;
+            this.solution = solution;
+        }
+
+        public void actionPerformed(ActionEvent event) {
+            if(index<solution.size() && active) {
+                switch (solution.get(index++)) {
+                    case 0: {
+                        gameState.moveDown();
+                        break;
+                    }
+                    case 1: {
+                        gameState.moveUp();
+                        break;
+                    }
+                    case 2: {
+                        gameState.moveLeft();
+                        break;
+                    }
+                    case 3: {
+                        gameState.moveRight();
+                        break;
+                    }
+                }
+            }
             canvas.doRepaint();
         }
     }

@@ -9,8 +9,7 @@ public class MainDFS {
         GameState gameState = new GameState();
         gameState.resetGame();
         DFS dfs = new DFS(gameState);
-        ArrayList<Integer> solution = new ArrayList<>();
-        solution = dfs.getSolution();
+        ArrayList<Integer> solution = dfs.getSolution();
         for (int direction:
                 solution) {
             System.out.print(direction);

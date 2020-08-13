@@ -153,30 +153,4 @@ public class GameState implements GameOptions {
         return true;
     }
 
-    public Cell[][] copyBoard(){
-        Cell[][]b2 = new Cell[WIDTH][HEIGHT];
-        for(int i=0;i<WIDTH;i++){
-            for(int j=0;j<HEIGHT;j++){
-                if(board[i][j] instanceof EmptyCell){
-                    b2[i][j]= new EmptyCell();
-                }else if(board[i][j] instanceof Wall){
-                    b2[i][j]= new Wall();
-                }else if(board[i][j] instanceof Bag){
-                    Bag bag = new Bag();
-                    bag.x = i;
-                    bag.y = j;
-                    b2[i][j] = bag;
-                }else if(board[i][j] instanceof Player){
-                    Player p = new Player();
-                    p.x = i;
-                    p.y = j;
-                    b2[i][j]= p;
-                }else if(board[i][j] instanceof GoalCell){
-                    b2[i][j]= new GoalCell();
-                }
-            }
-        }
-        return b2;
-    }
-
 }
