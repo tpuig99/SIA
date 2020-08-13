@@ -26,29 +26,29 @@ public abstract class SearchMethod {
 
     public abstract String getName();
 
-    public int getLatestFrontierNodeCount()  {
-        return latestFrontierNodeCount;
+    public int getFrontierCount()  {
+        return frontierCount;
     }
 
     public boolean getTimeOut() {
         return timedOut;
     }
 
-    public int getTotalNodesExpanded() {
-        return totalNodesExpanded;
+    public int getExpandedNodes() {
+        return expandedNodes;
     }
 
-    public long getTimeSpentOnHeuristicMillis() {
-        return totalTimeSpendOnHeuristicMillis;
+    public long getHeuristicTimeMillis() {
+        return heuristicTimeMillis;
     }
 
     public long getTotalTimeMillis() {
         return endTime - startTime;
     }
 
-    protected int latestFrontierNodeCount = 0;
-    protected int totalNodesExpanded = 0;
-    protected long totalTimeSpendOnHeuristicMillis = 0;
+    protected int frontierCount = 0;
+    protected int expandedNodes = 0;
+    protected long heuristicTimeMillis = 0;
     protected long startTime = 0;
     protected long endTime = 0;
 
@@ -62,7 +62,7 @@ public abstract class SearchMethod {
 
         long startTime = System.currentTimeMillis();
         int result = h.eval(s);
-        totalTimeSpendOnHeuristicMillis += System.currentTimeMillis() - startTime;
+        heuristicTimeMillis += System.currentTimeMillis() - startTime;
 
         return result;
     }
@@ -71,10 +71,10 @@ public abstract class SearchMethod {
         this.h = h;
     }
 
-    protected void resetStats() {
-        latestFrontierNodeCount = 1;
-        totalNodesExpanded = 1;
-        totalTimeSpendOnHeuristicMillis = 0;
+    protected void reset() {
+        frontierCount = 0;
+        expandedNodes = 0;
+        heuristicTimeMillis = 0;
         endTime = 0;
         startTime = 0;
     }

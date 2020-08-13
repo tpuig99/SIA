@@ -74,10 +74,10 @@ public class MainCanvas extends Canvas implements KeyListener {
             status = "SOLUCIÓN NO ENCONTRADA";
         System.out.printf("Algoritmo de búsqueda: %s [%s]\n", searchMethod.getName(), status);
         System.out.printf("Tiempo total: %.2fs\n", searchMethod.getTotalTimeMillis() / 1000.0);
-        System.out.printf("Tiempo invertido en cálculo de la heurística: %.2fs\n", searchMethod.getTimeSpentOnHeuristicMillis() / 1000.0);
-        System.out.printf("Tiempo invertido en el método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getTimeSpentOnHeuristicMillis()) / 1000.0);
-        System.out.printf("Cantidad total de nodos expandidos: %d\n", searchMethod.getTotalNodesExpanded());
-        System.out.printf("Cantidad de nodos en la frontera al final la ejecución: %d\n", searchMethod.getLatestFrontierNodeCount());
+        System.out.printf("Tiempo invertido en cálculo de la heurística: %.2fs\n", searchMethod.getHeuristicTimeMillis() / 1000.0);
+        System.out.printf("Tiempo invertido en el método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getHeuristicTimeMillis()) / 1000.0);
+        System.out.printf("Cantidad total de nodos expandidos: %d\n", searchMethod.getExpandedNodes());
+        System.out.printf("Cantidad de nodos en la frontera al final la ejecución: %d\n", searchMethod.getFrontierCount());
         if (solution != null) {
             System.out.println("Costo de la solución: " + moves);
             System.out.println("Profundidad de la solución: " + moves);

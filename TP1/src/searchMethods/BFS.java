@@ -9,58 +9,52 @@ import java.util.Queue;
 import java.util.Set;
 
 public class BFS extends SearchMethod {
-    private Set<GameState> visitedStates;
-    private Queue<GameState> q;
 
     public GameState run(GameState start) {
-        if(start == null) {
-            super.totalNodesExpanded = 0;
-            super.latestFrontierNodeCount = 0;
-            return null;
-        }
-        super.resetStats();
+        super.reset();
 
         super.startTime = System.currentTimeMillis();
-        q = new LinkedList<>();
-        visitedStates = new HashSet<>();
+        Queue<GameState> frontier = new LinkedList<>();
+        Set<GameState> gameStateHistory = new HashSet<>();
 
-        visitedStates.add(start);
-        q.offer(start);
-        while (!q.isEmpty()) {
-            GameState curr = q.poll();
+        gameStateHistory.add(start);
+        frontier.offer(start);
+        while (!frontier.isEmpty()) {      // in bfs, frontier is a queue of gamestates
+            GameState curr = frontier.poll();
+
             if (curr.solved()) {
                 super.endTime = System.currentTimeMillis();
-                super.latestFrontierNodeCount = q.size();
+                super.frontierCount = frontier.size();
                 return curr;
             }
 
-            boolean expanded = false;
+            boolean expandedNode = false;
 
             for (Constants.Direction direction : Constants.Direction.values()) {
                 GameState aux = curr.moveInDirection(direction);
                 if (aux != null) {
-                    if (!visitedStates.contains(aux)) {
-                        if(!expanded) {
-                            expanded = true;
-                            super.totalNodesExpanded++;
+                    if (!gameStateHistory.contains(aux)) {
+                        if(!expandedNode) {
+                            expandedNode = true; // node expands <=> at least 1 son wasn't visited before
+                            super.expandedNodes++;
                         }
-                        visitedStates.add(aux);
+                        gameStateHistory.add(aux);
                         aux.setParent(curr);
                         aux.setDirectionFromParent(direction);
-                        q.offer(aux);
+                        frontier.offer(aux);
                     }
                 }
             }
         }
 
         super.endTime = System.currentTimeMillis();
-        super.latestFrontierNodeCount = 0;
+        super.frontierCount = 0;
 
         return null;
     }
 
     @Override
     public String getName() {
-        return "Breadth-first Search";
+        return "BFS";
     }
 }
