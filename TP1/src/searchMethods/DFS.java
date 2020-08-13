@@ -2,7 +2,6 @@ package searchMethods;
 
 import game.Constants;
 import game.GameState;
-import game.cell.Cell;
 
 import java.util.*;
 

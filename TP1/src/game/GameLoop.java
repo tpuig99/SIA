@@ -1,7 +1,5 @@
 package game;
 
-import game.cell.Cell;
-
 import java.awt.*;
 
 import static game.Constants.*;

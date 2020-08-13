@@ -1,4 +1,4 @@
-package game.cell;
+package game;
 
 public enum Cell {
     GOAL,

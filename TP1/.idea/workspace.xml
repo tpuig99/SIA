@@ -3,10 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameLoop$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/DFS.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainDFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchMethods/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/DFS.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/MainDFS.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,15 +100,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,6 +144,7 @@
       <workItem from="1597271572162" duration="26648000" />
       <workItem from="1597298638002" duration="111000" />
       <workItem from="1597323599275" duration="12105000" />
+      <workItem from="1597359466190" duration="2232000" />
     </task>
     <servers />
   </component>
@@ -146,10 +157,10 @@
     </state>
     <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1597164979018" />
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597349494779" />
-    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597254770077">
+    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597359968702">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1597254770077" />
+    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1597359968702" />
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597286832310">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -162,26 +173,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597324338872" />
-    <state width="637" height="178" key="GridCell.Tab.0.bottom" timestamp="1597350487020">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1597361712182">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="637" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597350487020" />
-    <state width="637" height="178" key="GridCell.Tab.0.center" timestamp="1597350487020">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597361712182" />
+    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1597361712181">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="637" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597350487020" />
-    <state width="637" height="178" key="GridCell.Tab.0.left" timestamp="1597350487020">
+    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597361712181" />
+    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1597361712181">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="637" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597350487020" />
-    <state width="637" height="178" key="GridCell.Tab.0.right" timestamp="1597350487020">
+    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597361712181" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1597361712181">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="637" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597350487020" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597361712181" />
     <state width="637" height="193" key="GridCell.Tab.1.bottom" timestamp="1597350132167">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -222,11 +233,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="33" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/DFS.java</url>
-          <line>3</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

@@ -1,6 +1,6 @@
 package game;
 
-import game.cell.*;
+import game.*;
 
 import java.awt.*;
 import java.util.ArrayList;

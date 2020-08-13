@@ -6,6 +6,7 @@ import game.Constants;
 import game.GameLoop;
 import game.GameState;
 import searchMethods.BFS;
+import searchMethods.DFS;
 import searchMethods.SearchMethod;
 import searchMethods.SearchMethodName;
 
@@ -49,7 +50,7 @@ public class MainCanvas extends Canvas implements KeyListener {
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
                 break;
             case DFS:
-                searchMethod = new searchMethods.DFS();
+                searchMethod = new DFS();
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
                 break;
             default:
@@ -116,7 +117,7 @@ public class MainCanvas extends Canvas implements KeyListener {
             gameState = aux;
             doRepaint();
             try {
-                Thread.sleep(200);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
