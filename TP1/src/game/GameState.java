@@ -15,6 +15,8 @@ public class GameState implements Comparable<GameState>{
     private Direction directionFromParent;
     private List<Point> bags;
     private int sorting;
+    private int depth;
+
     public GameState() {
         this.bags = new ArrayList<>();
         this.player = null;
@@ -22,7 +24,7 @@ public class GameState implements Comparable<GameState>{
         this.parent = null;
         this.directionFromParent = null;
         this.sorting = 0;
-
+        this.depth = 0;
     }
 
     public GameState(int width, int height, String map) {
@@ -183,6 +185,9 @@ public class GameState implements Comparable<GameState>{
 
     public int getSorting() { return sorting; }
     public void setSorting(int sorting) { this.sorting = sorting; }
+
+    public int getDepth() { return depth; }
+    public void setDepth(int depth) { this.depth = depth; }
 
     @Override
     public int compareTo(GameState o) {

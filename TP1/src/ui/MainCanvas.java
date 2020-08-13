@@ -30,7 +30,7 @@ public class MainCanvas extends Canvas implements KeyListener {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-        steps = executeSearchMethod(SearchMethodName.BFS);
+        steps = executeSearchMethod(SearchMethodName.DFS);
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
@@ -46,6 +46,10 @@ public class MainCanvas extends Canvas implements KeyListener {
         switch (name) {
             case BFS:
                 searchMethod = new BFS();
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            case DFS:
+                searchMethod = new searchMethods.DFS();
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
                 break;
             default:
