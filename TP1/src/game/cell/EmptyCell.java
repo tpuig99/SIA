@@ -13,4 +13,9 @@ public class EmptyCell implements Cell {
     public Color getColor() {
         return Color.WHITE;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof EmptyCell;
+    }
 }
