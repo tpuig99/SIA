@@ -22,7 +22,7 @@ public class DFS {
         this.game = game;
     }
 
-    public ArrayList<Integer> dfs(ArrayList<Integer> solution, GameState game, int direction, HashSet<String> history){
+    public ArrayList<Integer> dfs(ArrayList<Integer> solution, GameState game, HashSet<String> history){
         GameState auxiliarGame = new GameState();
         completeBoard(solution,auxiliarGame);
         String code = boardHash(auxiliarGame);
@@ -51,7 +51,7 @@ public class DFS {
                    //System.out.printf("MOVE DOWN AND HAS BEEN A CHANGE. Player x1:%d y1:%d x2:%d y2:%d.\n\n", game.player.x, game.player.y, auxiliarGame.player.x, auxiliarGame.player.y);
                    solution.add(down);
                    history.add(boardHash(auxiliarGame));
-                   solution = dfs(solution, auxiliarGame, down, history);
+                   solution = dfs(solution, auxiliarGame, history);
                    if (finished == 1) {
                        return solution;
                    } else if (finished == 2) {
@@ -72,7 +72,7 @@ public class DFS {
                    history.add(boardHash(auxiliarGame));
                    //System.out.printf("MOVE LEFT AND HAS BEEN A CHANGE. Player x1:%d y1:%d x2:%d y2:%d.\n\n", game.player.x, game.player.y, auxiliarGame.player.x, auxiliarGame.player.y);
                    solution.add(left);
-                   solution = dfs(solution, auxiliarGame, left, history);
+                   solution = dfs(solution, auxiliarGame,  history);
                    if (finished == 1) {
                        return solution;
                    } else if (finished == 2) {
@@ -93,7 +93,7 @@ public class DFS {
                     history.add(boardHash(auxiliarGame));
                     //System.out.printf("MOVE UP AND HAS BEEN A CHANGE. Player x1:%d y1:%d x2:%d y2:%d.\n\n", game.player.x, game.player.y, auxiliarGame.player.x, auxiliarGame.player.y);
                     solution.add(up);
-                    solution = dfs(solution, auxiliarGame, up, history);
+                    solution = dfs(solution, auxiliarGame, history);
                     if (finished == 1) {
                         return solution;
                     } else if (finished == 2) {
@@ -115,7 +115,7 @@ public class DFS {
                     //System.out.printf("MOVE RIGHT AND HAS BEEN A CHANGE. Player x1:%d y1:%d x2:%d y2:%d.\n\n", game.player.x, game.player.y, auxiliarGame.player.x, auxiliarGame.player.y);
                     history.add(boardHash(auxiliarGame));
                     solution.add(right);
-                    solution = dfs(solution, auxiliarGame, right, history);
+                    solution = dfs(solution, auxiliarGame, history);
                     if (finished == 1) {
                         return solution;
                     } else if (finished == 2) {
@@ -163,7 +163,7 @@ public class DFS {
         ArrayList<Integer> solution = new ArrayList<>();
         HashSet<String> history = new HashSet<>();
         history.add(boardHash(game));
-        return dfs(solution,game,-1,history);
+        return dfs(solution,game,history);
     }
     boolean boardCompare(Cell[][] b1, Cell[][] b2){
 
