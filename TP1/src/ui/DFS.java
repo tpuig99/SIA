@@ -1,15 +1,7 @@
 package ui;
 
-import game.GameState;
-import game.cell.Cell;
-import static game.Constants.*;
-
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-
 public class DFS {
+    /*
     public static final int down = 0;
     public static final int up = 1;
     public static final int left = 2;
@@ -178,4 +170,5 @@ public class DFS {
         }
         return true;
     }
+    */
 }

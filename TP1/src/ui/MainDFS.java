@@ -5,6 +5,7 @@ import game.GameState;
 import java.util.ArrayList;
 
 public class MainDFS {
+    /*
     public static void main(String[] args) {
         GameState gameState = new GameState();
         gameState.resetGame();
@@ -18,5 +19,5 @@ public class MainDFS {
         }
 
     }
-
+    */
 }

@@ -2,239 +2,246 @@ package game;
 
 import game.cell.*;
 
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.List;
 
 import static game.Constants.*;
 
-public class GameState implements GameOptions {
-    private ParentState parent;
-    public Cell[][] board;
-    public Player player;
-    public ArrayList<Bag> bags;
+public class GameState implements Comparable<GameState>{
+    private GameBoard board;
+    private Point player;
+    private GameState parent;
+    private Direction directionToParent;
+    private List<Point> bags;
+    private int sorting;
 
-    public String[] map1 =     {"      ###      ",
-                                "      #.#      ",
-                                "  #####.#####  ",
-                                " ##         ## ",
-                                "##  # # # #  ##",
-                                "#  ##     ##  #",
-                                "# ##  # #  ## #",
-                                "#     $@$     #",
-                                "####  ###  ####",
-                                "   #### ####   ",};
+    public int getWidth() {
+        return width;
+    }
+
+    private int width;
+    private int height;
+    private String map;
 
     public GameState() {
-        resetGame();
+        this.bags = new ArrayList<>();
+        this.player = null;
+        this.board = null;
+        this.parent = null;
+        this.sorting = 0;
+
     }
 
-    public void moveInDirection (Direction direction) {
-        switch (direction) {
-            case up:
-                moveUp();
-                break;
-            case down:
-                moveDown();
-                break;
-            case left:
-                moveLeft();
-                break;
-            case right:
-                moveRight();
-                break;
-        }
+    public GameState(int width, int height) {
+        this();
+        this.height = height;
+        this.width = width;
     }
 
-    public void moveDown() {
-        if (player.y < BOARD_SIZE - 1 && isCellEmpty(player.x, player.y + 1)) {
-            swap(player.x, player.y, player.x, player.y + 1);
-            player.y++;
-        } else {
-            board = player.moveDown(board);
-        }
-    }
+    public GameState(int width, int height, String map) {
+        this();
+        this.height = height;
+        this.width = width;
+        this.map = map;
 
-    public void moveUp() {
-        if (player.y > 0 && isCellEmpty(player.x, player.y - 1)) {
-            swap(player.x, player.y, player.x, player.y - 1);
-            player.y--;
-        } else {
-            board = player.moveUp(board);
-        }
-    }
-
-    public void moveLeft() {
-        if (player.x > 0 && isCellEmpty(player.x - 1, player.y)) {
-            swap(player.x, player.y, player.x - 1, player.y);
-            player.x--;
-        } else {
-            board = player.moveLeft(board);
-        }
-    }
-
-    public void moveRight() {
-        if (player.x < BOARD_SIZE - 1 && isCellEmpty(player.x + 1, player.y)) {
-            swap(player.x, player.y, player.x + 1, player.y);
-            player.x++;
-        }else {
-            board = player.moveRight(board);
-        }
-    }
-
-    public boolean isCellEmpty(int i, int j) {
-        if (i < 0 || i >= BOARD_SIZE || j < 0 || j >= BOARD_SIZE) {
-            return false;
-        }
-        return board[i][j].isEmpty();
-    }
-
-    public synchronized void swap(int i, int j, int ii, int jj) {
-        Cell temp = board[i][j];
-        board[i][j] = board[ii][jj];
-        board[ii][jj] = temp;
-    }
-
-    @Override
-    public Player getPlayer() {
-        return player;
-    }
-
-    public boolean isOver() {
-        return false;
-    }
-
-    public void resetGame() {
-        board = new Cell[WIDTH][HEIGHT];
-        bags = new ArrayList<>();
-        for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < HEIGHT; j++) {
-                board[i][j] = new EmptyCell();
-            }
-        }
-
-        for (int j = 0; j < map1.length; j++) {
-            for (int i = 0; i < map1[j].length(); i++) {
-                switch (map1[j].charAt(i)) {
-                    case '.': board[i][j] = new GoalCell();
-                    break;
+        String[] line = map.split("\n");
+        for (int i = 0; i < line.length; i++) {
+            char[] aux = line[i].toCharArray();
+            for (int j = 0; j < aux.length; j++) {
+                switch (aux[j]) {
                     case '@':
-                        player = new Player();
-                        player.x = i;
-                        player.y = j;
-                        board[i][j] = player;
+                        player = (new Point(j, i));
                         break;
                     case '$':
-                        Bag bag = new Bag();
-                        board[i][j] = bag;
-                        bag.x = i;
-                        bag.y = j;
-                        bags.add(bag);
-                        break;
-                    case '#':
-                        board[i][j] = new Wall();
+                        addBag(j, i);
                         break;
                     default:
                         break;
                 }
             }
         }
+
+        this.board = new GameBoard(width, height, map);
+
     }
-    public boolean isMovable(){
-        for (Bag bag:bags) {
-            if(!bag.isOnGoal() && !bag.isMovable(board))
+
+    public boolean isGoalCell(int x, int y) {
+        for (Point goal : getBoard().getGoals()) {
+            if ((int) goal.getX() == x && (int) goal.getY() == y) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addBag (int x, int y) {
+        bags.add(new Point(x, y));
+    }
+
+    private boolean checkBagInPosition(int x, int y) {
+        for (Point bag : bags) {
+            if (bag.getX() == x && bag.getY() == y) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean checkObstacleInPosition(int x, int y) {
+        return board.checkObstacleInPosition(x, y) || checkBagInPosition(x, y);
+    }
+
+
+    public GameState moveInDirection (Direction direction) {
+        switch (direction) {
+            case up:
+                return move(0,-1);
+            case down:
+                return move(0,1);
+            case left:
+                return move(-1,0);
+            case right:
+                return move(1,0);
+        }
+        return null;
+    }
+
+    public List<GameState> getAdjacentStates() {
+        List<GameState> adjacents = new ArrayList<>();
+
+        for (Direction direction : Direction.values()) {
+            GameState aux = moveInDirection(direction);
+            if (aux != null) {
+                adjacents.add(aux);
+            }
+        }
+        return adjacents;
+    }
+
+    public GameState move(int incX, int incY) {
+        int newX = ((int) player.getX()) + incX; // si es negativo retrocede
+        int newY = ((int) player.getY()) + incY;
+
+        if (!checkObstacleInPosition(newX,newY) || checkBagInPosition(newX,newY) && !checkObstacleInPosition(newX + incX, newY + incY)) {
+            GameState gameState = new GameState();
+            gameState.setWidth(width);
+            gameState.setHeight(height);
+            gameState.setMap(map);
+
+            for (Point bag : bags) {
+                int x = (int) bag.getX();
+                int y = (int) bag.getY();
+                if (x == newX && y == newY) {
+                    x += incX;
+                    y += incY;
+                }
+                gameState.addBag(x, y);
+            }
+            gameState.setPlayer(newX, newY);
+            gameState.setBoard(new GameBoard(width, height, map));
+            return gameState;
+        }
+        return null;
+    }
+
+    public boolean solved() {
+        for(Point bag: bags) {
+            if (!isGoalCell((int) bag.getX(), (int) bag.getY())) {
                 return false;
+            };
         }
         return true;
     }
 
-    public boolean won(){
-        for (Bag bag:bags) {
-            if(!bag.isOnGoal())
-                return false;
-        }
-        return true;
-    }
+    @Override
+    public int hashCode() {
+        int result = 31 + (int) player.getX();
+        result = 31 * result + (int) player.getY();
 
-    public Cell[][] copyBoard(){
-        Cell[][]b2 = new Cell[WIDTH][HEIGHT];
-        for(int i=0;i<WIDTH;i++){
-            for(int j=0;j<HEIGHT;j++){
-                if(board[i][j] instanceof EmptyCell){
-                    b2[i][j]= new EmptyCell();
-                }else if(board[i][j] instanceof Wall){
-                    b2[i][j]= new Wall();
-                }else if(board[i][j] instanceof Bag){
-                    Bag bag = new Bag();
-                    bag.x = i;
-                    bag.y = j;
-                    b2[i][j] = bag;
-                }else if(board[i][j] instanceof Player){
-                    Player p = new Player();
-                    p.x = i;
-                    p.y = j;
-                    b2[i][j]= p;
-                }else if(board[i][j] instanceof GoalCell){
-                    b2[i][j]= new GoalCell();
+        for (int j = 0; j < board.getHeight(); j++) {
+            for (int i = 0; i < board.getWidth(); i++) {
+                if (checkBagInPosition(i, j)) {
+                    result = 31 * result + i;
+                    result = 31 * result + j;
                 }
             }
         }
-        return b2;
+        return result;
     }
 
-    public GameState getCopy() {
-        GameState gameState = new GameState();
-        gameState.player = player.getCopy();
-        ArrayList<Bag> bagArrayList= new ArrayList<>();
-        for (Bag bag : bags) {
-            bagArrayList.add(bag.getCopy());
+    public Cell[][] getFullBoard () {
+        Cell[][] gameBoard = getBoard().getCells();
+        int x = (int) player.getX();
+        int y = (int) player.getY();
+        gameBoard[x][y] = Cell.PLAYER;
+
+        for (Point bag : bags) {
+            int bagX = (int) bag.getX();
+            int bagY = (int) bag.getY();
+            gameBoard[bagX][bagY] = Cell.BAG;
         }
-        gameState.bags = bagArrayList;
-        return gameState;
-    }
-
-    public void printBoard() {
-        for (int j = 0; j < HEIGHT; j++) {
-            for (int i = 0; i < WIDTH; i++) {
-                if (board[i][j] instanceof EmptyCell) {
-                    System.out.print(' ');
-                }
-                else if (board[i][j] instanceof Player) {
-                    System.out.print('@');
-                }
-                else if (board[i][j] instanceof Bag) {
-                    System.out.print('$');
-                }
-                else if (board[i][j] instanceof Wall) {
-                    System.out.print('#');
-                }
-                else if (board[i][j] instanceof GoalCell) {
-                    System.out.print('.');
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    public ParentState getParent() { return parent; }
-    public void setParent(ParentState parent) { this.parent = parent; }
-
-    public String getBoardHash() {
-        StringBuilder stringBuilder = new StringBuilder(String.format("%s:%s;",this.player.x,this.player.y));
-        for (Bag bag : bags) { stringBuilder.append(String.format("%s:%s;",bag.x,bag.y)); }
-        return stringBuilder.toString();
+        return gameBoard;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        GameState gameState = (GameState) o;
-        return getPlayer().equals(gameState.player) &&
-                bags.equals(gameState.bags);
+        if (o instanceof GameState) {
+            GameState gs = (GameState) o;
+            if (gs.board != this.board) return false;
+            if (!player.equals(gs.player)) return false;
+            for (Point bag: bags) {
+                if (!gs.bags.contains(bag)) return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public GameBoard getBoard() { return board;    }
+    public void setBoard(GameBoard board) { this.board = board; }
+
+    public Point getPlayer() { return player; }
+    public void setPlayer(int x, int y) { this.player = new Point(x, y); }
+
+    public GameState getParent() { return parent; }
+    public void setParent(GameState parent) { this.parent = parent; }
+
+    public Direction getDirectionToParent() { return directionToParent; }
+    public void setDirectionToParent(Direction directionToParent) { this.directionToParent = directionToParent; }
+
+    public List<Point> getBags() { return bags; }
+    public void setBags(List<Point> bags) { this.bags = bags; }
+
+    public List<Point> getGoals() { return board.getGoals(); }
+
+    public int getSorting() { return sorting; }
+    public void setSorting(int sorting) { this.sorting = sorting; }
+
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getMap() {
+        return map;
+    }
+
+    public void setMap(String map) {
+        this.map = map;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(getPlayer(), bags);
+    public int compareTo(GameState o) {
+        return o.getSorting() - sorting;
     }
 }

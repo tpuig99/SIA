@@ -1,5 +1,6 @@
 package ui;
 
+import game.Constants;
 import game.GameLoop;
 import game.GameState;
 
@@ -21,8 +22,10 @@ public class MainCanvas extends Canvas implements KeyListener {
     MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
         addKeyListener(this);
-
-        gameState = new GameState();
+        // read data and select map
+        // read data and start with all the algorithms
+        // for each solution, start a gamestate and do whatever it has to do
+        gameState = new GameState(6, 3, Constants.map2);
         gameLoop = new GameLoop(gameState);
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
@@ -36,31 +39,37 @@ public class MainCanvas extends Canvas implements KeyListener {
 
         BufferStrategy strategy = getBufferStrategy();
         Graphics g = strategy.getDrawGraphics();
-        gameLoop.loop(g);
+        gameLoop.loop(g, gameState);
 
         strategy.show();
         Toolkit.getDefaultToolkit().sync();
         repaintInProgress = false;
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KeyEvent.VK_DOWN) gameState.moveDown();
-        else if (key == KeyEvent.VK_UP) gameState.moveUp();
-        else if (key == KeyEvent.VK_RIGHT) gameState.moveRight();
-        else if (key == KeyEvent.VK_LEFT) gameState.moveLeft();
+        GameState aux = null;
 
-        if (key == KeyEvent.VK_SPACE && gameState.isOver()) gameState.resetGame();
+        if (key == KeyEvent.VK_DOWN) aux = gameState.move(0,1);
+        else if (key == KeyEvent.VK_UP) aux = gameState.move(0,-1);
+        else if (key == KeyEvent.VK_RIGHT) aux = gameState.move(1,0);
+        else if (key == KeyEvent.VK_LEFT) aux = gameState.move(-1,0);
+
+        if (aux != null) {
+            gameState = aux;
+            doRepaint();
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-    }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
     }
 
     public class Repainter implements ActionListener {

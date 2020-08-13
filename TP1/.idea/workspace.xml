@@ -3,10 +3,46 @@
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/Constants$Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants$GameStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/Constants$GameStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameOptions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameState$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/ParentState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Bag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/cell/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/EmptyCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/GoalCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/LivingCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Wall.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/BFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/DFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainBFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainBFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainDFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainDFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameOptions.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/ParentState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Bag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/EmptyCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/GoalCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/LivingCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Wall.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/MainBFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainBFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/MainDFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainDFS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +53,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -34,7 +71,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../itba-sia-2020-1c-08-97ed1dae368c/TP1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,7 +84,7 @@
       <recent name="game" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainBFS">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.Main" />
       <module name="TP1" />
@@ -87,11 +124,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainBFS" />
         <item itemvalue="Application.MainDFS" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +165,7 @@
       <workItem from="1597147599909" duration="20453000" />
       <workItem from="1597254668261" duration="10369000" />
       <workItem from="1597267772951" duration="1296000" />
-      <workItem from="1597271572162" duration="2108000" />
+      <workItem from="1597271572162" duration="26648000" />
     </task>
     <servers />
   </component>
@@ -125,63 +173,75 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1597262725498">
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1597298246911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1597164979018" />
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597262725498" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597298246911" />
     <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597254770077">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1597254770077" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596807532789">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597286832310">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1596807532789" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1597286832310" />
     <state width="408" height="466" key="DebuggerActiveHint" timestamp="1596998290810">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="408" height="466" key="DebuggerActiveHint/0.0.1280.680@0.0.1280.680" timestamp="1596998290810" />
-    <state width="1323" height="143" key="GridCell.Tab.0.bottom" timestamp="1597272696114">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597282045842">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597282045842" />
+    <state width="1323" height="31" key="GridCell.Tab.0.bottom" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597272696114" />
-    <state width="1323" height="143" key="GridCell.Tab.0.center" timestamp="1597272696114">
+    <state width="1323" height="31" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state width="1323" height="31" key="GridCell.Tab.0.center" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597272696114" />
-    <state width="1323" height="143" key="GridCell.Tab.0.left" timestamp="1597272696113">
+    <state width="1323" height="31" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state width="1323" height="31" key="GridCell.Tab.0.left" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597272696113" />
-    <state width="1323" height="143" key="GridCell.Tab.0.right" timestamp="1597272696114">
+    <state width="1323" height="31" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state width="1323" height="31" key="GridCell.Tab.0.right" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597272696114" />
-    <state width="1323" height="143" key="GridCell.Tab.1.bottom" timestamp="1597272696256">
+    <state width="1323" height="31" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state width="1323" height="31" key="GridCell.Tab.1.bottom" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597272696256" />
-    <state width="1323" height="143" key="GridCell.Tab.1.center" timestamp="1597272696256">
+    <state width="1323" height="31" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state width="1323" height="31" key="GridCell.Tab.1.center" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597272696256" />
-    <state width="1323" height="143" key="GridCell.Tab.1.left" timestamp="1597272696256">
+    <state width="1323" height="31" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state width="1323" height="31" key="GridCell.Tab.1.left" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597272696256" />
-    <state width="1323" height="143" key="GridCell.Tab.1.right" timestamp="1597272696256">
+    <state width="1323" height="31" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state width="1323" height="31" key="GridCell.Tab.1.right" timestamp="1597298466201">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1597182738352" />
-    <state width="1323" height="143" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597272696256" />
+    <state width="1323" height="31" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597298466201" />
+    <state x="228" y="99" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597288433738">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="228" y="99" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728@0.0.1366.728" timestamp="1597288433738" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1597292292215">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597292292215" />
     <state x="65" y="25" key="new project wizard" timestamp="1597273218101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -190,23 +250,17 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/Main.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/BFS.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/BFS.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="33" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="gameState.board.board[1]" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TP1$MainBFS.ic" NAME="MainBFS Coverage Results" MODIFIED="1597263487742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
