@@ -25,8 +25,9 @@ public class MainCanvas extends Canvas implements KeyListener {
 
         gameState = new GameState();
         gameLoop = new GameLoop(gameState);
-        DFS dfs = new DFS(gameState);
-        ArrayList<Integer> solution = dfs.getSolution();
+        //DFS search = new DFS(gameState);
+        IDDFS search = new IDDFS(gameState);
+        ArrayList<Integer> solution = search.getSolution();
 
         RepainterSearch repainter = new RepainterSearch(this,solution);
         new Timer(50, repainter).start();
