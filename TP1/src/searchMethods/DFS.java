@@ -19,6 +19,18 @@ public class DFS extends SearchMethod {
         super.endTime = System.currentTimeMillis();
         return solution;
     }
+    @Override
+    public GameState run(GameState start,int maxDepth) {
+        super.reset();
+
+        super.startTime = System.currentTimeMillis();
+        history = new HashMap<>();
+        GameState solution = dfs(start, maxDepth);
+        super.endTime = System.currentTimeMillis();
+        return solution;
+    }
+
+    public DFS() { history = new HashMap<>();    }
 
     public GameState dfs (GameState start, int maxDepth) {
         Stack<GameState> stack = new Stack<>();

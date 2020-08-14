@@ -5,10 +5,7 @@ import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import game.Constants;
 import game.GameLoop;
 import game.GameState;
-import searchMethods.BFS;
-import searchMethods.DFS;
-import searchMethods.SearchMethod;
-import searchMethods.SearchMethodName;
+import searchMethods.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +28,7 @@ public class MainCanvas extends Canvas implements KeyListener {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-        steps = executeSearchMethod(SearchMethodName.DFS);
+        steps = executeSearchMethod(SearchMethodName.IDDFS);
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
@@ -51,6 +48,10 @@ public class MainCanvas extends Canvas implements KeyListener {
                 break;
             case DFS:
                 searchMethod = new DFS();
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            case IDDFS:
+                searchMethod = new IDDFS();
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
                 break;
             default:
