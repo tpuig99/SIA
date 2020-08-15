@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/searchMethods/H1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchMethods/DFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,15 +104,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,6 +149,7 @@
       <workItem from="1597298638002" duration="111000" />
       <workItem from="1597323599275" duration="12105000" />
       <workItem from="1597359466190" duration="2232000" />
+      <workItem from="1597512599045" duration="2402000" />
     </task>
     <servers />
   </component>
@@ -172,11 +169,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser" timestamp="1597379043963">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1597512714843">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1597379043963" />
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597349494779" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597512714843" />
     <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597359968702">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -245,10 +242,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="65" y="25" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1597273218101" />
-    <state x="303" y="1" key="search.everywhere.popup" timestamp="1597362915293">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1597513797585">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="303" y="1" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1597362915293" />
+    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597513797585" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
