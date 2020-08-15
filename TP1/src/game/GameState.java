@@ -135,6 +135,10 @@ public class GameState implements Comparable<GameState>{
         return true;
     }
 
+    public boolean checkPosition (int x, int y) {
+        return checkBagInPosition(x, y) || board.checkObstacleInPosition(x, y);
+    }
+
     @Override
     public int hashCode() {
         int result = 31 + (int) player.getX();
