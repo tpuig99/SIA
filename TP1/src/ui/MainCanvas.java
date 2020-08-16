@@ -1,6 +1,10 @@
 package ui;
 
 
+import Heuristics.H1;
+import Heuristics.H2;
+import Heuristics.H3;
+import Heuristics.Heuristic;
 import game.Constants;
 import game.GameLoop;
 import game.GameState;
@@ -27,7 +31,7 @@ public class MainCanvas extends Canvas implements KeyListener {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-        steps = executeSearchMethod(SearchMethodName.IDDFS);
+        steps = executeSearchMethod(SearchMethodName.G_GREEDY);
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
@@ -51,6 +55,11 @@ public class MainCanvas extends Canvas implements KeyListener {
                 break;
             case IDDFS:
                 searchMethod = new IDDFS();
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            case G_GREEDY:
+                Heuristic heuristic = new H3();
+                searchMethod = new GlobalGreedy(heuristic);
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
                 break;
             default:

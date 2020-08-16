@@ -1,24 +1,26 @@
-package searchMethods;
+package Heuristics;
 
 import game.GameState;
+
 import java.awt.*;
 
-public class H1 implements Heuristic {
+public class H3 implements Heuristic {
     @Override
     public int eval(GameState gameState) {
-
         int value = 0;
+        int shortestGoal = Integer.MAX_VALUE;
+        int shortestPlayer = Integer.MAX_VALUE;
         for (Point bag : gameState.getBags()) {
             if (!gameState.isGoalCell((int) bag.getX(), (int) bag.getY())) {
-                int shortest = Integer.MAX_VALUE;
-                for (Point goal : gameState.getFreeGoals()) {
-                    shortest = Math.min(shortest, getDistance(bag, goal));
+                for (Point goal : gameState.getGoals()) {
+                    shortestGoal = Math.min(shortestGoal, getDistance(bag, goal));
                 }
-                value += shortest;
+                shortestPlayer = Math.min(shortestPlayer, getDistance(bag, gameState.getPlayer()));
+                value += shortestGoal;
             }
         }
 
-        return value;
+        return value + shortestPlayer;
     }
 
     public int getDistance (Point point1, Point point2) {
@@ -29,6 +31,6 @@ public class H1 implements Heuristic {
 
     @Override
     public String getName() {
-        return "H1";
+        return "H3";
     }
 }

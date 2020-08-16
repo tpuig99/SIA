@@ -64,6 +64,7 @@ public class DFS extends SearchMethod {
                 }
             }
         }
+        super.frontierCount = 0;
         return null;
     }
 

@@ -1,5 +1,6 @@
 package searchMethods;
 
+import Heuristics.Heuristic;
 import game.GameState;
 
 import java.util.concurrent.*;
