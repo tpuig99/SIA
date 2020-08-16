@@ -20,60 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/searchMethods/H3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/game/Cell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/game/Constants$Direction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/game/Constants$GameStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/game/GameBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/game/GameLoop$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/game/GameState$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/BFS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/Heuristic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/IDDFS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethod.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethodName.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/GameBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/searchMethods/BFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/searchMethods/DFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/searchMethods/Heuristic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/searchMethods/IDDFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/searchMethods/SearchMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/searchMethods/SearchMethodName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/searchMethods/H2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameOptions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Bag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/EmptyCell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/GoalCell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/LivingCell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/cell/Wall.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/DFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameOptions.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/Bag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/EmptyCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/GoalCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/LivingCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/cell/Wall.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/DFS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/IDDFS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainCanvas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
