@@ -1,4 +1,4 @@
-package searchMethods;
+package Heuristics;
 
 import game.GameState;
 

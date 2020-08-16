@@ -98,6 +98,7 @@ public class GameState implements Comparable<GameState>{
             GameState aux = moveInDirection(direction);
             if (aux != null) {
                 adjacents.add(aux);
+                aux.setDirectionFromParent(direction);
             }
         }
         return adjacents;
