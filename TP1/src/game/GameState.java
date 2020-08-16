@@ -183,6 +183,24 @@ public class GameState implements Comparable<GameState>{
 
     public List<Point> getGoals() { return board.getGoals(); }
 
+    public List<Point> getFreeGoals() {
+        List<Point> freeGoals = new ArrayList<>();
+        boolean isOccupied;
+        for (Point goal : getGoals()) {
+            isOccupied = false;
+            for (Point bag : bags) {
+                if (((int) bag.getX() == (int) goal.getX())
+                        && ((int) bag.getY() == (int) goal.getY())) {
+                    isOccupied = true;
+                }
+            }
+            if (!isOccupied) {
+                freeGoals.add(goal);
+            }
+        }
+        return freeGoals;
+    }
+
     public int getSorting() { return sorting; }
     public void setSorting(int sorting) { this.sorting = sorting; }
 
