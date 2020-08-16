@@ -1,7 +1,11 @@
 package ui;
 
+
+import game.Constants;
 import game.GameLoop;
 import game.GameState;
+import searchMethods.*;
+import searchMethods.IDDFS;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,27 +14,80 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class MainCanvas extends Canvas implements KeyListener {
 
     private boolean repaintInProgress = false;
     private GameLoop gameLoop;
+    private Stack<Constants.Direction> steps;
     private GameState gameState;
-    private boolean active = false;
 
     MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-        gameState = new GameState();
+        steps = executeSearchMethod(SearchMethodName.IDDFS);
+        // read data and select map
+        // read data and start with all the algorithms
+        // for each solution, start a gamestate and do whatever it has to do
+        gameState = new GameState(15, 10, Constants.map1);
         gameLoop = new GameLoop(gameState);
-        DFS search = new DFS(gameState);
-        //IDDFS search = new IDDFS(gameState);
-        ArrayList<Integer> solution = search.getSolution();
+        Repainter repainter = new Repainter(this);
+        new Timer(16, repainter).start();
+    }
 
-        RepainterSearch repainter = new RepainterSearch(this,solution);
-        new Timer(50, repainter).start();
+    private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name) {
+        GameState solution = null;
+        SearchMethod searchMethod = null;
+        switch (name) {
+            case BFS:
+                searchMethod = new BFS();
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            case DFS:
+                searchMethod = new DFS();
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            case IDDFS:
+                searchMethod = new IDDFS();
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            default:
+                break;
+        }
+        return retrieveSteps(solution, searchMethod);
+    }
+
+    private Stack<Constants.Direction> retrieveSteps (GameState solution, SearchMethod searchMethod) {
+        GameState curr = solution;
+        int moves = 0;
+
+        Stack<Constants.Direction> steps = new Stack<>();
+        while (curr != null) {
+            if (curr.getParent() != null) {
+                steps.push(curr.getDirectionFromParent());
+            }
+            curr = curr.getParent();
+            moves++;
+        }
+
+        String status = "ÉXITO";
+        if(searchMethod.getTimeOut())
+            status = "ABORTADO POR TIEMPO";
+        else if(solution == null)
+            status = "SOLUCIÓN NO ENCONTRADA";
+        System.out.printf("Algoritmo de búsqueda: %s [%s]\n", searchMethod.getName(), status);
+        System.out.printf("Tiempo total: %.2fs\n", searchMethod.getTotalTimeMillis() / 1000.0);
+        System.out.printf("Tiempo invertido en cálculo de la heurística: %.2fs\n", searchMethod.getHeuristicTimeMillis() / 1000.0);
+        System.out.printf("Tiempo invertido en el método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getHeuristicTimeMillis()) / 1000.0);
+        System.out.printf("Cantidad total de nodos expandidos: %d\n", searchMethod.getExpandedNodes());
+        System.out.printf("Cantidad de nodos en la frontera al final la ejecución: %d\n", searchMethod.getFrontierCount());
+        if (solution != null) {
+            System.out.println("Costo de la solución: " + moves);
+            System.out.println("Profundidad de la solución: " + moves);
+        }
+        return steps;
     }
 
     public void doRepaint() {
@@ -41,33 +98,47 @@ public class MainCanvas extends Canvas implements KeyListener {
 
         BufferStrategy strategy = getBufferStrategy();
         Graphics g = strategy.getDrawGraphics();
-        gameLoop.loop(g);
+        gameLoop.loop(g, gameState);
 
         strategy.show();
         Toolkit.getDefaultToolkit().sync();
         repaintInProgress = false;
     }
 
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
-        if(key == KeyEvent.VK_SPACE)
-            active = true;
-        if (key == KeyEvent.VK_DOWN) gameState.moveDown();
-        else if (key == KeyEvent.VK_UP) gameState.moveUp();
-        else if (key == KeyEvent.VK_RIGHT) gameState.moveRight();
-        else if (key == KeyEvent.VK_LEFT) gameState.moveLeft();
-
-        if (key == KeyEvent.VK_SPACE && gameState.isOver()) gameState.resetGame();
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
+    public void performSteps (Stack<Constants.Direction> steps) {
+        while (!steps.empty()) {
+            GameState aux = null;
+            switch (steps.pop()) {
+                case up: aux = gameState.moveInDirection(Constants.Direction.up); break;
+                case down: aux = gameState.moveInDirection(Constants.Direction.down); break;
+                case left: aux = gameState.moveInDirection(Constants.Direction.left); break;
+                case right: aux = gameState.moveInDirection(Constants.Direction.right); break;
+            }
+            gameState = aux;
+            doRepaint();
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            performSteps(steps);
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 
     public class Repainter implements ActionListener {
@@ -78,41 +149,6 @@ public class MainCanvas extends Canvas implements KeyListener {
         }
 
         public void actionPerformed(ActionEvent event) {
-            canvas.doRepaint();
-        }
-    }
-
-    public class RepainterSearch implements ActionListener {
-        MainCanvas canvas;
-        ArrayList<Integer> solution;
-        int index = 0;
-
-        RepainterSearch(MainCanvas canvas,ArrayList<Integer> solution) {
-            this.canvas = canvas;
-            this.solution = solution;
-        }
-
-        public void actionPerformed(ActionEvent event) {
-            if(index<solution.size() && active) {
-                switch (solution.get(index++)) {
-                    case 0: {
-                        gameState.moveDown();
-                        break;
-                    }
-                    case 1: {
-                        gameState.moveUp();
-                        break;
-                    }
-                    case 2: {
-                        gameState.moveLeft();
-                        break;
-                    }
-                    case 3: {
-                        gameState.moveRight();
-                        break;
-                    }
-                }
-            }
             canvas.doRepaint();
         }
     }

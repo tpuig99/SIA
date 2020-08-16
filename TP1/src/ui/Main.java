@@ -5,7 +5,6 @@ import game.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-import static game.Constants.BOARD_SIZE;
 import static game.Constants.SCALE;
 
 public class Main extends JFrame {
@@ -26,7 +25,7 @@ public class Main extends JFrame {
         add(canvas, BorderLayout.CENTER);
 
         setBackground(Color.GRAY);
-        setSize(Constants.WIDTH * SCALE, (Constants.HEIGHT + 1) * SCALE);
+        setSize((canvas.getWidth() - 2) * SCALE, (canvas.getHeight()) * SCALE);
         setVisible(true);
         canvas.createBufferStrategy(2);
     }

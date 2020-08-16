@@ -1,8 +1,23 @@
 package game;
 
 public class Constants {
-    public static final int WIDTH = 15;
-    public static final int HEIGHT = 10;
-    public static final int BOARD_SIZE = 20;
-    public static final int SCALE = 25;
+    public static final int SCALE = 30;
+
+    public static final String map1 =     "      ###      \n" +
+                                "      #.#      \n" +
+                                "  #####.#####  \n" +
+                                " ##         ## \n" +
+                                "##  # # # #  ##\n" +
+                                "#  ##     ##  #\n" +
+                                "# ##  # #  ## #\n" +
+                                "#     $@$     #\n" +
+                                "####  ###  ####\n" +
+                                "   #### ####   \n";
+
+    public static final String map2 =   "######\n" +
+                                        "#@ $.#\n" +
+                                        "######\n";
+
+    public enum Direction { down, up, left, right };
+    public enum GameStatus { unfinished, won, lost };
 }
