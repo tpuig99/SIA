@@ -31,7 +31,7 @@ public class MainCanvas extends Canvas implements KeyListener {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-        steps = executeSearchMethod(SearchMethodName.IDA_STAR);
+        steps = executeSearchMethod(SearchMethodName.A_STAR);
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
