@@ -24,7 +24,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainCanvas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,25 +191,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597324338872" />
-    <state width="1237" height="143" key="GridCell.Tab.0.bottom" timestamp="1597697534676">
+    <state width="1237" height="143" key="GridCell.Tab.0.bottom" timestamp="1597698620307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="143" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597697534676" />
+    <state width="1237" height="143" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597698620307" />
     <state width="1323" height="177" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597683646249" />
-    <state width="1237" height="143" key="GridCell.Tab.0.center" timestamp="1597697534676">
+    <state width="1237" height="143" key="GridCell.Tab.0.center" timestamp="1597698620307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="143" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597697534676" />
+    <state width="1237" height="143" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597698620307" />
     <state width="1323" height="177" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597683646248" />
-    <state width="1237" height="143" key="GridCell.Tab.0.left" timestamp="1597697534676">
+    <state width="1237" height="143" key="GridCell.Tab.0.left" timestamp="1597698620307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="143" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597697534676" />
+    <state width="1237" height="143" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597698620307" />
     <state width="1323" height="177" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597683646248" />
-    <state width="1237" height="143" key="GridCell.Tab.0.right" timestamp="1597697534676">
+    <state width="1237" height="143" key="GridCell.Tab.0.right" timestamp="1597698620307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="143" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597697534676" />
+    <state width="1237" height="143" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597698620307" />
     <state width="1323" height="177" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597683646249" />
     <state width="1237" height="176" key="GridCell.Tab.1.bottom" timestamp="1597696689559">
       <screen x="0" y="0" width="1280" height="680" />
@@ -275,7 +274,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/ui/MainCanvas.java</url>
-          <line>31</line>
+          <line>33</line>
           <properties class="ui.MainCanvas" method="&lt;init&gt;">
             <option name="EMULATED" value="true" />
           </properties>
