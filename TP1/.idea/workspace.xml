@@ -21,22 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/H2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/H3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/Heuristic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/IDDFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/IDDFS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethod.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchMethods/DFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/H1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heuristics/H1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/H2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heuristics/H2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/H3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heuristics/H3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/Heuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heuristics/Heuristic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/SearchMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchMethods/SearchMethod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainCanvas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,13 +106,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,6 +157,7 @@
       <workItem from="1597529858139" duration="2377000" />
       <workItem from="1597543268550" duration="333000" />
       <workItem from="1597614760386" duration="1031000" />
+      <workItem from="1597627415793" duration="4856000" />
     </task>
     <servers />
   </component>
@@ -209,46 +199,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597324338872" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597361712182" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597361712181" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597361712181" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597361712181" />
-    <state width="1237" height="176" key="GridCell.Tab.1.bottom" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
+    <state width="1323" height="192" key="GridCell.Tab.1.bottom" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="637" height="193" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597350132167" />
-    <state width="1237" height="176" key="GridCell.Tab.1.center" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
+    <state width="1323" height="192" key="GridCell.Tab.1.center" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="637" height="193" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597350132167" />
-    <state width="1237" height="176" key="GridCell.Tab.1.left" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
+    <state width="1323" height="192" key="GridCell.Tab.1.left" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="637" height="193" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597350132167" />
-    <state width="1237" height="176" key="GridCell.Tab.1.right" timestamp="1597615804816">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
+    <state width="1323" height="192" key="GridCell.Tab.1.right" timestamp="1597632325636">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1597615804816" />
-    <state width="637" height="193" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597350132167" />
+    <state width="1323" height="192" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597632325636" />
     <state x="228" y="99" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597288433738">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -282,11 +272,17 @@
           </properties>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/game/GameState.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="gameState.board.board[1]" />
+        <watch expression="gameState.board.board[1]" language="JAVA" />
+        <watch expression="((HashMap)costMap).entrySet().toArray()[3]" custom="java.util.HashMap" />
       </configuration>
     </watches-manager>
   </component>
