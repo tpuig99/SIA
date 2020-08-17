@@ -18,6 +18,7 @@ public class GlobalGreedy extends SearchMethod{
 
     @Override
     public GameState run(GameState start) {
+        super.reset();
         start.setSorting(h(start));
         start.setDepth(0);
         super.startTime = System.currentTimeMillis();
@@ -25,9 +26,7 @@ public class GlobalGreedy extends SearchMethod{
 
         while (!queue.isEmpty()){
             GameState curr = queue.poll();
-            System.out.println(curr.getDepth());
             super.frontierCount = queue.size();
-
             if(curr.solved()){
                 super.endTime = System.currentTimeMillis();
                 return curr;

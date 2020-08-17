@@ -16,8 +16,10 @@ public class IDDFS extends SearchMethod{
         GameState solution;
         do{
             solution = dfs.run(start,depth++);
+            super.expandedNodes += dfs.expandedNodes;
         }while (solution == null);
         super.endTime = System.currentTimeMillis();
+        super.frontierCount = dfs.frontierCount;
         return solution;
     }
 
