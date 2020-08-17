@@ -2,7 +2,8 @@ package game;
 
 public class Constants {
     public static final int SCALE = 30;
-
+    public static final int WIDTH = 15;
+    public static final int HEIGHT = 10;
     public static final String map1 =     "      ###      \n" +
                                 "      #.#      \n" +
                                 "  #####.#####  \n" +
