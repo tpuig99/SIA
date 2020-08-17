@@ -26,51 +26,62 @@ public class MainCanvas extends Canvas implements KeyListener {
     private GameLoop gameLoop;
     private Stack<Constants.Direction> steps;
     private GameState gameState;
+    private int width;
+    private int height;
 
     MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-                steps = executeSearchMethod(SearchMethodName.A_STAR);
+
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
-        gameState = new GameState(15, 10, Constants.map1);
+        String map = Constants.medium;
+        getSizes(map);
+        gameState = new GameState(width, height, map);
+        steps = executeSearchMethod(SearchMethodName.BFS,map);
         gameLoop = new GameLoop(gameState);
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
     }
 
-    private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name) {
+    private void getSizes(String map) {
+        String[] lines = map.split("\n");
+        height = lines.length;
+        width = lines[0].length();
+    }
+
+    private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name, String map) {
         GameState solution = null;
         SearchMethod searchMethod = null;
         switch (name) {
             case BFS:
                 searchMethod = new BFS();
-                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case DFS:
                 searchMethod = new DFS();
-                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                solution = searchMethod.run(new GameState(width, height,map));
                 break;
             case IDDFS:
                 searchMethod = new IDDFS();
-                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case G_GREEDY:
                 Heuristic heuristic = new H3();
                 searchMethod = new GlobalGreedy(heuristic);
-                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case A_STAR:
                 Heuristic h1 = new H3();
                 searchMethod = new AStar(h1);
-                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case IDA_STAR:
                 Heuristic h = new H3();
                 searchMethod = new IDAStar(h);
-                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                solution = searchMethod.run(new GameState(width, height, map));
             default:
                 break;
         }
