@@ -68,7 +68,7 @@ public class MainCanvas extends Canvas implements KeyListener {
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
                 break;
             case IDA_STAR:
-                Heuristic h = new H1();
+                Heuristic h = new H2();
                 searchMethod = new IDAStar(h);
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
             default:

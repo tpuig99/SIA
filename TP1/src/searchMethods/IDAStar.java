@@ -85,7 +85,7 @@ public class IDAStar extends SearchMethod {
             boolean expanded = false;
 
             for(GameState adj : adjacent) {
-                if(!history.containsKey(adj) || history.get(adj) < curr.getDepth() + 1) {
+                if(!history.containsKey(adj) || history.get(adj) > curr.getDepth() + 1) {
                     int newF = adj.getSorting();
                     if (newF <= max_f) {
                         if (!expanded) {
