@@ -31,7 +31,7 @@ public class MainCanvas extends Canvas implements KeyListener {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-        steps = executeSearchMethod(SearchMethodName.G_GREEDY);
+        steps = executeSearchMethod(SearchMethodName.A_STAR);
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
@@ -62,6 +62,15 @@ public class MainCanvas extends Canvas implements KeyListener {
                 searchMethod = new GlobalGreedy(heuristic);
                 solution = searchMethod.run(new GameState(15, 10, Constants.map1));
                 break;
+            case A_STAR:
+                Heuristic h1 = new H1();
+                searchMethod = new AStar(h1);
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
+                break;
+            case IDA_STAR:
+                Heuristic h = new H2();
+                searchMethod = new IDAStar(h);
+                solution = searchMethod.run(new GameState(15, 10, Constants.map1));
             default:
                 break;
         }
