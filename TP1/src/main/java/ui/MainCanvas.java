@@ -8,6 +8,9 @@ import Heuristics.Heuristic;
 import game.Constants;
 import game.GameLoop;
 import game.GameState;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import searchMethods.*;
 import searchMethods.IDDFS;
 
@@ -18,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Stack;
@@ -35,7 +40,7 @@ public class MainCanvas extends Canvas implements KeyListener {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
-
+        getConfigInfo();
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
@@ -46,6 +51,23 @@ public class MainCanvas extends Canvas implements KeyListener {
         gameLoop = new GameLoop(gameState);
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
+    }
+
+    private void getConfigInfo() {
+        JSONParser jsonParser = new JSONParser();
+        JSONObject configObj = null;
+        try {
+            configObj = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/config.json"));
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
+
+        if (configObj != null) {
+            int mapNumber = ((Long) configObj.get("map")).intValue();
+            String searchMethod = ((String) configObj.get("searchMethod")).toLowerCase();
+            String heuristic = ((String) configObj.get("heuristic")).toLowerCase();
+            System.out.println(mapNumber + " " + searchMethod + " " + heuristic);
+        }
     }
 
     private void getSizes(String map) {

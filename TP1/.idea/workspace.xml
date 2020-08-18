@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,9 +23,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/GlobalGreedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchMethods/GlobalGreedy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MainCanvas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TP1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/H1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/H2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/H3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/Heuristic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants$Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants$GameStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/AStar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/BFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/GlobalGreedy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/IDAStar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/IDDFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethodName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Heuristics/H1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Heuristics/H2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Heuristics/H3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Heuristics/Heuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/Heuristic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/AStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/GlobalGreedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/GlobalGreedy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/IDAStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDAStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/IDDFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDDFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/SearchMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchMethods/SearchMethodName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethodName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +94,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1TTEGCODl6WTC5pFQq9k0hf7xel" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -58,6 +120,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -100,6 +165,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,6 +244,10 @@
     </state>
     <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1597544354650" />
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597512714843" />
+    <state x="311" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1597776132985">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="311" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728@0.0.1366.728" timestamp="1597776132985" />
     <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597359968702">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -189,26 +269,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597324338872" />
-    <state width="1237" height="143" key="GridCell.Tab.0.bottom" timestamp="1597758927528">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1597777532545">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597758927528" />
-    <state width="1323" height="177" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597683646249" />
-    <state width="1237" height="143" key="GridCell.Tab.0.center" timestamp="1597758927528">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597777532545" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1597777532545">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597758927528" />
-    <state width="1323" height="177" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597683646248" />
-    <state width="1237" height="143" key="GridCell.Tab.0.left" timestamp="1597758927528">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597777532545" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1597777532545">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597758927528" />
-    <state width="1323" height="177" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597683646248" />
-    <state width="1237" height="143" key="GridCell.Tab.0.right" timestamp="1597758927528">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597777532545" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1597777532545">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597758927528" />
-    <state width="1323" height="177" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597683646249" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597777532545" />
     <state width="1237" height="176" key="GridCell.Tab.1.bottom" timestamp="1597696689559">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -241,11 +321,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="65" y="25" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1597273218101" />
-    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1597513797585">
+    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1597776103944">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="303" y="1" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1597362915293" />
-    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597513797585" />
+    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597776103944" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -254,6 +334,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="33" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ui/MainCanvas.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
