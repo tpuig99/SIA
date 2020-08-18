@@ -23,61 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TP1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TP1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/H1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/H2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/H3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/Heuristics/Heuristic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants$Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants$GameStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameLoop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/game/GameState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/AStar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/BFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/DFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/GlobalGreedy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/IDAStar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/IDDFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/searchMethods/SearchMethodName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas$Repainter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP1/ui/MainCanvas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heuristics/H1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heuristics/H2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heuristics/H3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heuristics/Heuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Heuristics/Heuristic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/AStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/BFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/DFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/GlobalGreedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/GlobalGreedy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/IDAStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDAStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/IDDFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDDFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/SearchMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchMethods/SearchMethodName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethodName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -336,8 +282,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/MainCanvas.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="35" />
+          <line>49</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,5 +1,5 @@
 {
   "map": 1,
-  "searchMethod": "all",
-  "heuristic": "all"
+  "searchMethod": "bfs",
+  "heuristic": "h3"
 }

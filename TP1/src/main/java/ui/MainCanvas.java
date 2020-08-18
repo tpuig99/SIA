@@ -1,10 +1,7 @@
 package ui;
 
 
-import Heuristics.H1;
-import Heuristics.H2;
-import Heuristics.H3;
-import Heuristics.Heuristic;
+import Heuristics.*;
 import game.Constants;
 import game.GameLoop;
 import game.GameState;
@@ -25,6 +22,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class MainCanvas extends Canvas implements KeyListener {
@@ -36,6 +35,10 @@ public class MainCanvas extends Canvas implements KeyListener {
     private int width;
     private int height;
 
+    private String map;
+    private List<SearchMethodName> searchMethod;
+    private List<HeuristicName> heuristic;
+
     MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
         addKeyListener(this);
@@ -44,7 +47,6 @@ public class MainCanvas extends Canvas implements KeyListener {
         // read data and select map
         // read data and start with all the algorithms
         // for each solution, start a gamestate and do whatever it has to do
-        String map = Constants.medium;
         getSizes(map);
         gameState = new GameState(width, height, map);
         steps = executeSearchMethod(SearchMethodName.G_GREEDY,map);
@@ -63,11 +65,95 @@ public class MainCanvas extends Canvas implements KeyListener {
         }
 
         if (configObj != null) {
-            int mapNumber = ((Long) configObj.get("map")).intValue();
-            String searchMethod = ((String) configObj.get("searchMethod")).toLowerCase();
-            String heuristic = ((String) configObj.get("heuristic")).toLowerCase();
-            System.out.println(mapNumber + " " + searchMethod + " " + heuristic);
+            map = proccessMap(((Long) configObj.get("map")).intValue());
+            searchMethod = proccessSearchMethod(((String) configObj.get("searchMethod")).toLowerCase());
+            heuristic = proccessHeuristic(((String) configObj.get("heuristic")).toLowerCase());
         }
+    }
+
+    private List<HeuristicName> proccessHeuristic (String input) {
+        List<HeuristicName> heuristicNameList = null;
+        if (searchMethod.contains(SearchMethodName.G_GREEDY) || searchMethod.contains(SearchMethodName.A_STAR)
+        || searchMethod.contains(SearchMethodName.IDA_STAR)) {
+            heuristicNameList = new ArrayList<>();
+            switch (input) {
+                case "all":
+                    heuristicNameList.add(HeuristicName.H1);
+                    heuristicNameList.add(HeuristicName.H2);
+                    heuristicNameList.add(HeuristicName.H3);
+                    break;
+                case "h1":
+                    heuristicNameList.add(HeuristicName.H1);
+                    break;
+                case "h2":
+                    heuristicNameList.add(HeuristicName.H2);
+                    break;
+                case "h3":
+                    heuristicNameList.add(HeuristicName.H3);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return heuristicNameList;
+    }
+
+    private List<SearchMethodName> proccessSearchMethod (String input) {
+        List<SearchMethodName> searchMethodNameList = new ArrayList<>();
+        switch (input) {
+            case "all":
+                searchMethodNameList.add(SearchMethodName.BFS);
+                searchMethodNameList.add(SearchMethodName.DFS);
+                searchMethodNameList.add(SearchMethodName.IDDFS);
+                searchMethodNameList.add(SearchMethodName.G_GREEDY);
+                searchMethodNameList.add(SearchMethodName.A_STAR);
+                searchMethodNameList.add(SearchMethodName.IDA_STAR);
+                break;
+            case "dfs":
+                searchMethodNameList.add(SearchMethodName.DFS);
+                break;
+            case "bfs":
+                searchMethodNameList.add(SearchMethodName.BFS);
+                break;
+            case "iddfs":
+                searchMethodNameList.add(SearchMethodName.IDDFS);
+                break;
+            case "g_greedy":
+                searchMethodNameList.add(SearchMethodName.G_GREEDY);
+                break;
+            case "a_star":
+                searchMethodNameList.add(SearchMethodName.A_STAR);
+                break;
+            case "ida_star":
+                searchMethodNameList.add(SearchMethodName.IDA_STAR);
+                break;
+            default:
+                searchMethodNameList = null;
+                break;
+        }
+        return searchMethodNameList;
+    }
+
+    private String proccessMap (int mapNumber) {
+        String toReturn = null;
+        switch (mapNumber) {
+            case 0:
+                toReturn = Constants.easy;
+                break;
+            case 1:
+                toReturn = Constants.medium;
+                break;
+            case 2:
+                toReturn = Constants.hard;
+                break;
+            default:
+                break;
+        }
+        return toReturn;
+    }
+
+    private void prepareProcessing (int mapNumber, String searchMethod, String heuristic) {
+
     }
 
     private void getSizes(String map) {
