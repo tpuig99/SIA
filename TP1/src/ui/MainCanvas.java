@@ -42,7 +42,7 @@ public class MainCanvas extends Canvas implements KeyListener {
         String map = Constants.medium;
         getSizes(map);
         gameState = new GameState(width, height, map);
-        steps = executeSearchMethod(SearchMethodName.DFS,map);
+        steps = executeSearchMethod(SearchMethodName.G_GREEDY,map);
         gameLoop = new GameLoop(gameState);
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
@@ -71,7 +71,7 @@ public class MainCanvas extends Canvas implements KeyListener {
                 solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case G_GREEDY:
-                Heuristic heuristic = new H3();
+                Heuristic heuristic = new H1();
                 searchMethod = new GlobalGreedy(heuristic);
                 solution = searchMethod.run(new GameState(width, height, map));
                 break;

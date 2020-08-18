@@ -3,6 +3,7 @@ package searchMethods;
 import Heuristics.Heuristic;
 import game.GameState;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -11,7 +12,7 @@ public class GlobalGreedy extends SearchMethod{
     PriorityQueue<GameState> queue;
     HashSet<GameState> history;
     public GlobalGreedy(Heuristic h) {
-        queue = new PriorityQueue<>();
+        queue = new PriorityQueue<>(Collections.reverseOrder());
         history = new HashSet<>();
         super.setHeuristic(h);
     }
@@ -20,6 +21,7 @@ public class GlobalGreedy extends SearchMethod{
     public GameState run(GameState start) {
         super.reset();
         start.setSorting(h(start));
+        history.add(start);
         start.setDepth(0);
         super.startTime = System.currentTimeMillis();
         queue.add(start);
@@ -45,10 +47,11 @@ public class GlobalGreedy extends SearchMethod{
                     state.setParent(curr);
                     state.setDepth(curr.getDepth()+1);
                     queue.add(state);
+                    if(state.getSorting() < curr.getSorting()){
+                        queue.add(curr);
+                    }
                 }
-                if(curr.getSorting() < state.getSorting()){
-                    queue.add(curr);
-                }
+
             }
         }
         super.endTime = System.currentTimeMillis();
