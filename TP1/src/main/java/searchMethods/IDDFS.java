@@ -16,6 +16,7 @@ public class IDDFS extends SearchMethod{
         GameState solution;
         do{
             history = new HashMap<>();
+            super.expandedNodes = 0;
             solution = dfs(start,depth++);
             //super.expandedNodes += dfs.expandedNodes;
         }while (solution == null);

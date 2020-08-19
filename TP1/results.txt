@@ -1,8 +1,24 @@
-Algoritmo de búsqueda: IDDFS [ÉXITO]
-Tiempo total: 55.27s
+Algoritmo de búsqueda: GREEDY [ÉXITO]
+Tiempo total: 0.03s
 Tiempo invertido en cálculo de la heurística: 0.00s
-Tiempo invertido en el método: 55.27s
-Cantidad total de nodos expandidos: 6831745
-Cantidad de nodos en la frontera al final la ejecución: 28
-Costo de la solución: 79
-Profundidad de la solución: 79
+Tiempo invertido en el método: 0.03s
+Cantidad total de nodos expandidos: 671
+Cantidad de nodos en la frontera al final la ejecución: 88
+Costo de la solución: 121
+Profundidad de la solución: 121
+Algoritmo de búsqueda: GREEDY [ÉXITO]
+Tiempo total: 0.01s
+Tiempo invertido en cálculo de la heurística: 0.00s
+Tiempo invertido en el método: 0.01s
+Cantidad total de nodos expandidos: 621
+Cantidad de nodos en la frontera al final la ejecución: 79
+Costo de la solución: 121
+Profundidad de la solución: 121
+Algoritmo de búsqueda: GREEDY [ÉXITO]
+Tiempo total: 0.40s
+Tiempo invertido en cálculo de la heurística: 0.01s
+Tiempo invertido en el método: 0.38s
+Cantidad total de nodos expandidos: 22921
+Cantidad de nodos en la frontera al final la ejecución: 0
+Costo de la solución: 189
+Profundidad de la solución: 189

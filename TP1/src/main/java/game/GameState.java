@@ -214,6 +214,6 @@ public class GameState implements Comparable<GameState>{
 
     @Override
     public int compareTo(GameState o) {
-        return o.getSorting() - sorting;
+        return -o.getSorting() + sorting;
     }
 }

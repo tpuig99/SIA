@@ -1,5 +1,5 @@
 {
   "map": 2,
-  "searchMethod": "iddfs",
-  "heuristic": "none"
+  "searchMethod": "g_greedy",
+  "heuristic": "all"
 }
