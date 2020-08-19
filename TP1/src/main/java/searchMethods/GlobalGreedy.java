@@ -12,7 +12,7 @@ public class GlobalGreedy extends SearchMethod{
     PriorityQueue<GameState> queue;
     HashSet<GameState> history;
     public GlobalGreedy(Heuristic h) {
-        queue = new PriorityQueue<>(Collections.reverseOrder());
+        queue = new PriorityQueue<>();
         history = new HashSet<>();
         super.setHeuristic(h);
     }
@@ -47,7 +47,7 @@ public class GlobalGreedy extends SearchMethod{
                     state.setParent(curr);
                     state.setDepth(curr.getDepth()+1);
                     queue.add(state);
-                    if(state.getSorting() < curr.getSorting()){
+                    if(curr.getSorting() < state.getSorting()){
                         queue.add(curr);
                     }
                 }
