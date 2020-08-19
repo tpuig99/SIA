@@ -23,13 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchMethods/GlobalGreedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchMethods/GlobalGreedy.java" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,13 +162,10 @@
       <workItem from="1597627415793" duration="8197000" />
       <workItem from="1597680597792" duration="8981000" />
       <workItem from="1597792663795" duration="11458000" />
-<<<<<<< Updated upstream
       <workItem from="1597859253023" duration="393000" />
       <workItem from="1597862067677" duration="23000" />
-=======
       <workItem from="1597859253023" duration="802000" />
       <workItem from="1597860585372" duration="145000" />
->>>>>>> Stashed changes
     </task>
     <servers />
   </component>
