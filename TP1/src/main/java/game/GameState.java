@@ -137,7 +137,7 @@ public class GameState implements Comparable<GameState>{
     }
 
     public boolean checkPosition (int x, int y) {
-        return checkBagInPosition(x, y) || board.checkObstacleInPosition(x, y);
+        return board.checkObstacleInPosition(x, y);
     }
 
     @Override

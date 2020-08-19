@@ -19,7 +19,7 @@ public class DFS extends SearchMethod {
         super.endTime = System.currentTimeMillis();
         return solution;
     }
-    @Override
+
     public GameState run(GameState start,int maxDepth) {
         super.reset();
 

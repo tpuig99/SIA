@@ -1,8 +1,8 @@
 Algoritmo de búsqueda: A* - H2 [ÉXITO]
-Tiempo total: 0,22s
-Tiempo invertido en cálculo de la heurística: 0,02s
-Tiempo invertido en el método: 0,20s
-Cantidad total de nodos expandidos: 10901
-Cantidad de nodos en la frontera al final la ejecución: 27
-Costo de la solución: 79
-Profundidad de la solución: 79
+Tiempo total: 5,27s
+Tiempo invertido en cálculo de la heurística: 0,13s
+Tiempo invertido en el método: 5,14s
+Cantidad total de nodos expandidos: 376563
+Cantidad de nodos en la frontera al final la ejecución: 2255
+Costo de la solución: 114
+Profundidad de la solución: 114

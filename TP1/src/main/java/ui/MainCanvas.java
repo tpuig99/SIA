@@ -12,6 +12,7 @@ import searchMethods.*;
 import searchMethods.IDDFS;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,15 +22,14 @@ import java.awt.image.BufferStrategy;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Stack;
 
 public class MainCanvas extends Canvas implements KeyListener {
 
     private boolean repaintInProgress = false;
     private GameLoop gameLoop;
-    private Stack<Constants.Direction> steps;
+    private Queue<Stack<Constants.Direction>> queue;
     private GameState gameState;
     private int width;
     private int height;
@@ -44,9 +44,24 @@ public class MainCanvas extends Canvas implements KeyListener {
 
         getConfigInfo();
         getSizes(map);
+        queue = new LinkedList<>();
+
+        for (SearchMethodName name : searchMethod) {
+            if (name == SearchMethodName.A_STAR || name == SearchMethodName.G_GREEDY || name == SearchMethodName.IDA_STAR) {
+                for (HeuristicName hname : heuristic) {
+                    queue.offer(executeSearchMethod(name, hname, map));
+                }
+            }
+            else {
+                queue.offer(executeSearchMethod(name, map));
+            }
+        }
+
         gameState = new GameState(width, height, map);
-        steps = executeSearchMethod(searchMethod.get(0),map);
         gameLoop = new GameLoop(gameState);
+//        gameState = new GameState(width, height, map);
+//        steps = executeSearchMethod(searchMethod.get(0),map);
+//        gameLoop = new GameLoop(gameState);
 
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
@@ -134,13 +149,13 @@ public class MainCanvas extends Canvas implements KeyListener {
     private String processMap (int mapNumber) {
         String toReturn = null;
         switch (mapNumber) {
-            case 0:
+            case 1:
                 toReturn = Constants.easy;
                 break;
-            case 1:
+            case 2:
                 toReturn = Constants.medium;
                 break;
-            case 2:
+            case 3:
                 toReturn = Constants.hard;
                 break;
             default:
@@ -156,11 +171,15 @@ public class MainCanvas extends Canvas implements KeyListener {
     }
 
     private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name, String map) {
+        return executeSearchMethod(name, null, map);
+    }
+
+    private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name, HeuristicName hname, String map) {
         GameState solution = null;
         SearchMethod searchMethod = null;
         Heuristic heuristic = null;
-        if (this.heuristic != null) {
-            switch (this.heuristic.get(0)) {
+        if (hname != null) {
+            switch (hname) {
                 case H1:
                     heuristic = new H1();
                     break;
@@ -292,7 +311,14 @@ public class MainCanvas extends Canvas implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            performSteps(steps);
+            if (!queue.isEmpty()) {
+                gameState = new GameState(width, height, map);
+                gameLoop = new GameLoop(gameState);
+                performSteps(queue.poll());
+            }
+            else {
+                System.out.println("No more elements to show");
+            }
         }
     }
 

@@ -8,7 +8,6 @@ public class H2 implements Heuristic {
 
     @Override
     public int eval(GameState gameState) {
-
         int value = 0;
         for (Point bag : gameState.getBags()) {
 
