@@ -60,6 +60,6 @@ public class GlobalGreedy extends SearchMethod{
 
     @Override
     public String getName() {
-        return "GREEDY";
+        return "GREEDY - " + super.getHeuristicName();
     }
 }

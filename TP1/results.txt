@@ -1,12 +1,12 @@
-Algoritmo de búsqueda: GREEDY [ÉXITO]
-Tiempo total: 0.03s
-Tiempo invertido en cálculo de la heurística: 0.00s
-Tiempo invertido en el método: 0.03s
+Algoritmo de búsqueda: GREEDY - H1 [ÉXITO]
+Tiempo total: 0.04s
+Tiempo invertido en cálculo de la heurística: 0.01s
+Tiempo invertido en el método: 0.04s
 Cantidad total de nodos expandidos: 671
 Cantidad de nodos en la frontera al final la ejecución: 88
 Costo de la solución: 121
 Profundidad de la solución: 121
-Algoritmo de búsqueda: GREEDY [ÉXITO]
+Algoritmo de búsqueda: GREEDY - H2 [ÉXITO]
 Tiempo total: 0.01s
 Tiempo invertido en cálculo de la heurística: 0.00s
 Tiempo invertido en el método: 0.01s
@@ -14,10 +14,10 @@ Cantidad total de nodos expandidos: 621
 Cantidad de nodos en la frontera al final la ejecución: 79
 Costo de la solución: 121
 Profundidad de la solución: 121
-Algoritmo de búsqueda: GREEDY [ÉXITO]
-Tiempo total: 0.40s
+Algoritmo de búsqueda: GREEDY - H3 [ÉXITO]
+Tiempo total: 0.59s
 Tiempo invertido en cálculo de la heurística: 0.01s
-Tiempo invertido en el método: 0.38s
+Tiempo invertido en el método: 0.58s
 Cantidad total de nodos expandidos: 22921
 Cantidad de nodos en la frontera al final la ejecución: 0
 Costo de la solución: 189

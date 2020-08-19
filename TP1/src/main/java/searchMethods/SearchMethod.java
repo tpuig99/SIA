@@ -80,6 +80,10 @@ public abstract class SearchMethod {
         startTime = 0;
     }
 
+    public Heuristic getH() {
+        return h;
+    }
+
     private Heuristic h = null;
 
     private boolean timedOut = false;
