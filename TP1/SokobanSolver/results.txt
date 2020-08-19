@@ -1,25 +1,25 @@
-Algoritmo de bÃºsqueda: GREEDY - H1 [Ã‰XITO]
-Tiempo total: 0,07s
-Tiempo de cÃ¡lculo de la heurÃ­stica: 0,01s
-Tiempo del mÃ©todo: 0,06s
+Algoritmo de búsqueda: GREEDY - H1 [ÉXITO]
+Tiempo total: 0,02s
+Tiempo de cálculo de la heurística: 0,00s
+Tiempo del método: 0,02s
 Nodos expandidos: 671
 Nodos finales en la frontera: 88
 Costo: 121
 Profundidad: 121
 
-Algoritmo de bÃºsqueda: GREEDY - H2 [Ã‰XITO]
+Algoritmo de búsqueda: GREEDY - H2 [ÉXITO]
 Tiempo total: 0,01s
-Tiempo de cÃ¡lculo de la heurÃ­stica: 0,00s
-Tiempo del mÃ©todo: 0,01s
+Tiempo de cálculo de la heurística: 0,00s
+Tiempo del método: 0,01s
 Nodos expandidos: 621
 Nodos finales en la frontera: 79
 Costo: 121
 Profundidad: 121
 
-Algoritmo de bÃºsqueda: GREEDY - H3 [Ã‰XITO]
-Tiempo total: 1,10s
-Tiempo de cÃ¡lculo de la heurÃ­stica: 0,02s
-Tiempo del mÃ©todo: 1,08s
+Algoritmo de búsqueda: GREEDY - H3 [ÉXITO]
+Tiempo total: 0,46s
+Tiempo de cálculo de la heurística: 0,01s
+Tiempo del método: 0,46s
 Nodos expandidos: 22921
 Nodos finales en la frontera: 0
 Costo: 189
