@@ -47,23 +47,6 @@ public class IDAStar extends SearchMethod {
             if(curr.solved()) {
                 return curr;
             }
-
-//            List<GameState> adjacent = new LinkedList<>(curr.getAdjacentStates());
-//            Iterator<GameState> it = adjacent.iterator();
-//
-//            while (it.hasNext()) {
-//                GameState gameState = it.next();
-//                int newF = h(gameState) + curr.getDepth() + 1;
-//                if (gameState.getSorting() == 0 || newF < gameState.getSorting()) {
-//                    gameState.setSorting(newF);
-//                }
-//                else {
-//                    it.remove();
-//                }
-//            }
-//
-//            Collections.sort(adjacent);
-
             
             List<GameState> adjacent = new LinkedList<>();
             for (Constants.Direction direction : Constants.Direction.values()) {

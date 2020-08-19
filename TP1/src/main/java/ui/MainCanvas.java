@@ -297,7 +297,7 @@ public class MainCanvas extends Canvas implements KeyListener {
             gameState = aux;
             doRepaint();
             try {
-                Thread.sleep(5);
+                Thread.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
