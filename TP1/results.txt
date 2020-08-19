@@ -1,6 +1,8 @@
-Algoritmo de búsqueda: A* - H3 [SOLUCIÓN NO ENCONTRADA]
-Tiempo total: 0.32s
-Tiempo invertido en cálculo de la heurística: 0.01s
-Tiempo invertido en el método: 0.31s
-Cantidad total de nodos expandidos: 23339
-Cantidad de nodos en la frontera al final la ejecución: 0
+Algoritmo de búsqueda: IDDFS [ÉXITO]
+Tiempo total: 55.27s
+Tiempo invertido en cálculo de la heurística: 0.00s
+Tiempo invertido en el método: 55.27s
+Cantidad total de nodos expandidos: 6831745
+Cantidad de nodos en la frontera al final la ejecución: 28
+Costo de la solución: 79
+Profundidad de la solución: 79

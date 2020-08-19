@@ -33,6 +33,7 @@ public class MainCanvas extends Canvas implements KeyListener {
     private GameState gameState;
     private int width;
     private int height;
+    private FileWriter file;
 
     private String map;
     private List<SearchMethodName> searchMethod;
@@ -45,6 +46,9 @@ public class MainCanvas extends Canvas implements KeyListener {
         getConfigInfo();
         getSizes(map);
         queue = new LinkedList<>();
+        try{
+        file = new FileWriter("./results.txt");
+        }catch (IOException e){}
 
         for (SearchMethodName name : searchMethod) {
             if (name == SearchMethodName.A_STAR || name == SearchMethodName.G_GREEDY || name == SearchMethodName.IDA_STAR) {
@@ -62,7 +66,9 @@ public class MainCanvas extends Canvas implements KeyListener {
 //        gameState = new GameState(width, height, map);
 //        steps = executeSearchMethod(searchMethod.get(0),map);
 //        gameLoop = new GameLoop(gameState);
-
+        try{
+        file.close();
+        }catch (IOException e){}
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
     }
@@ -238,7 +244,6 @@ public class MainCanvas extends Canvas implements KeyListener {
             moves++;
         }
         try{
-        FileWriter file = new FileWriter("./results.txt");
         String status = "ÉXITO";
         if(searchMethod.getTimeOut())
             status = "ABORTADO POR TIEMPO";
@@ -263,7 +268,6 @@ public class MainCanvas extends Canvas implements KeyListener {
             System.out.println("Profundidad de la solución: \n" + moves);
         }
         file.flush();
-        file.close();
         } catch (IOException e){
             System.out.println("An error has occured");
         }
