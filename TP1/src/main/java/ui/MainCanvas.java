@@ -77,8 +77,8 @@ public class MainCanvas extends Canvas implements KeyListener {
         JSONParser jsonParser = new JSONParser();
         JSONObject configObj = null;
         try {
-            configObj = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/config.json"));
-            // configObj = (JSONObject) jsonParser.parse(new FileReader("./config.json"));
+            // configObj = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/config.json"));
+            configObj = (JSONObject) jsonParser.parse(new FileReader("./config.json"));
         } catch (Exception e) {
             e.printStackTrace();
         }
