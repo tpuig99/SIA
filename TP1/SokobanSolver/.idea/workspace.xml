@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SokobanSolver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TP1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/Heuristic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/HeuristicName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/Cell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/GameBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/GameLoop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/GameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/AStar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/BFS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/DFS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/GlobalGreedy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDAStar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDDFS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethodName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/TP1-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/TP1-1.0-shaded.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/TP1-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/H1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/H2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/H3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/Heuristic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/HeuristicName.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/Cell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/Constants$Direction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/Constants$GameStatus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/Constants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/GameBoard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/GameLoop$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/GameLoop.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/GameState$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/game/GameState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/AStar.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/BFS.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/DFS.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/GlobalGreedy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/IDAStar.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/IDDFS.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/SearchMethod.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/SearchMethodName.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ui/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas$Repainter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/dependency-jars/hamcrest-core-1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/dependency-jars/json-simple-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/dependency-jars/junit-4.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/original-TP1-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency-reduced-pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/H1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/H2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/H3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/Heuristic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/HeuristicName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/game/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/game/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/game/GameBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/game/GameLoop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/game/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/AStar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/BFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/DFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/GlobalGreedy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/IDAStar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/IDDFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/SearchMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/SearchMethodName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/ui/MainCanvas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/TP1-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/TP1-1.0-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/TP1-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/H1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/H2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/H3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/Heuristic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/HeuristicName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/Constants$Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/Constants$GameStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameLoop$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameLoop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameState$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/AStar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/BFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/DFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/GlobalGreedy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/IDAStar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/IDDFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/SearchMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/SearchMethodName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/ui/MainCanvas$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/ui/MainCanvas$Repainter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/ui/MainCanvas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/dependency-jars/hamcrest-core-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/dependency-jars/json-simple-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/dependency-jars/junit-4.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/original-TP1-1.0.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1TTEGCODl6WTC5pFQq9k0hf7xel" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="game" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.Main" />
+      <module name="TP1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainBFS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.MainBFS" />
+      <module name="SokobanSolver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainDFS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.MainDFS" />
+      <module name="SokobanSolver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainBFS" />
+        <item itemvalue="Application.MainDFS" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="" />
+      <created>1573475587431</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573475587431</updated>
+      <workItem from="1596772069589" duration="2420000" />
+      <workItem from="1596807341976" duration="784000" />
+      <workItem from="1596808244093" duration="80000" />
+      <workItem from="1596808359325" duration="13000" />
+      <workItem from="1596811303105" duration="1585000" />
+      <workItem from="1596813616625" duration="47000" />
+      <workItem from="1596832894899" duration="1326000" />
+      <workItem from="1596905836317" duration="14025000" />
+      <workItem from="1597147599909" duration="20453000" />
+      <workItem from="1597254668261" duration="10369000" />
+      <workItem from="1597267772951" duration="1296000" />
+      <workItem from="1597271572162" duration="26648000" />
+      <workItem from="1597298638002" duration="111000" />
+      <workItem from="1597323599275" duration="12105000" />
+      <workItem from="1597359466190" duration="2232000" />
+      <workItem from="1597512599045" duration="2402000" />
+      <workItem from="1597529858139" duration="2377000" />
+      <workItem from="1597543268550" duration="333000" />
+      <workItem from="1597614760386" duration="1031000" />
+      <workItem from="1597627415793" duration="8197000" />
+      <workItem from="1597680597792" duration="8981000" />
+      <workItem from="1597792663795" duration="11458000" />
+      <workItem from="1597859253023" duration="393000" />
+      <workItem from="1597862067677" duration="23000" />
+      <workItem from="1597859253023" duration="802000" />
+      <workItem from="1597860585372" duration="145000" />
+      <workItem from="1597874519188" duration="299000" />
+      <workItem from="1597876095729" duration="35000" />
+      <workItem from="1597876277038" duration="954000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597876352180">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1597876352180" />
+    <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser" timestamp="1597544354650">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="457" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1597544354650" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597512714843" />
+    <state x="311" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1597776132985">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="311" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728@0.0.1366.728" timestamp="1597776132985" />
+    <state x="466" y="258" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597800507673">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="466" y="258" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1597800507673" />
+    <state x="387" y="104" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597542935668">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="387" y="104" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1597542935668" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1597286832310" />
+    <state x="438" y="67" key="#xdebugger.evaluate" timestamp="1597634307672">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="438" y="67" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1597634307672" />
+    <state width="408" height="466" key="DebuggerActiveHint" timestamp="1596998290810">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="408" height="466" key="DebuggerActiveHint/0.0.1280.680@0.0.1280.680" timestamp="1596998290810" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597324338872">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597324338872" />
+    <state width="1323" height="150" key="GridCell.Tab.0.bottom" timestamp="1597876790571">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="143" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597873064314" />
+    <state width="1323" height="150" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597876790571" />
+    <state width="1323" height="150" key="GridCell.Tab.0.center" timestamp="1597876790570">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="143" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597873064313" />
+    <state width="1323" height="150" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597876790570" />
+    <state width="1323" height="150" key="GridCell.Tab.0.left" timestamp="1597876790570">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="143" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597873064313" />
+    <state width="1323" height="150" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597876790570" />
+    <state width="1323" height="150" key="GridCell.Tab.0.right" timestamp="1597876790571">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="143" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597873064313" />
+    <state width="1323" height="150" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597876790571" />
+    <state width="1237" height="176" key="GridCell.Tab.1.bottom" timestamp="1597873064310">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="176" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597873064310" />
+    <state width="1323" height="192" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597804269849" />
+    <state width="1237" height="176" key="GridCell.Tab.1.center" timestamp="1597873064309">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="176" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1597873064309" />
+    <state width="1323" height="192" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597804269849" />
+    <state width="1237" height="176" key="GridCell.Tab.1.left" timestamp="1597873064309">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="176" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1597873064309" />
+    <state width="1323" height="192" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597804269849" />
+    <state width="1237" height="176" key="GridCell.Tab.1.right" timestamp="1597873064310">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="176" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1597873064310" />
+    <state width="1323" height="192" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597804269849" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1597876134909">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597876134909" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597794177168">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1597794177168" />
+    <state x="228" y="99" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597288433738">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="228" y="99" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728@0.0.1366.728" timestamp="1597288433738" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1597292292215">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597292292215" />
+    <state x="65" y="25" key="new project wizard" timestamp="1597273218101">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="25" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1597273218101" />
+    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1597776103944">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="303" y="1" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1597362915293" />
+    <state x="323" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597776103944" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="33" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/searchMethods/IDDFS.java</url>
+          <line>26</line>
+          <properties class="searchMethods.IDDFS" method="dfs">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="gameState.board.board[1]" language="JAVA" />
+        <watch expression="((HashMap)costMap).entrySet().toArray()[3]" language="JAVA" custom="java.util.HashMap" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TP1$MainBFS.ic" NAME="MainBFS Coverage Results" MODIFIED="1597263487742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ui.*</FILTER>
+    </SUITE>
+  </component>
+</project>

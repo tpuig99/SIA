@@ -63,9 +63,6 @@ public class MainCanvas extends Canvas implements KeyListener {
 
         gameState = new GameState(width, height, map);
         gameLoop = new GameLoop(gameState);
-//        gameState = new GameState(width, height, map);
-//        steps = executeSearchMethod(searchMethod.get(0),map);
-//        gameLoop = new GameLoop(gameState);
         try{
         file.close();
         }catch (IOException e){}
@@ -245,28 +242,28 @@ public class MainCanvas extends Canvas implements KeyListener {
         }
         try{
         String status = "ÉXITO";
-        if(searchMethod.getTimeOut())
-            status = "ABORTADO POR TIEMPO";
-        else if(solution == null)
+        if(solution == null)
             status = "SOLUCIÓN NO ENCONTRADA";
         file.write(String.format("Algoritmo de búsqueda: %s [%s]\n", searchMethod.getName(), status));
         System.out.printf("Algoritmo de búsqueda: %s [%s]\n", searchMethod.getName(), status);
         file.write(String.format("Tiempo total: %.2fs\n", searchMethod.getTotalTimeMillis() / 1000.0));
         System.out.printf("Tiempo total: %.2fs\n", searchMethod.getTotalTimeMillis() / 1000.0);
-        file.write(String.format("Tiempo invertido en cálculo de la heurística: %.2fs\n", searchMethod.getHeuristicTimeMillis() / 1000.0));
-        System.out.printf("Tiempo invertido en cálculo de la heurística: %.2fs\n", searchMethod.getHeuristicTimeMillis() / 1000.0);
-        file.write(String.format("Tiempo invertido en el método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getHeuristicTimeMillis()) / 1000.0));
-        System.out.printf("Tiempo invertido en el método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getHeuristicTimeMillis()) / 1000.0);
-        file.write(String.format("Cantidad total de nodos expandidos: %d\n", searchMethod.getExpandedNodes()));
-        System.out.printf("Cantidad total de nodos expandidos: %d\n", searchMethod.getExpandedNodes());
-        file.write(String.format("Cantidad de nodos en la frontera al final la ejecución: %d\n", searchMethod.getFrontierCount()));
-        System.out.printf("Cantidad de nodos en la frontera al final la ejecución: %d\n", searchMethod.getFrontierCount());
+        file.write(String.format("Tiempo de cálculo de la heurística: %.2fs\n", searchMethod.getHeuristicTimeMillis() / 1000.0));
+        System.out.printf("Tiempo de cálculo de la heurística: %.2fs\n", searchMethod.getHeuristicTimeMillis() / 1000.0);
+        file.write(String.format("Tiempo del método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getHeuristicTimeMillis()) / 1000.0));
+        System.out.printf("Tiempo del método: %.2fs\n", (searchMethod.getTotalTimeMillis() - searchMethod.getHeuristicTimeMillis()) / 1000.0);
+        file.write(String.format("Nodos expandidos: %d\n", searchMethod.getExpandedNodes()));
+        System.out.printf("Nodos expandidos: %d\n", searchMethod.getExpandedNodes());
+        file.write(String.format("Nodos finales en la frontera: %d\n", searchMethod.getFrontierCount()));
+        System.out.printf("Nodos finales en la frontera: %d\n", searchMethod.getFrontierCount());
         if (solution != null) {
-            file.write(String.format("Costo de la solución: " + moves + '\n'));
-            System.out.println("Costo de la solución: " + moves);
-            file.write(String.format("Profundidad de la solución: " + moves + '\n'));
-            System.out.println("Profundidad de la solución: \n" + moves);
+            file.write(String.format("Costo: " + moves + '\n'));
+            System.out.println("Costo: " + moves);
+            file.write(String.format("Profundidad: " + moves + '\n'));
+            System.out.println("Profundidad: " + moves + '\n');
         }
+        file.write("\n");
+        System.out.println("");
         file.flush();
         } catch (IOException e){
             System.out.println("An error has occured");

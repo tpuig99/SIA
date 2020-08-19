@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="SokobanSolver" target="8" />
       <module name="TP1" target="8" />
     </bytecodeTargetLevel>
   </component>

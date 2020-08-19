@@ -31,14 +31,16 @@ Por ejemplo: si se elije: {2, "all", "all"}. Se ejecutará: bfs, dfs, iddfs, g_g
 ### Corriendo el proyecto:
 
 Requisito previo: Tener al menos una entorno de Java 8. Puede ser tanto JRE como JDK, dependiendo si se desea correr únicamente el .jar sin un IDE.
-1) Navegar hacia la carpeta donde se encuentra el ```.jar``` a su vez que el archivo ```config.json```.
+1) Navegar hacia la carpeta SokobanSolver donde se encuentra el ```TP1-1.0.jar``` a su vez que el archivo ```config.json```.
 2) Editar el archivo ```config.json``` de la manera deseada siguiendo los lineamientos anteriormente mencionados.
 3) Abrir en el directorio una terminal (bash - powershell - cmd) y tipear el comando:
     ```sh
-    $ java -jar file_name.jar
+    $ java -jar .\TP1-1.0.jar
     ```
 4) A continuación se ejecutará el/los algoritmo/s y brindará el output en dos formatos. En primer lugar mediante la consola, y luego lo enviará a un archivo ```results.txt``` ubicado en la misma carpeta.
 5) También se abrirá una ventana de Java. Maximizarla y aparecerá un sketch del mapa seleccionado. Al hacer click izquierda dentro de la ventana y presionar la ```tecla Enter``` se ejecutará la solución paso a paso si fue encontrada. Si no fue encontrada, al presionar la tecla de nuevo se seguirá a la próxima solución si más de un algoritmo o heurística fue seleccionado, hasta que se vacíe.
+
+En caso de querer ejecutarlo con un IDE como IntelliJ, se deja el código fuente y el procedimiento para correrlo debe ser configurando adecuadamente para correr el proyecto desde el archivo "ui.Main" dentro de los recursos del proyecto.
 
 ### Librerías y Frameworks externos utiizados:
 
