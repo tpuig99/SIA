@@ -38,7 +38,7 @@ public class MainCanvas extends Canvas implements KeyListener {
     private List<SearchMethodName> searchMethod;
     private List<HeuristicName> heuristic;
 
-    MainCanvas(JFrame pane) {
+    public MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
@@ -72,7 +72,8 @@ public class MainCanvas extends Canvas implements KeyListener {
         JSONObject configObj = null;
         try {
             configObj = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/config.json"));
-        } catch (ParseException | IOException e) {
+            // configObj = (JSONObject) jsonParser.parse(new FileReader("./config.json"));
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

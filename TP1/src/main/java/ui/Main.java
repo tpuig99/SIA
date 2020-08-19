@@ -1,14 +1,14 @@
 package ui;
 
-import game.Constants;
-
 import javax.swing.*;
 import java.awt.*;
 
 import static game.Constants.SCALE;
 
 public class Main extends JFrame {
-
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(Main::new);
+    }
     private static final long serialVersionUID = 1L;
 
     Main() {
@@ -23,14 +23,9 @@ public class Main extends JFrame {
         setResizable(true);
         MainCanvas canvas = new MainCanvas(this);
         add(canvas, BorderLayout.CENTER);
-
         setBackground(Color.GRAY);
-        setSize((canvas.getWidth() - 2) * SCALE, (canvas.getHeight()) * SCALE);
+        setSize((canvas.getWidth() - 1) * SCALE, (canvas.getHeight()) * SCALE);
         setVisible(true);
         canvas.createBufferStrategy(2);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(Main::new);
     }
 }
