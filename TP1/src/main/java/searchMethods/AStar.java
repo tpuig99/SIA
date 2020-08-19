@@ -43,18 +43,48 @@ public class AStar extends SearchMethod {
                 GameState aux = curr.moveInDirection(direction);
 
                 if (aux != null) {
-                    if(!history.containsKey(aux) || history.get(aux) > nextG) {
-                        if (history.get(aux) != null) {
-                            priorityQueue.remove(aux);
-                        }
+//
+//                    if (!history.containsKey(aux) && !priorityQueue.contains(aux)) {
+//                        int h = h(aux);
+//                        if (h < Integer.MAX_VALUE) {
+//                            if (!expandedNode) {
+//                                expandedNode = true;
+//                                super.expandedNodes++;
+//                            }
+//                            aux.setParent(curr);
+//                            aux.setDirectionFromParent(direction);
+//                            aux.setSorting(h + nextG);
+//                            history.put(aux, nextG);
+//                            priorityQueue.offer(aux);
+//                        }
+//                    }
+//                    else if (priorityQueue.contains(aux) && history.get(aux) > nextG) {
+//                        int h = h(aux);
+//                        if (h < Integer.MAX_VALUE) {
+//                            priorityQueue.remove(aux);
+//                            if (!expandedNode) {
+//                                expandedNode = true;
+//                                super.expandedNodes++;
+//                            }
+//                            aux.setParent(curr);
+//                            aux.setDirectionFromParent(direction);
+//                            aux.setSorting(h + nextG);
+//                            history.put(aux, nextG);
+//                            priorityQueue.offer(aux);
+//                        }
+//                    }
 
+                    Integer previousScore = history.getOrDefault(aux, null);
+                    if(previousScore == null || nextG < previousScore) {
                         int heuristicValue = h(aux);
                         if (heuristicValue < Integer.MAX_VALUE) {               // if heuristic says ok
+                            if (previousScore != null) {
+                                priorityQueue.remove(aux);
+                            }
                             if (!expandedNode) {
                                 expandedNode = true;
                                 super.expandedNodes++;
                             }
-
                             aux.setParent(curr);
                             aux.setSorting(nextG + heuristicValue);
                             aux.setDirectionFromParent(direction);

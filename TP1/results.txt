@@ -1,8 +1,8 @@
-Algoritmo de búsqueda: GREEDY [ÉXITO]
-Tiempo total: 0,07s
-Tiempo invertido en cálculo de la heurística: 0,01s
-Tiempo invertido en el método: 0,05s
-Cantidad total de nodos expandidos: 685
-Cantidad de nodos en la frontera al final la ejecución: 100
-Costo de la solución: 119
-Profundidad de la solución: 119
+Algoritmo de búsqueda: A* - H2 [ÉXITO]
+Tiempo total: 5,27s
+Tiempo invertido en cálculo de la heurística: 0,13s
+Tiempo invertido en el método: 5,14s
+Cantidad total de nodos expandidos: 376563
+Cantidad de nodos en la frontera al final la ejecución: 2255
+Costo de la solución: 114
+Profundidad de la solución: 114

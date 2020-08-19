@@ -1,5 +1,5 @@
 {
-  "map": 1,
-  "searchMethod": "dFs",
-  "heuristic": "H1"
+  "map": 3,
+  "searchMethod": "ida_star",
+  "heuristic": "h2"
 }

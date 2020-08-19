@@ -5,28 +5,22 @@ import java.awt.*;
 import static game.Constants.*;
 
 public class GameLoop {
-
-    private static final long ONE_SECOND = 1 * 1000000000;
     private GameState gameState;
     Cell[][] map;
-    private long lastUpdate;
+    private boolean solved;
 
     public GameLoop(GameState gameState) {
         this.gameState = gameState;
+        solved = false;
         map = gameState.getBoard().getCells();
-        lastUpdate = System.nanoTime();
     }
 
     public void loop(Graphics graphics, GameState gameState) {
         this.gameState = gameState;
         repaintScreen(graphics);
-        long time = System.nanoTime();
-        if (time - lastUpdate > ONE_SECOND / 2) {
-            System.out.println("Time elapsed: " + ((double) System.nanoTime() - time) / 1000000 + "ms");
-            lastUpdate = time;
-        }
-        if (gameState.solved()) {
-            System.out.println("Ganaste");;
+        if (gameState.solved() && !solved) {
+            System.out.println("Ganaste");
+            solved = true;
         }
     }
 

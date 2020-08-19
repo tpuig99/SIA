@@ -27,7 +27,6 @@ public class IDAStar extends SearchMethod {
             searchUpTo = Integer.MAX_VALUE;
             super.frontierCount = 1;
             result = dfs(start, currMaxF);
-            System.out.println("Llegué hasta: " + currMaxF);
             currMaxF = searchUpTo;
         }
 

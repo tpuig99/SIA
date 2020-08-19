@@ -1,5 +1,5 @@
 {
-  "map": 1,
-  "searchMethod": "all",
-  "heuristic": "all"
+  "map": 3,
+  "searchMethod": "ida_star",
+  "heuristic": "h2"
 }

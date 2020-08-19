@@ -6,22 +6,22 @@ import game.GameState;
 import java.util.concurrent.*;
 
 public abstract class SearchMethod {
-    public GameState run(GameState start, int timeOut) {
-        GameState solution = null;
-        ExecutorService executor = Executors.newCachedThreadPool();
-        Callable<GameState> task = () -> run(start);
-        Future<GameState> future = executor.submit(task);
-        try {
-            solution = future.get(timeOut, TimeUnit.SECONDS);
-        } catch (Exception ex) {
-            endTime = System.currentTimeMillis();
-            timedOut = true;
-        } finally {
-            future.cancel(true);
-        }
-
-        return solution;
-    }
+//    public GameState run(GameState start, int timeOut) {
+//        GameState solution = null;
+//        ExecutorService executor = Executors.newCachedThreadPool();
+//        Callable<GameState> task = () -> run(start);
+//        Future<GameState> future = executor.submit(task);
+//        try {
+//            solution = future.get(timeOut, TimeUnit.SECONDS);
+//        } catch (Exception ex) {
+//            endTime = System.currentTimeMillis();
+//            timedOut = true;
+//        } finally {
+//            future.cancel(true);
+//        }
+//
+//        return solution;
+//    }
 
     public abstract GameState run(GameState start);
 

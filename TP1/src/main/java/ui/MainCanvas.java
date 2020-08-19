@@ -1,10 +1,7 @@
 package ui;
 
 
-import Heuristics.H1;
-import Heuristics.H2;
-import Heuristics.H3;
-import Heuristics.Heuristic;
+import Heuristics.*;
 import game.Constants;
 import game.GameLoop;
 import game.GameState;
@@ -15,40 +12,57 @@ import searchMethods.*;
 import searchMethods.IDDFS;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Stack;
+import java.util.*;
+import java.util.List;
 
 public class MainCanvas extends Canvas implements KeyListener {
 
     private boolean repaintInProgress = false;
     private GameLoop gameLoop;
-    private Stack<Constants.Direction> steps;
+    private Queue<Stack<Constants.Direction>> queue;
     private GameState gameState;
     private int width;
     private int height;
+
+    private String map;
+    private List<SearchMethodName> searchMethod;
+    private List<HeuristicName> heuristic;
 
     MainCanvas(JFrame pane) {
         setIgnoreRepaint(true);
         addKeyListener(this);
 
         getConfigInfo();
-        // read data and select map
-        // read data and start with all the algorithms
-        // for each solution, start a gamestate and do whatever it has to do
-        String map = Constants.medium;
         getSizes(map);
+        queue = new LinkedList<>();
+
+        for (SearchMethodName name : searchMethod) {
+            if (name == SearchMethodName.A_STAR || name == SearchMethodName.G_GREEDY || name == SearchMethodName.IDA_STAR) {
+                for (HeuristicName hname : heuristic) {
+                    queue.offer(executeSearchMethod(name, hname, map));
+                }
+            }
+            else {
+                queue.offer(executeSearchMethod(name, map));
+            }
+        }
+
         gameState = new GameState(width, height, map);
-        steps = executeSearchMethod(SearchMethodName.G_GREEDY,map);
         gameLoop = new GameLoop(gameState);
+//        gameState = new GameState(width, height, map);
+//        steps = executeSearchMethod(searchMethod.get(0),map);
+//        gameLoop = new GameLoop(gameState);
+
         Repainter repainter = new Repainter(this);
         new Timer(16, repainter).start();
     }
@@ -63,11 +77,91 @@ public class MainCanvas extends Canvas implements KeyListener {
         }
 
         if (configObj != null) {
-            int mapNumber = ((Long) configObj.get("map")).intValue();
-            String searchMethod = ((String) configObj.get("searchMethod")).toLowerCase();
-            String heuristic = ((String) configObj.get("heuristic")).toLowerCase();
-            System.out.println(mapNumber + " " + searchMethod + " " + heuristic);
+            map = processMap(((Long) configObj.get("map")).intValue());
+            searchMethod = processSearchMethod(((String) configObj.get("searchMethod")).toLowerCase());
+            heuristic = processHeuristic(((String) configObj.get("heuristic")).toLowerCase());
         }
+    }
+
+    private List<HeuristicName> processHeuristic (String input) {
+        List<HeuristicName> heuristicNameList = null;
+        if (searchMethod.contains(SearchMethodName.G_GREEDY) || searchMethod.contains(SearchMethodName.A_STAR)
+        || searchMethod.contains(SearchMethodName.IDA_STAR)) {
+            heuristicNameList = new ArrayList<>();
+            switch (input) {
+                case "all":
+                    heuristicNameList.add(HeuristicName.H1);
+                    heuristicNameList.add(HeuristicName.H2);
+                    heuristicNameList.add(HeuristicName.H3);
+                    break;
+                case "h1":
+                    heuristicNameList.add(HeuristicName.H1);
+                    break;
+                case "h2":
+                    heuristicNameList.add(HeuristicName.H2);
+                    break;
+                case "h3":
+                    heuristicNameList.add(HeuristicName.H3);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return heuristicNameList;
+    }
+
+    private List<SearchMethodName> processSearchMethod (String input) {
+        List<SearchMethodName> searchMethodNameList = new ArrayList<>();
+        switch (input) {
+            case "all":
+                searchMethodNameList.add(SearchMethodName.BFS);
+                searchMethodNameList.add(SearchMethodName.DFS);
+                searchMethodNameList.add(SearchMethodName.IDDFS);
+                searchMethodNameList.add(SearchMethodName.G_GREEDY);
+                searchMethodNameList.add(SearchMethodName.A_STAR);
+                searchMethodNameList.add(SearchMethodName.IDA_STAR);
+                break;
+            case "dfs":
+                searchMethodNameList.add(SearchMethodName.DFS);
+                break;
+            case "bfs":
+                searchMethodNameList.add(SearchMethodName.BFS);
+                break;
+            case "iddfs":
+                searchMethodNameList.add(SearchMethodName.IDDFS);
+                break;
+            case "g_greedy":
+                searchMethodNameList.add(SearchMethodName.G_GREEDY);
+                break;
+            case "a_star":
+                searchMethodNameList.add(SearchMethodName.A_STAR);
+                break;
+            case "ida_star":
+                searchMethodNameList.add(SearchMethodName.IDA_STAR);
+                break;
+            default:
+                searchMethodNameList = null;
+                break;
+        }
+        return searchMethodNameList;
+    }
+
+    private String processMap (int mapNumber) {
+        String toReturn = null;
+        switch (mapNumber) {
+            case 1:
+                toReturn = Constants.easy;
+                break;
+            case 2:
+                toReturn = Constants.medium;
+                break;
+            case 3:
+                toReturn = Constants.hard;
+                break;
+            default:
+                break;
+        }
+        return toReturn;
     }
 
     private void getSizes(String map) {
@@ -77,8 +171,29 @@ public class MainCanvas extends Canvas implements KeyListener {
     }
 
     private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name, String map) {
+        return executeSearchMethod(name, null, map);
+    }
+
+    private Stack<Constants.Direction> executeSearchMethod(SearchMethodName name, HeuristicName hname, String map) {
         GameState solution = null;
         SearchMethod searchMethod = null;
+        Heuristic heuristic = null;
+        if (hname != null) {
+            switch (hname) {
+                case H1:
+                    heuristic = new H1();
+                    break;
+                case H2:
+                    heuristic = new H2();
+                    break;
+                case H3:
+                    heuristic = new H3();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         switch (name) {
             case BFS:
                 searchMethod = new BFS();
@@ -93,18 +208,15 @@ public class MainCanvas extends Canvas implements KeyListener {
                 solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case G_GREEDY:
-                Heuristic heuristic = new H1();
                 searchMethod = new GlobalGreedy(heuristic);
                 solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case A_STAR:
-                Heuristic h1 = new H3();
-                searchMethod = new AStar(h1);
+                searchMethod = new AStar(heuristic);
                 solution = searchMethod.run(new GameState(width, height, map));
                 break;
             case IDA_STAR:
-                Heuristic h = new H3();
-                searchMethod = new IDAStar(h);
+                searchMethod = new IDAStar(heuristic);
                 solution = searchMethod.run(new GameState(width, height, map));
             default:
                 break;
@@ -199,7 +311,14 @@ public class MainCanvas extends Canvas implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            performSteps(steps);
+            if (!queue.isEmpty()) {
+                gameState = new GameState(width, height, map);
+                gameLoop = new GameLoop(gameState);
+                performSteps(queue.poll());
+            }
+            else {
+                System.out.println("No more elements to show");
+            }
         }
     }
 
