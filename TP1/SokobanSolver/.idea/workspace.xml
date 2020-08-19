@@ -23,157 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SokobanSolver.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TP1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/H3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/Heuristic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Heuristics/HeuristicName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/GameBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/GameLoop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/AStar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/BFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/DFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/GlobalGreedy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDAStar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/IDDFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchMethods/SearchMethodName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/TP1-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/TP1-1.0-shaded.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/TP1-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/H1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/H2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/H3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/Heuristic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Heuristics/HeuristicName.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/Cell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/Constants$Direction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/Constants$GameStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/Constants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/GameBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/GameLoop$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/GameLoop.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/GameState$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/game/GameState.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/AStar.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/BFS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/DFS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/GlobalGreedy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/IDAStar.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/IDDFS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/SearchMethod.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/searchMethods/SearchMethodName.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ui/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas$Repainter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/dependency-jars/hamcrest-core-1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/dependency-jars/json-simple-1.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/dependency-jars/junit-4.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/original-TP1-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dependency-reduced-pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../results.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/H1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/H2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/H3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/Heuristic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/Heuristics/HeuristicName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/game/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/game/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/game/GameBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/game/GameLoop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/game/GameState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/AStar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/BFS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/DFS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/GlobalGreedy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/IDAStar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/IDDFS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/SearchMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/searchMethods/SearchMethodName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/ui/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/ui/MainCanvas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/TP1-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/TP1-1.0-shaded.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/TP1-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/H1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/H2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/H3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/Heuristic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/Heuristics/HeuristicName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/Constants$Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/Constants$GameStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameLoop$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameLoop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameState$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/game/GameState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/AStar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/BFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/DFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/GlobalGreedy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/IDAStar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/IDDFS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/SearchMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/searchMethods/SearchMethodName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/ui/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/ui/MainCanvas$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/ui/MainCanvas$Repainter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/ui/MainCanvas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/dependency-jars/hamcrest-core-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/dependency-jars/json-simple-1.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/dependency-jars/junit-4.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/original-TP1-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +181,7 @@
       <workItem from="1597860585372" duration="145000" />
       <workItem from="1597874519188" duration="299000" />
       <workItem from="1597876095729" duration="35000" />
-      <workItem from="1597876277038" duration="954000" />
+      <workItem from="1597876277038" duration="2542000" />
     </task>
     <servers />
   </component>
@@ -388,26 +240,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597324338872" />
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom" timestamp="1597876790571">
+    <state width="1323" height="244" key="GridCell.Tab.0.bottom" timestamp="1597878821678">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1597873064314" />
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597876790571" />
-    <state width="1323" height="150" key="GridCell.Tab.0.center" timestamp="1597876790570">
+    <state width="1323" height="244" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597878821678" />
+    <state width="1323" height="244" key="GridCell.Tab.0.center" timestamp="1597878821678">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1597873064313" />
-    <state width="1323" height="150" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597876790570" />
-    <state width="1323" height="150" key="GridCell.Tab.0.left" timestamp="1597876790570">
+    <state width="1323" height="244" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597878821678" />
+    <state width="1323" height="244" key="GridCell.Tab.0.left" timestamp="1597878821678">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1597873064313" />
-    <state width="1323" height="150" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597876790570" />
-    <state width="1323" height="150" key="GridCell.Tab.0.right" timestamp="1597876790571">
+    <state width="1323" height="244" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597878821678" />
+    <state width="1323" height="244" key="GridCell.Tab.0.right" timestamp="1597878821678">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="143" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1597873064313" />
-    <state width="1323" height="150" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597876790571" />
+    <state width="1323" height="244" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597878821678" />
     <state width="1237" height="176" key="GridCell.Tab.1.bottom" timestamp="1597873064310">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
