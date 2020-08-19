@@ -1,7 +1,7 @@
 Algoritmo de búsqueda: DFS [ÉXITO]
-Tiempo total: 13,87s
+Tiempo total: 12,84s
 Tiempo invertido en cálculo de la heurística: 0,00s
-Tiempo invertido en el método: 13,87s
+Tiempo invertido en el método: 12,84s
 Cantidad total de nodos expandidos: 1106512
 Cantidad de nodos en la frontera al final la ejecución: 96
 Costo de la solución: 182
