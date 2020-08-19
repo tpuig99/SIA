@@ -26,7 +26,27 @@ El programa cuenta con un archivo ``` config.json ```. El mismo tiene el siguien
 * ``` "searchMethod" ```: Puede tener los valores: "bfs", "dfs", "iddfs", "g_greedy", "a_star", "ida_star". También tiene un valor extra: "all". Si se utiliza este valor se realizará un algoritmo tras otro en el orden que fueron enumerados. Es imprescindible definir la heurística para los últimos 3 métodos de búsqueda.
 * ``` "heuristic" ```: Puede tener los valores: "h1", "h2" o "h2". También tiene un valor extra: "all". Se comporta de igual manera que el anterior. Si se selecciona un método de búsqueda entre "bfs", "dfs" o "iddfs", se ignorará este valor.
 
-Por ejemplo: si se elije: {2, "all", "all"}. Se ejecutará: bfs, dfs, iddfs, g_greedy (h1), g_greedy (h2), g_greedy (h3), a_star (h1), a_star(h2), a_star(h3), ida_star(h1), ida_star(h2) y finalmente, ida_star(h3).   
+Por ejemplo: si se elije: {2, "all", "all"}. Se ejecutará: bfs, dfs, iddfs, g_greedy (h1), g_greedy (h2), g_greedy (h3), a_star (h1), a_star(h2), a_star(h3), ida_star(h1), ida_star(h2) y finalmente, ida_star(h3).
+
+* Configuración recomendada número 1: Para probar sobre el mapa 2 todos los métodos de búsqueda.
+
+```sh
+{
+  "map": 2,
+  "searchMethod": "all",
+  "heuristic": "all"
+}
+```
+
+* Configuración recomendada número 2: Para analizar el efecto de un método de búsqueda informado en un problema costoso.
+
+```sh
+{
+  "map": 3,
+  "searchMethod": "a_star", // o g_greedy
+  "heuristic": "h2"
+}
+```
 
 ### Corriendo el proyecto:
 
