@@ -24,16 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainCanvas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/MainCanvas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/MainCanvas$Repainter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas$Repainter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/MainCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/MainCanvas.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,15 +119,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,6 +171,7 @@
       <workItem from="1597627415793" duration="8197000" />
       <workItem from="1597680597792" duration="8981000" />
       <workItem from="1597792663795" duration="11458000" />
+      <workItem from="1597859253023" duration="393000" />
     </task>
     <servers />
   </component>
