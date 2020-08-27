@@ -1,6 +1,4 @@
 package ui;
-
-
 import Constants.ItemType;
 import weapons.Item;
 import weapons.Items;
@@ -16,7 +14,7 @@ public class Main {
     public static void main(String[] args) throws URISyntaxException {
         ClassLoader classLoader = Main.class.getClassLoader();
         //Items boots = Parser(classLoader.getResource("botas.tsv").toURI(), ItemType.boots);
-        Items weapons = Parser(classLoader.getResource("armas.tsv").toURI(), ItemType.weapon);
+        //Items weapons = Parser(classLoader.getResource("armas.tsv").toURI(), ItemType.weapon);
         //Items helmets = Parser(classLoader.getResource("cascos.tsv").toURI(), ItemType.helmet);
         //Items armors = Parser(classLoader.getResource("pecheras.tsv").toURI(), ItemType.armor);
         //Items gloves = Parser(classLoader.getResource("guantes.tsv").toURI(), ItemType.glove);
