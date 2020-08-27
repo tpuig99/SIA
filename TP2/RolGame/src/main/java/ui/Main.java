@@ -13,14 +13,14 @@ import java.net.URISyntaxException;
 public class Main {
     public static void main(String[] args) throws URISyntaxException {
         ClassLoader classLoader = Main.class.getClassLoader();
-        //Items boots = Parser(classLoader.getResource("botas.tsv").toURI(), ItemType.boots);
-        //Items weapons = Parser(classLoader.getResource("armas.tsv").toURI(), ItemType.weapon);
-        //Items helmets = Parser(classLoader.getResource("cascos.tsv").toURI(), ItemType.helmet);
-        //Items armors = Parser(classLoader.getResource("pecheras.tsv").toURI(), ItemType.armor);
-        //Items gloves = Parser(classLoader.getResource("guantes.tsv").toURI(), ItemType.glove);
+        //Items boots = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\botas.tsv", ItemType.boots);
+        //Items weapons = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\armas.tsv", ItemType.weapon);
+        Items helmets = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\cascos.tsv", ItemType.helmet);
+        //Items armors = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\pecheras.tsv", ItemType.armor);
+        //Items gloves = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\guantes.tsv", ItemType.glove);
     }
 
-    static Items Parser(URI sourcePath, ItemType type){
+    static Items Parser(String sourcePath, ItemType type){
         File sourceFile = new File(sourcePath);
         Items weapons = new Items(type);
         BufferedReader reader = null;
