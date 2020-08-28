@@ -3,19 +3,22 @@ package subjectModels.roles;
 import subjectModels.Constants.Role;
 import subjectModels.weapons.Item;
 
-public abstract class  Character {
+public class  Character {
     double height;
     Item[] weapon;
     Role role;
+    public double desempeño;
 
     public Character(Role role) {
         this.role = role;
         weapon = new Item[5];
     }
-    public double getDesempeño(){
+    /*public double getDesempeño(){
         return role.getAttackId()*getAttack()+role.getDefenseId()*getDefense();
+    }*/
+    public double getDesempeño(){
+        return desempeño;
     }
-
     private double getDefense() {
         return (getResistance()+getExpertise())*getLife()*getDEM();
     }
