@@ -12,9 +12,11 @@ public class  Character implements Subject {
     double desempeño;
     double strength, agility, expertise, resistance, life;
     double ATM,DEM;
+    boolean ready;
 
     public Character(Role role) {
         this.role = role;
+        ready = false;
         weapon = new Item[ItemType.values().length];
     }
     public void setDesempeño(){
@@ -31,7 +33,7 @@ public class  Character implements Subject {
     }
 
     private void setDEM() {
-        DEM = 1.9-Math.pow((2.5*height-2.16),4) + Math.pow((2.5*height-4.16),2) + (3*height)/10;
+        DEM = 1.9+Math.pow((2.5*height-4.16),4) - Math.pow((2.5*height-4.16),2) - (3*height)/10;
     }
     private void setATM() {
         ATM = 0.7-Math.pow((3*height-5),4) + Math.pow((3*height-5),2) + height/4;
@@ -39,7 +41,7 @@ public class  Character implements Subject {
 
     private void setLife() {
         double life=0;
-        for(int i=0;i<5;i++){
+        for(int i=0;i<ItemType.values().length;i++){
             life+=weapon[i].getLife();
         }
         this.life = 100 * Math.tanh(0.01*life);
@@ -47,7 +49,7 @@ public class  Character implements Subject {
 
     private void setResistance() {
         double resistance=0;
-        for(int i=0;i<5;i++){
+        for(int i=0;i<ItemType.values().length;i++){
             resistance+=weapon[i].getResistance();
         }
         this.resistance = Math.tanh(0.01*resistance);
@@ -55,7 +57,7 @@ public class  Character implements Subject {
 
     private void setStrength() {
         double strength=0;
-        for(int i=0;i<5;i++){
+        for(int i=0;i<ItemType.values().length;i++){
             strength+=weapon[i].getStrength();
         }
         this.strength = 100 * Math.tanh(0.01*strength);
@@ -64,7 +66,7 @@ public class  Character implements Subject {
 
     private void setExpertise() {
         double expertise=0;
-        for(int i=0;i<5;i++){
+        for(int i=0;i<ItemType.values().length;i++){
             expertise+=weapon[i].getExpertise();
         }
         this.expertise = 0.6* Math.tanh(0.01*expertise);
@@ -72,7 +74,7 @@ public class  Character implements Subject {
 
     private void setAgility() {
         double agility=0;
-        for(int i=0;i<5;i++){
+        for(int i=0;i<ItemType.values().length;i++){
             agility+=weapon[i].getAgility();
         }
         this.agility = Math.tanh(0.01*agility);
@@ -80,18 +82,33 @@ public class  Character implements Subject {
 
     public void setWeapon(Item weapon) {
         this.weapon[weapon.getType().ordinal()] = weapon;
-        setAgility();
-        setExpertise();
-        setLife();
-        setResistance();
-        setStrength();
-        setDesempeño();
+        if(ready) {
+            setAgility();
+            setExpertise();
+            setLife();
+            setResistance();
+            setStrength();
+            setDesempeño();
+        }
     }
     public void setHeight(double height){
         this.height = height;
-        setATM();
-        setDEM();
-        setDesempeño();
+        if(ready){
+            setATM();
+            setDEM();
+            setDesempeño();
+        }
+    }
+
+    public void setReady(boolean ready) {
+        this.ready = ready;
+        if(ready){
+            setStrength();
+            setResistance();
+            setLife();
+            setExpertise();
+            setAgility();
+        }
     }
 
     @Override
