@@ -23,29 +23,8 @@ public class Main {
         //Items helmets = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\cascos.tsv", ItemType.helmet);
         //Items armors = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\pecheras.tsv", ItemType.armor);
         //Items gloves = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\guantes.tsv", ItemType.glove);
-        testSelector();
     }
 
-    private static void testSelector() {
-        Character c1 = new Character(Role.ARCHER);
-        Character c2 = new Character(Role.ARCHER);
-        Character c3 = new Character(Role.ARCHER);
-        Character c4 = new Character(Role.ARCHER);
-        Character c5 = new Character(Role.ARCHER);
-        c1.desempeño = 3;
-        c2.desempeño = 6;
-        c3.desempeño = 11;
-        c4.desempeño = 14;
-        c5.desempeño = 1;
-        List<Character> list = new ArrayList<>();
-        list.add(c1);
-        list.add(c2);
-        list.add(c3);
-        list.add(c4);
-        list.add(c5);
-        Selector selector = new RankingSelector();
-        selector.select(list,3);
-    }
 
     static Items Parser(String sourcePath, ItemType type){
         File sourceFile = new File(sourcePath);
