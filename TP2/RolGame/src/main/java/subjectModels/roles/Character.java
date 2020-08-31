@@ -3,19 +3,22 @@ package subjectModels.roles;
 import subjectModels.Constants.Role;
 import subjectModels.weapons.Item;
 
-public abstract class  Character {
+public class Character implements Comparable<Character> {
     double height;
-    Item[] weapon;
+    Item[] equipment;
     Role role;
+    public double fitness;
 
     public Character(Role role) {
         this.role = role;
-        weapon = new Item[5];
+        equipment = new Item[5];
     }
-    public double getDesempeño(){
+    /*public double getFitness(){
         return role.getAttackId()*getAttack()+role.getDefenseId()*getDefense();
+    }*/
+    public double getFitness(){
+        return fitness;
     }
-
     private double getDefense() {
         return (getResistance()+getExpertise())*getLife()*getDEM();
     }
@@ -33,7 +36,7 @@ public abstract class  Character {
     private double getLife() {
         double life=0;
         for(int i=0;i<5;i++){
-            life+=weapon[i].getLife();
+            life+= equipment[i].getLife();
         }
         return 100 * Math.tanh(0.01*life);
     }
@@ -41,7 +44,7 @@ public abstract class  Character {
     private double getResistance() {
         double resistance=0;
         for(int i=0;i<5;i++){
-            resistance+=weapon[i].getResistance();
+            resistance+= equipment[i].getResistance();
         }
         return Math.tanh(0.01*resistance);
     }
@@ -49,7 +52,7 @@ public abstract class  Character {
     private double getStrength() {
         double strength=0;
         for(int i=0;i<5;i++){
-            strength+=weapon[i].getStrength();
+            strength+= equipment[i].getStrength();
         }
         return 100 * Math.tanh(0.01*strength);
 
@@ -58,7 +61,7 @@ public abstract class  Character {
     private double getExpertise() {
         double expertise=0;
         for(int i=0;i<5;i++){
-            expertise+=weapon[i].getExpertise();
+            expertise+= equipment[i].getExpertise();
         }
         return 0.6* Math.tanh(0.01*expertise);
     }
@@ -66,8 +69,14 @@ public abstract class  Character {
     private double getAgility() {
         double agility=0;
         for(int i=0;i<5;i++){
-            agility+=weapon[i].getAgility();
+            agility+= equipment[i].getAgility();
         }
         return Math.tanh(0.01*agility);
     }
+
+    @Override
+    public int compareTo(Character subject) {
+        return Double.compare(subject.getFitness(), this.getFitness());
+    }
+
 }
