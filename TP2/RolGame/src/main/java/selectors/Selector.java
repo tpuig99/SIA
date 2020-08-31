@@ -17,13 +17,13 @@ public abstract class Selector {
         return new ArrayList<>();
     };
     double getFitnessR(int index){
-        return subjects.get(index).getDesempeño()/totalF;
+        return subjects.get(index).getFitness()/totalF;
     }
 
     private void setTotalF(){
         totalF = 0;
         for (Character character: subjects) {
-            totalF += character.getDesempeño();
+            totalF += character.getFitness();
         }
     }
     int getSubjectsSize(){

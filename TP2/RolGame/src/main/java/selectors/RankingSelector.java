@@ -14,7 +14,7 @@ public class RankingSelector extends RouletteSelector{
         subjects.sort(new Comparator<Character>() {
             @Override
             public int compare(Character o1, Character o2) {
-                return Double.compare(o1.getDesempeño(),o2.getDesempeño());
+                return Double.compare(o1.getFitness(),o2.getFitness());
             }
         });
         return super.select(subjects, N);
