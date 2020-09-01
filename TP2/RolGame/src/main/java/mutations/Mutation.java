@@ -1,5 +1,8 @@
 package mutations;
 
+
+import subjectModels.Subject;
+
 public interface Mutation {
-    Character mutate (Character subject);
+    Subject mutate (Subject subject);
 }

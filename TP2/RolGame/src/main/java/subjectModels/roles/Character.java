@@ -4,6 +4,9 @@ import subjectModels.Constants.ItemType;
 import subjectModels.Constants.Role;
 import subjectModels.Subject;
 import subjectModels.equipment.Item;
+import subjectModels.equipment.Items;
+
+import java.util.Random;
 
 public class  Character implements Subject {
     private double height;
@@ -13,11 +16,15 @@ public class  Character implements Subject {
     private double strength, agility, expertise, resistance, life;
     private double ATM,DEM;
     private boolean ready;
+    private final double delta = 0.02;
+    private final double minHeight = 1.3, maxHeight = 2.0;
+    private final Random random;
 
     public Character(Role role) {
         this.role = role;
         ready = false;
         equipment = new Item[ItemType.values().length];
+        random = new Random();
     }
     public void setFitness(){
         fitness = role.getAttackId()*getAttack()+role.getDefenseId()*getDefense();
@@ -80,8 +87,8 @@ public class  Character implements Subject {
         this.agility = Math.tanh(0.01*agility);
     }
 
-    public void setWeapon(Item weapon) {
-        this.equipment[weapon.getType().ordinal()] = weapon;
+    public void setEquipment(Item item) {
+        this.equipment[item.getType().ordinal()] = item;
         if(ready) {
             setAgility();
             setExpertise();
@@ -97,6 +104,42 @@ public class  Character implements Subject {
             setATM();
             setDEM();
             setFitness();
+        }
+    }
+
+    private void mutateHeight() {
+        double newHeight = height;
+        if (random.nextBoolean()) {
+            if (newHeight + delta > maxHeight) {
+                newHeight-=delta;
+            }
+            else {
+                newHeight+=delta;
+            }
+        }
+        else {
+            if (newHeight - delta < minHeight) {
+                newHeight+=delta;
+            }
+            else {
+                newHeight-=delta;
+            }
+        }
+        height = newHeight;
+    }
+
+    // TODO: do logic for this method, please
+    private void mutateEquipment(int index) {
+        // get a random item;
+        // replace current item with new;
+    }
+
+    public void mutateProperty(int index) {
+        if(index == ItemType.values().length){
+            mutateHeight();
+        }
+        else {
+            mutateEquipment(index);
         }
     }
 
@@ -120,7 +163,7 @@ public class  Character implements Subject {
     public Subject cloneSubject() {
         Character subject = new Character(role);
         for (Item item: equipment) {
-            subject.setWeapon(item);
+            subject.setEquipment(item);
         }
         subject.setHeight(height);
         return subject;
@@ -155,7 +198,7 @@ public class  Character implements Subject {
             setHeight((double)property);
         }
         else{
-            setWeapon((Item) property);
+            setEquipment((Item) property);
         }
     }
 
