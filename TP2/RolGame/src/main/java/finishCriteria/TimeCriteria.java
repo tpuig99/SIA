@@ -2,7 +2,7 @@ package finishCriteria;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 public class TimeCriteria implements FinishCriteria {
     Long startTimeMillis = null;
@@ -13,7 +13,7 @@ public class TimeCriteria implements FinishCriteria {
     }
 
     @Override
-    public boolean shouldFinish(List<Character> population) {
+    public boolean shouldFinish(List<Subject> population) {
         if(startTimeMillis == null) {
             startTimeMillis = System.currentTimeMillis();
         }

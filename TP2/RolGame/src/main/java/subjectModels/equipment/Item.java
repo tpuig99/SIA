@@ -1,4 +1,4 @@
-package subjectModels.weapons;
+package subjectModels.equipment;
 
 
 import subjectModels.Constants.ItemType;
@@ -6,6 +6,11 @@ import subjectModels.Constants.ItemType;
 public class Item {
     double strength, agility, expertise, resistance, life;
     int id;
+
+    public ItemType getType() {
+        return type;
+    }
+
     ItemType type;
 
     public Item(double strength, double agility, double expertise, double resistance, double life, int id, ItemType type) {

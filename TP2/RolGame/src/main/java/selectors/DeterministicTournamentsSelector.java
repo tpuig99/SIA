@@ -1,6 +1,6 @@
 package selectors;
 
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ public class DeterministicTournamentsSelector extends Selector {
     }
 
     @Override
-    public List<Character> select(List<Character> subjects, int K) {
-        List<Character> selectedList = new ArrayList<>();
+    public List<Subject> select(List<Subject> subjects, int K) {
+        List<Subject> selectedList = new ArrayList<>();
 
         if (K < 0) {
             return selectedList;
@@ -29,7 +29,7 @@ public class DeterministicTournamentsSelector extends Selector {
 
         while (selectedList.size() < K) {
             Double bestFitness = null;
-            Character randomSubject = null;
+            Subject randomSubject = null;
 
             for (int i = 0; i < threshold; i++) {
                 randomSubject = subjects.get(randomGenerator.nextInt(subjects.size()));

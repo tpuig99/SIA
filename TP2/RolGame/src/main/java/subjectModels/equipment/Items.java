@@ -1,4 +1,4 @@
-package subjectModels.weapons;
+package subjectModels.equipment;
 
 
 import subjectModels.Constants.ItemType;

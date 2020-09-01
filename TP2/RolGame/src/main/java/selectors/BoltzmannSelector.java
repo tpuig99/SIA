@@ -1,6 +1,6 @@
 package selectors;
 
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 import java.util.*;
 
@@ -16,8 +16,8 @@ public class BoltzmannSelector extends Selector {
     }
 
     @Override
-    public List<Character> select(List<Character> subjects, int K) {
-        List<Character> selectionList = new ArrayList<>();
+    public List<Subject> select(List<Subject> subjects, int K) {
+        List<Subject> selectionList = new ArrayList<>();
 
         if (K < 0) {
             return selectionList;
@@ -46,9 +46,9 @@ public class BoltzmannSelector extends Selector {
         return selectionList;
     }
 
-    private double getSum(List<Character> subjects, double currentTemperature) {
+    private double getSum(List<Subject> subjects, double currentTemperature) {
         double sum = 0;
-        for (Character subject : subjects) {
+        for (Subject subject : subjects) {
             sum += Math.exp(subject.getFitness()/currentTemperature);
         }
         return sum;

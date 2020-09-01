@@ -1,6 +1,6 @@
 package selectors;
 
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class RouletteSelector extends Selector{
     @Override
-    public List<Character> select(List<Character> subjects, int N) {
-        List<Character> ans = super.select(subjects, N);
+    public List<Subject> select(List<Subject> subjects, int N) {
+        List<Subject> ans = super.select(subjects, N);
         double[] accumulated = new double[subjects.size()];
         double[] ramdoms = new double[N];
 

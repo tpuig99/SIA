@@ -1,6 +1,6 @@
 package selectors;
 
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,19 +20,19 @@ public class ProbabilisticTournamentsSelector extends Selector {
     }
 
     @Override
-    public List<Character> select(List<Character> subjects, int K) {
-        List<Character> selectedList = new ArrayList<>();
+    public List<Subject> select(List<Subject> subjects, int K) {
+        List<Subject> selectedList = new ArrayList<>();
 
         if (K < 0) {
             return selectedList;
         }
 
         while (selectedList.size() < K) {
-            Character bestSubject = subjects.get(randomGenerator.nextInt(subjects.size()));
-            Character worstSubject = subjects.get(randomGenerator.nextInt(subjects.size()));
+            Subject bestSubject = subjects.get(randomGenerator.nextInt(subjects.size()));
+            Subject worstSubject = subjects.get(randomGenerator.nextInt(subjects.size()));
 
             if (bestSubject.getFitness() < worstSubject.getFitness()) {
-                Character aux = bestSubject;
+                Subject aux = bestSubject;
                 bestSubject = worstSubject;
                 worstSubject = aux;
             }

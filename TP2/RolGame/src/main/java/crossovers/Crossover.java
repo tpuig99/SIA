@@ -1,5 +1,9 @@
 package crossovers;
 
+import subjectModels.Subject;
+
+import java.util.List;
+
 public interface Crossover {
-    Character cross (Character subject1, Character subject2);
+    List<Subject> cross(Subject subject1, Subject subject2);
 }

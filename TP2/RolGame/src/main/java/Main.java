@@ -1,11 +1,9 @@
-import selectors.RankingSelector;
-import selectors.RouletteSelector;
-import selectors.Selector;
+
 import subjectModels.Constants.ItemType;
 import subjectModels.Constants.Role;
+import subjectModels.Subject;
 import subjectModels.roles.Character;
-import subjectModels.weapons.Item;
-import subjectModels.weapons.Items;
+import subjectModels.equipment.Items;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,37 +13,42 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static subjectModels.Constants.ItemType.ARMOR;
+
 public class Main {
+
     public static void main(String[] args) throws URISyntaxException {
-        ClassLoader classLoader = Main.class.getClassLoader();
-        //Items boots = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\botas.tsv", ItemType.boots);
-        //Items subjectModels.weapons = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\armas.tsv", ItemType.weapon);
-        //Items helmets = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\cascos.tsv", ItemType.helmet);
-        //Items armors = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\pecheras.tsv", ItemType.armor);
-        //Items gloves = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\guantes.tsv", ItemType.glove);
-        testSelector();
+        Items boots = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\botas.tsv", ItemType.BOOTS);
+        Items weapon = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\armas.tsv", ItemType.WEAPON);
+        Items helmets = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\cascos.tsv", ItemType.HELMET);
+        Items armors = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\pecheras.tsv", ARMOR);
+        Items gloves = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\guantes.tsv", ItemType.GLOVES);
+        
+        List<Subject> population = new ArrayList<>();
+        //saldría de config, voy a elegir 100
+        int subjCant = 100;
+        double auxHeight;
+        int index;
+        Role role = Role.ARCHER;
+        for (int i = 0; i < subjCant; i++) {
+            Character aux = new Character(role);
+            index = (int) (Math.random() * boots.itemSize());
+            aux.setProperty(boots.getItem(index),ItemType.BOOTS.ordinal());
+            index = (int) (Math.random() * gloves.itemSize());
+            aux.setProperty(gloves.getItem(index),ItemType.GLOVES.ordinal());
+            index = (int) (Math.random() * armors.itemSize());
+            aux.setProperty(armors.getItem(index),ItemType.ARMOR.ordinal());
+            index = (int) (Math.random() * helmets.itemSize());
+            aux.setProperty(helmets.getItem(index),ItemType.HELMET.ordinal());
+            index = (int) (Math.random() * weapon.itemSize());
+            aux.setProperty(weapon.getItem(index),ItemType.WEAPON.ordinal());
+            aux.setReady(true);
+            auxHeight = (Math.random() * (2-1.3))+1.3;
+            aux.setProperty(auxHeight,ItemType.values().length);
+            population.add(aux);
+        }
     }
 
-    private static void testSelector() {
-        Character c1 = new Character(Role.ARCHER);
-        Character c2 = new Character(Role.ARCHER);
-        Character c3 = new Character(Role.ARCHER);
-        Character c4 = new Character(Role.ARCHER);
-        Character c5 = new Character(Role.ARCHER);
-        c1.desempeño = 3;
-        c2.desempeño = 6;
-        c3.desempeño = 11;
-        c4.desempeño = 14;
-        c5.desempeño = 1;
-        List<Character> list = new ArrayList<>();
-        list.add(c1);
-        list.add(c2);
-        list.add(c3);
-        list.add(c4);
-        list.add(c5);
-        Selector selector = new RankingSelector();
-        selector.select(list,3);
-    }
 
     static Items Parser(String sourcePath, ItemType type){
         File sourceFile = new File(sourcePath);
@@ -70,13 +73,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(weapons.itemSize());
-        Item aux = weapons.getItem(0);
-        System.out.println(aux.getStrength());
-        System.out.println(aux.getAgility());
-        System.out.println(aux.getExpertise());
-        System.out.println(aux.getResistance());
-        System.out.println(aux.getLife());
         return weapons;
     }
 }

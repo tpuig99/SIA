@@ -1,16 +1,16 @@
 package selectors;
 
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Selector {
-    private List<Character> subjects;
+    private List<Subject> subjects;
     int N;
     double totalF;
 
-    public List<Character> select (List<Character> subjects, int N){
+    public List<Subject> select (List<Subject> subjects, int N){
         this.subjects = subjects;
         setTotalF();
         this.N = N;
@@ -22,7 +22,7 @@ public abstract class Selector {
 
     private void setTotalF(){
         totalF = 0;
-        for (Character character: subjects) {
+        for (Subject character: subjects) {
             totalF += character.getFitness();
         }
     }
