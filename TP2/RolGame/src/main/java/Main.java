@@ -1,4 +1,9 @@
+import selectors.RankingSelector;
+import selectors.RouletteSelector;
+import selectors.Selector;
 import subjectModels.Constants.ItemType;
+import subjectModels.Constants.Role;
+import subjectModels.roles.Character;
 import subjectModels.weapons.Item;
 import subjectModels.weapons.Items;
 
@@ -7,15 +12,39 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws URISyntaxException {
         ClassLoader classLoader = Main.class.getClassLoader();
         //Items boots = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\botas.tsv", ItemType.boots);
         //Items subjectModels.weapons = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\armas.tsv", ItemType.weapon);
-        Items helmets = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\cascos.tsv", ItemType.helmet);
+        //Items helmets = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\cascos.tsv", ItemType.helmet);
         //Items armors = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\pecheras.tsv", ItemType.armor);
         //Items gloves = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\guantes.tsv", ItemType.glove);
+        testSelector();
+    }
+
+    private static void testSelector() {
+        Character c1 = new Character(Role.ARCHER);
+        Character c2 = new Character(Role.ARCHER);
+        Character c3 = new Character(Role.ARCHER);
+        Character c4 = new Character(Role.ARCHER);
+        Character c5 = new Character(Role.ARCHER);
+        c1.desempeño = 3;
+        c2.desempeño = 6;
+        c3.desempeño = 11;
+        c4.desempeño = 14;
+        c5.desempeño = 1;
+        List<Character> list = new ArrayList<>();
+        list.add(c1);
+        list.add(c2);
+        list.add(c3);
+        list.add(c4);
+        list.add(c5);
+        Selector selector = new RankingSelector();
+        selector.select(list,3);
     }
 
     static Items Parser(String sourcePath, ItemType type){
