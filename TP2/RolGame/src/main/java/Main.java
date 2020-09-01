@@ -3,8 +3,7 @@ import subjectModels.Constants.ItemType;
 import subjectModels.Constants.Role;
 import subjectModels.Subject;
 import subjectModels.roles.Character;
-import subjectModels.weapons.Item;
-import subjectModels.weapons.Items;
+import subjectModels.equipment.Items;
 
 import java.io.BufferedReader;
 import java.io.File;

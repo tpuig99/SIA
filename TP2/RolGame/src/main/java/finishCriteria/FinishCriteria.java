@@ -1,9 +1,9 @@
 package finishCriteria;
 
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 import java.util.List;
 
 public interface FinishCriteria {
-    boolean shouldFinish(List<Character> subjects);
+    boolean shouldFinish(List<Subject> subjects);
 }

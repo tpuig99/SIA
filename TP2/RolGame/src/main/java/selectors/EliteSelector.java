@@ -1,6 +1,6 @@
 package selectors;
 
-import subjectModels.roles.Character;
+import subjectModels.Subject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,14 +9,14 @@ import java.util.List;
 public class EliteSelector extends Selector {
 
     @Override
-    public List<Character> select(List<Character> subjects, int K) {
-        List<Character> selectionList = new ArrayList<>();
+    public List<Subject> select(List<Subject> subjects, int K) {
+        List<Subject> selectionList = new ArrayList<>();
 
         if (K <= 0) {
             return selectionList;
         }
 
-        List<Character> auxiliarySortedList = new ArrayList<>(subjects);
+        List<Subject> auxiliarySortedList = new ArrayList<>(subjects);
         Collections.sort(auxiliarySortedList);
 
         for (int i = 0; selectionList.size() <= K && i < auxiliarySortedList.size(); i++) {

@@ -3,27 +3,27 @@ package subjectModels.roles;
 import subjectModels.Constants.ItemType;
 import subjectModels.Constants.Role;
 import subjectModels.Subject;
-import subjectModels.weapons.Item;
+import subjectModels.equipment.Item;
 
 public class  Character implements Subject {
-    double height;
-    Item[] equipment;
-    Role role;
-    double desempeño;
-    double strength, agility, expertise, resistance, life;
-    double ATM,DEM;
-    boolean ready;
+    private double height;
+    private Item[] equipment;
+    private final Role role;
+    private double fitness;
+    private double strength, agility, expertise, resistance, life;
+    private double ATM,DEM;
+    private boolean ready;
 
     public Character(Role role) {
         this.role = role;
         ready = false;
-        weapon = new Item[ItemType.values().length];
+        equipment = new Item[ItemType.values().length];
     }
-    public void setDesempeño(){
-        desempeño = role.getAttackId()*getAttack()+role.getDefenseId()*getDefense();
+    public void setFitness(){
+        fitness = role.getAttackId()*getAttack()+role.getDefenseId()*getDefense();
     }
-    public double getDesempeño(){
-        return desempeño;
+    public double getFitness(){
+        return fitness;
     }
     private double getDefense() {
         return (resistance+expertise)*life*DEM;
@@ -42,7 +42,7 @@ public class  Character implements Subject {
     private void setLife() {
         double life=0;
         for(int i=0;i<ItemType.values().length;i++){
-            life+=weapon[i].getLife();
+            life+=equipment[i].getLife();
         }
         this.life = 100 * Math.tanh(0.01*life);
     }
@@ -50,7 +50,7 @@ public class  Character implements Subject {
     private void setResistance() {
         double resistance=0;
         for(int i=0;i<ItemType.values().length;i++){
-            resistance+=weapon[i].getResistance();
+            resistance+=equipment[i].getResistance();
         }
         this.resistance = Math.tanh(0.01*resistance);
     }
@@ -58,7 +58,7 @@ public class  Character implements Subject {
     private void setStrength() {
         double strength=0;
         for(int i=0;i<ItemType.values().length;i++){
-            strength+=weapon[i].getStrength();
+            strength+=equipment[i].getStrength();
         }
         this.strength = 100 * Math.tanh(0.01*strength);
 
@@ -67,7 +67,7 @@ public class  Character implements Subject {
     private void setExpertise() {
         double expertise=0;
         for(int i=0;i<ItemType.values().length;i++){
-            expertise+=weapon[i].getExpertise();
+            expertise+=equipment[i].getExpertise();
         }
         this.expertise = 0.6* Math.tanh(0.01*expertise);
     }
@@ -75,20 +75,20 @@ public class  Character implements Subject {
     private void setAgility() {
         double agility=0;
         for(int i=0;i<ItemType.values().length;i++){
-            agility+=weapon[i].getAgility();
+            agility+=equipment[i].getAgility();
         }
         this.agility = Math.tanh(0.01*agility);
     }
 
     public void setWeapon(Item weapon) {
-        this.weapon[weapon.getType().ordinal()] = weapon;
+        this.equipment[weapon.getType().ordinal()] = weapon;
         if(ready) {
             setAgility();
             setExpertise();
             setLife();
             setResistance();
             setStrength();
-            setDesempeño();
+            setFitness();
         }
     }
     public void setHeight(double height){
@@ -96,7 +96,7 @@ public class  Character implements Subject {
         if(ready){
             setATM();
             setDEM();
-            setDesempeño();
+            setFitness();
         }
     }
 
@@ -119,7 +119,7 @@ public class  Character implements Subject {
     @Override
     public Subject cloneSubject() {
         Character subject = new Character(role);
-        for (Item item:weapon) {
+        for (Item item: equipment) {
             subject.setWeapon(item);
         }
         subject.setHeight(height);
@@ -146,7 +146,7 @@ public class  Character implements Subject {
         if(propertyIndex== ItemType.values().length){
             return height;
         }
-            return weapon[propertyIndex];
+            return equipment[propertyIndex];
     }
 
     @Override
@@ -162,6 +162,6 @@ public class  Character implements Subject {
     @Override
     public int compareTo(Subject o) {
         Character character = (Character)o;
-        return Double.compare(character.getDesempeño(),desempeño);
+        return Double.compare(character.getFitness(), fitness);
     }
 }

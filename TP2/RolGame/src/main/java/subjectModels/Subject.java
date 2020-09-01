@@ -1,13 +1,14 @@
 package subjectModels;
 
 public interface Subject extends Comparable<Subject> {
-    public Subject getRandom();
-    public Subject cloneSubject();
+    Subject getRandom();
+    Subject cloneSubject();
 
-    public double compareProperty(Subject gs, int propertyIndex);
-    public boolean isPropertySimilar(Subject gs, int propertyIndex);
-    public int getPropertyCount();
-    public Object getProperty(int propertyIndex);
-    public void setProperty(Object property, int propertyIndex);
-    public String toString();
+    double compareProperty(Subject gs, int propertyIndex);
+    boolean isPropertySimilar(Subject gs, int propertyIndex);
+    int getPropertyCount();
+    Object getProperty(int propertyIndex);
+    void setProperty(Object property, int propertyIndex);
+    String toString();
+    double getFitness();
 }
