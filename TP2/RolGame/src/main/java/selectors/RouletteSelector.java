@@ -18,8 +18,9 @@ public class RouletteSelector extends Selector{
             aux+=getFitnessR(i);
             accumulated[i]=aux;
         }
+        Random random = new Random();
         for (int i = 0; i <N; i++) {
-            ramdoms[i] = Math.random();
+            ramdoms[i] = random.nextDouble();
         }
         for(int i = 0; i<N;i++){
             int j;

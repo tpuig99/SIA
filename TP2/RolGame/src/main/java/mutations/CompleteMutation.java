@@ -4,7 +4,11 @@ import subjectModels.Subject;
 
 import java.util.Random;
 
-public class CompleteMutation implements Mutation {
+public class CompleteMutation extends Mutation {
+
+    CompleteMutation(float probability) {
+        super(probability);
+    }
 
     @Override
     public Subject mutate(Subject subject) {

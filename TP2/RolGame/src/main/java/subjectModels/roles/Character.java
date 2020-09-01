@@ -2,6 +2,7 @@ package subjectModels.roles;
 
 import subjectModels.Constants.ItemType;
 import subjectModels.Constants.Role;
+import subjectModels.RandomSubject;
 import subjectModels.Subject;
 import subjectModels.equipment.Item;
 import subjectModels.equipment.Items;
@@ -19,12 +20,14 @@ public class  Character implements Subject {
     private final double delta = 0.02;
     private final double minHeight = 1.3, maxHeight = 2.0;
     private final Random random;
+    private  RandomSubject randomSubject;
 
-    public Character(Role role) {
+    public Character(Role role, RandomSubject randomSubject) {
         this.role = role;
         ready = false;
         equipment = new Item[ItemType.values().length];
         random = new Random();
+        this.randomSubject =randomSubject;
     }
     public void setFitness(){
         fitness = role.getAttackId()*getAttack()+role.getDefenseId()*getDefense();
@@ -130,8 +133,7 @@ public class  Character implements Subject {
 
     // TODO: do logic for this method, please
     private void mutateEquipment(int index) {
-        // get a random item;
-        // replace current item with new;
+            equipment[index] = randomSubject.randomProperty(index);
     }
 
     public void mutateProperty(int index) {
@@ -161,7 +163,7 @@ public class  Character implements Subject {
 
     @Override
     public Subject cloneSubject() {
-        Character subject = new Character(role);
+        Character subject = new Character(role,randomSubject);
         for (Item item: equipment) {
             subject.setEquipment(item);
         }

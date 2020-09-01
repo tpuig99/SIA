@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class GenMutation implements Mutation {
+public class GenMutation extends Mutation {
+    GenMutation(float probability) {
+        super(probability);
+    }
+
     @Override
     public Subject mutate(Subject subject) {
         Subject mutant = subject.cloneSubject();
