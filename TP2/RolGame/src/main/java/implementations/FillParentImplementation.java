@@ -14,33 +14,31 @@ public class FillParentImplementation extends Implementation {
     }
 
     @Override
-    public List<Subject> evolve(List<Subject> oldSubjects, List<Subject> newSubjects, int K) {
+    public List<Subject> evolve(List<Subject> oldSubjects, List<Subject> newSubjects, int N) {
         List<Subject> newGenerationList = new ArrayList<>();
 
-        int n = oldSubjects.size();
+        int K = newSubjects.size();
 
-        if (K < 0) {
+        if (N < 0) {
             throw new IllegalArgumentException();
         }
 
-        int i = 0;
+        int firstSelection = (int)Math.floor(N*b);
+        int secondSelection = N - firstSelection;
 
-        if (K > n) {
-            while (newGenerationList.size() < n) {
-                newGenerationList.add(newSubjects.get(i%n));
-                i++;
-            }
+        if (K > N) {
+            newGenerationList.addAll(s1.select(newSubjects, firstSelection));
+            newGenerationList.addAll(s2.select(newSubjects, secondSelection));
         }
         else {
-            while (newGenerationList.size() < n) {
-                if (i < K) {
-                    newGenerationList.add(newSubjects.get(i));
-                }
-                else {
-                    newGenerationList.add(oldSubjects.get(i));
-                }
-                i++;
+            int oldSize = oldSubjects.size();
+            int i = 0;
+            List<Subject> fillParentList = new ArrayList<>(newSubjects);
+            while (fillParentList.size() < N) {
+                fillParentList.add(oldSubjects.get((i++)%oldSize));
             }
+            newGenerationList.addAll(s1.select(fillParentList, firstSelection));
+            newGenerationList.addAll(s2.select(fillParentList, secondSelection));
         }
 
         return newGenerationList;
