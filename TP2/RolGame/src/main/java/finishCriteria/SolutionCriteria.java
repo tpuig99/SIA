@@ -16,12 +16,11 @@ public class SolutionCriteria implements FinishCriteria{
 
     @Override
     public boolean shouldFinish(List<Subject> subjects) {
-        subjects.sort(new Comparator<Subject>() {
-            @Override
-            public int compare(Subject o1, Subject o2) {
-                return Double.compare(o1.getFitness(),o2.getFitness());
-            }
-        });
-        return subjects.get(0).getFitness()>=fitnessCriteria;
+        return Collections.min(subjects).getFitness()>=fitnessCriteria;
+    }
+
+    @Override
+    public String toString() {
+        return "Acceptable Solution Criteria with min fitness greater than "+fitnessCriteria;
     }
 }

@@ -32,4 +32,9 @@ public class DoublePointCrossover implements Crossover {
 
         return crossoverList;
     }
+
+    @Override
+    public String toString() {
+        return "Double Point Crossover";
+    }
 }

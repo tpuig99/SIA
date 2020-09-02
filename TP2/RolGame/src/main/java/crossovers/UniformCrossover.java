@@ -23,4 +23,9 @@ public class UniformCrossover implements Crossover{
         ans.add(c2);
         return ans;
     }
+
+    @Override
+    public String toString() {
+        return "Uniform Crossover";
+    }
 }

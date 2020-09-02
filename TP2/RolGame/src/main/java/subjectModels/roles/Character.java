@@ -221,7 +221,16 @@ public class  Character implements Subject {
     @Override
     public int compareTo(Subject o) {
         Character character = (Character)o;
-        return Double.compare(character.getFitness(), fitness);
+        return Double.compare(fitness,character.getFitness());
+    }
+
+    @Override
+    public String toString() {
+        return "Character: \n" +
+                "role= " + role +
+                "\nfitness= " + fitness+
+                "\nheight= " + height +
+                "\nequipment= " + Arrays.toString(equipment) ;
     }
 
     @Override

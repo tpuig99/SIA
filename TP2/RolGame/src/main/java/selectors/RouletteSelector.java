@@ -30,4 +30,9 @@ public class RouletteSelector extends Selector{
         return ans;
     }
 
+    @Override
+    public String toString() {
+        return "Roulette Selector";
+    }
+
 }

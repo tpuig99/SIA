@@ -44,4 +44,9 @@ public class DeterministicTournamentsSelector extends Selector {
 
         return selectedList;
     }
+
+    @Override
+    public String toString() {
+        return "Deterministic Tournaments Selector";
+    }
 }

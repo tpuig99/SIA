@@ -58,4 +58,11 @@ public class Item {
     public int hashCode() {
         return Objects.hash(id, type);
     }
+
+    @Override
+    public String toString() {
+        return "Item: " +
+                "id=" + id +
+                ", type=" + type;
+    }
 }

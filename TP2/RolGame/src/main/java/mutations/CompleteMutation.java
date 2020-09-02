@@ -5,6 +5,10 @@ import subjectModels.Subject;
 import java.util.Random;
 
 public class CompleteMutation extends Mutation {
+    @Override
+    public String toString() {
+        return "Complete Mutation";
+    }
 
     CompleteMutation(float probability) {
         super(probability);

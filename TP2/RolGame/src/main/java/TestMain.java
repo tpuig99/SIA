@@ -19,6 +19,7 @@ import subjectModels.RandomSubject;
 import subjectModels.Subject;
 import subjectModels.roles.RandomCharacter;
 
+import javax.security.auth.login.Configuration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -50,6 +51,7 @@ public class TestMain {
     int populationSize;
     int initialPopulationSize;
 
+    int generation = 0;
 
     public void run(){
         getConfiguration();
@@ -61,6 +63,7 @@ public class TestMain {
         List<Subject> parentSelection;
         List<Subject> newGeneration;
         while (!finishCriteria.shouldFinish(population)){
+                generation++;
                 newGeneration = new ArrayList<>();
                 parentSelection = new ArrayList<>();
 
@@ -83,7 +86,15 @@ public class TestMain {
             }
             population = new ArrayList<>();
             population.addAll(fillImplementation.evolve(parentSelection,newGeneration,populationSize));
+            getInformation(population);
         }
+    }
+
+    private void getInformation(List<Subject> population) {
+        System.out.println(generation);
+        System.out.println("Min fitness: "+Collections.min(population).getFitness());
+        System.out.println("Max fitness: "+Collections.max(population).getFitness());
+        System.out.println();
     }
 
     private void getConfiguration() {
@@ -112,7 +123,17 @@ public class TestMain {
 
         //path;
 
-
+        System.out.println("Configuration");
+        System.out.println("Initial Population Size: "+initialPopulationSize);
+        System.out.println("Population Size: "+populationSize);
+        System.out.println("Parents selectors: "+sParent1+", "+sParent2+". Percentage "+sParentPer+". Size "+parentSelectSize);
+        System.out.println("Replacement selectors: "+sReplace1+", "+sReplace2+". Percentage "+sReplacePer);
+        System.out.println("CrossOver: "+crossover+". Childs Size: "+crossoverSize);
+        System.out.println("Mutation: "+mutation);
+        System.out.println("Fill implementation: "+fillImplementation);
+        System.out.println("Finish Criteria: "+finishCriteria);
+        System.out.println("-----------------------------------------------------------");
+        System.out.println();
 
     }
 }

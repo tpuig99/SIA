@@ -44,4 +44,9 @@ public class StructureCriteria implements FinishCriteria{
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Structure Criteria with percentage: "+percentage+" and limit generations: "+limitGen;
+    }
 }

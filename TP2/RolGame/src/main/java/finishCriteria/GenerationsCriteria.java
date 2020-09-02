@@ -20,4 +20,9 @@ public class GenerationsCriteria implements FinishCriteria {
         currentGen++;
         return generations==currentGen;
     }
+
+    @Override
+    public String toString() {
+        return "Generations Criteria with limit: "+generations;
+    }
 }

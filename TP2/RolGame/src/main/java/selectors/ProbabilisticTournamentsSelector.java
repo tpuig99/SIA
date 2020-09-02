@@ -48,4 +48,9 @@ public class ProbabilisticTournamentsSelector extends Selector {
 
         return selectedList;
     }
+
+    @Override
+    public String toString() {
+        return "Probabilistic Tournaments Selector";
+    }
 }

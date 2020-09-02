@@ -29,4 +29,9 @@ public class LimitedMultigeneMutation extends Mutation{
         }
         return mutatedSubj;
     }
+
+    @Override
+    public String toString() {
+        return "Limited Multigene Mutation";
+    }
 }

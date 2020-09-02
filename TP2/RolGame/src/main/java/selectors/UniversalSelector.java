@@ -29,4 +29,9 @@ public class UniversalSelector extends Selector{
         return ans;
     }
 
+    @Override
+    public String toString() {
+        return "Universal Selector";
+    }
+
 }

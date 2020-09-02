@@ -32,4 +32,9 @@ public class ContentCriteria implements FinishCriteria {
 
         return generationsAcum == generationsLimit;
     }
+
+    @Override
+    public String toString() {
+        return "Content Criteria";
+    }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GenMutation extends Mutation {
+
     GenMutation(float probability) {
         super(probability);
     }
@@ -19,4 +20,9 @@ public class GenMutation extends Mutation {
         mutant.mutateProperty(selectedGen);
         return mutant;
     }
+    @Override
+    public String toString() {
+        return "Gen Mutation";
+    }
+
 }

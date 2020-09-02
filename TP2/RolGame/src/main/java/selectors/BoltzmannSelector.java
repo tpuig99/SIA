@@ -46,6 +46,11 @@ public class BoltzmannSelector extends Selector {
         return selectionList;
     }
 
+    @Override
+    public String toString() {
+        return "Boltzmann Selector";
+    }
+
     private double getSum(List<Subject> subjects, double currentTemperature) {
         double sum = 0;
         for (Subject subject : subjects) {

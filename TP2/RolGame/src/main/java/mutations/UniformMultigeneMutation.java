@@ -20,4 +20,9 @@ public class UniformMultigeneMutation extends Mutation{
         }
         return mutatedSubj;
     }
+
+    @Override
+    public String toString() {
+        return "Uniform Multigene Mutation";
+    }
 }

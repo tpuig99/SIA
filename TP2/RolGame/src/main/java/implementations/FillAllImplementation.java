@@ -21,4 +21,9 @@ public class FillAllImplementation extends Implementation{
         newGeneration.addAll(s2.select(oldSubjects,K-percentage));
         return newGeneration;
     }
+
+    @Override
+    public String toString() {
+        return "FillAll Implementation";
+    }
 }
