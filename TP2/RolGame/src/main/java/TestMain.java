@@ -88,6 +88,9 @@ public class TestMain {
             population.addAll(fillImplementation.evolve(parentSelection,newGeneration,populationSize));
             getInformation(population);
         }
+        System.out.println("Best in generation "+generation);
+        System.out.println(Collections.max(population));
+
     }
 
     private void getInformation(List<Subject> population) {
@@ -117,7 +120,7 @@ public class TestMain {
         initialPopulationSize = 100;
         populationSize = 150;
 
-        finishCriteria = new StructureCriteria((int) Math.ceil(0.3*populationSize),3);
+        finishCriteria = new SolutionCriteria(16);
 
         role = Role.ARCHER;
 
