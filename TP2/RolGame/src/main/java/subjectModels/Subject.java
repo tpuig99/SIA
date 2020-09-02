@@ -11,4 +11,5 @@ public interface Subject extends Comparable<Subject> {
     void setProperty(Object property, int propertyIndex);
     String toString();
     double getFitness();
+    void mutateProperty(int index);
 }

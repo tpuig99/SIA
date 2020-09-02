@@ -1,4 +1,23 @@
 package mutations;
 
-public class CompleteMutation {
+import subjectModels.Subject;
+
+import java.util.Random;
+
+public class CompleteMutation extends Mutation {
+
+    CompleteMutation(float probability) {
+        super(probability);
+    }
+
+    @Override
+    public Subject mutate(Subject subject) {
+        Subject mutant = subject.cloneSubject();
+
+        for (int i = 0; i < subject.getPropertyCount(); i++) {
+            mutant.mutateProperty(i);
+        }
+
+        return mutant;
+    }
 }
