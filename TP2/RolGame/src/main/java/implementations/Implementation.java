@@ -17,5 +17,5 @@ public abstract class Implementation {
         this.b = b;
     }
 
-    abstract List<Subject> evolve (List<Subject> oldSubjects, List<Subject> newSubjects, int K);
+    public abstract List<Subject> evolve (List<Subject> oldSubjects, List<Subject> newSubjects, int K);
 }

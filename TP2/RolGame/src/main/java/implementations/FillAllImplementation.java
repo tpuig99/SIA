@@ -13,7 +13,7 @@ public class FillAllImplementation extends Implementation{
     }
 
     @Override
-    List<Subject> evolve(List<Subject> oldSubjects, List<Subject> newSubjects, int K) {
+    public List<Subject> evolve(List<Subject> oldSubjects, List<Subject> newSubjects, int K) {
         oldSubjects.addAll(newSubjects);
         List<Subject> newGeneration = new ArrayList<>();
         int percentage = (int)Math.ceil(K*b);

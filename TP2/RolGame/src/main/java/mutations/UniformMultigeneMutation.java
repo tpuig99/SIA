@@ -6,12 +6,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UniformMultigeneMutation extends Mutation{
-    UniformMultigeneMutation(float probability) {
+    public UniformMultigeneMutation(float probability) {
         super(probability);
     }
 
     @Override
-    Subject mutate(Subject subject) {
+    public Subject mutate(Subject subject) {
         Subject mutatedSubj = subject.cloneSubject();
         for (int i = 0; i < mutatedSubj.getPropertyCount(); i++) {
             if(probability>=random.nextFloat()) {

@@ -5,13 +5,14 @@ import subjectModels.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class AnularCrossover implements Crossover{
-
+    Random random = new Random();
     @Override
     public List<Subject> cross(Subject subject1, Subject subject2) {
-        int point = (int) (Math.random()*(subject1.getPropertyCount()-1));
-        int length = (int) (Math.random()*(subject1.getPropertyCount()/2));
+        int point = random.nextInt(subject1.getPropertyCount()-1);
+        int length = random.nextInt(subject1.getPropertyCount()/2);
         List<Subject> ans = new ArrayList<>();
         Subject c1 = subject1.cloneSubject();
         Subject c2 = subject2.cloneSubject();

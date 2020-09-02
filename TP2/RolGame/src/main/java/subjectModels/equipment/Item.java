@@ -3,6 +3,8 @@ package subjectModels.equipment;
 
 import subjectModels.Constants.ItemType;
 
+import java.util.Objects;
+
 public class Item {
     double strength, agility, expertise, resistance, life;
     int id;
@@ -41,5 +43,19 @@ public class Item {
 
     public double getLife() {
         return life;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return id == item.id &&
+                type == item.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type);
     }
 }

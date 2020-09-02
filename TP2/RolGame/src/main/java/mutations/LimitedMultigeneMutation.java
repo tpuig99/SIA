@@ -8,12 +8,12 @@ import java.util.Set;
 
 public class LimitedMultigeneMutation extends Mutation{
 
-    LimitedMultigeneMutation(float probability) {
+    public LimitedMultigeneMutation(float probability) {
         super(probability);
     }
 
     @Override
-    Subject mutate(Subject subject) {
+    public Subject mutate(Subject subject) {
         Subject mutatedSubj = subject.cloneSubject();
         int gensToMutate = random.nextInt(mutatedSubj.getPropertyCount());
         Set<Integer> mutateGens = new HashSet<>();
