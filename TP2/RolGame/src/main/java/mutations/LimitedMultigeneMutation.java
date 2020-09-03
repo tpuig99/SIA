@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class LimitedMultigeneMutation extends Mutation{
 
-    LimitedMultigeneMutation(float probability) {
+    public LimitedMultigeneMutation(float probability) {
         super(probability);
     }
 
