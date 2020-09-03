@@ -1,0 +1,72 @@
+{
+    "population": 3000,
+    "parentSize": 1000,
+    "selectionSize": 1000
+    "chosenParentSelection": {
+      "parent1": "pTournament",
+      "parent2": "dTournament",
+      "a": 0.8,
+    },
+    "chosenCrossover": {
+      "name": "uniform"
+    },
+    "chosenMutation": {
+      "name": "limited",
+      "p_m": 0.8,
+    },
+    "chosenSubjectSelection": {
+      "subject1": "elite",
+      "subject2": "ranking",
+      "b": 0.5,
+      "fill": "fillParent"
+    },
+    "chosenFinishCriteria": {
+      "name": "generations",
+    },
+
+    "parentSelection": {
+      "boltzmann": {
+          "t0": 10,
+          "tc": 2
+      },
+      "pTournament": {
+          "threshold": 0.6,
+      },
+      "dTournament": {
+          "threshold": 60,
+      },
+    },
+
+    "subjectSelection": {
+      "boltzmann": {
+          "t0": 10,
+          "tc": 2
+      },
+      "pTournament": {
+          "threshold": 0.6,
+      },
+      "dTournament": {
+          "threshold": 60,
+      },
+    },
+
+    "finishCriteria": {
+      "time": {
+          "seconds": 90,
+      },
+      "content": {
+          "generationsLimit": 10,
+          "epsilon": 0.2
+      },
+      "structure": {
+          "generationsLimit": 10,
+          "percentage": 50
+      },
+      "generations": {
+          "generationsLimit": 10
+      },
+      "solution": {
+          "fitness": 10.0
+      },
+    },
+}

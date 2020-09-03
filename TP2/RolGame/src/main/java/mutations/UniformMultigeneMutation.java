@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UniformMultigeneMutation extends Mutation{
-    UniformMultigeneMutation(float probability) {
+    public UniformMultigeneMutation(float probability) {
         super(probability);
     }
 

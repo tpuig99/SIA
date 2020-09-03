@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GenMutation extends Mutation {
-    GenMutation(float probability) {
+    public GenMutation(float probability) {
         super(probability);
     }
 

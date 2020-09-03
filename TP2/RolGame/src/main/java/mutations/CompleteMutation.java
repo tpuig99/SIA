@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class CompleteMutation extends Mutation {
 
-    CompleteMutation(float probability) {
+    public CompleteMutation(float probability) {
         super(probability);
     }
 
