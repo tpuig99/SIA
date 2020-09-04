@@ -1,27 +1,27 @@
 {
-    "population": 3000,
-    "parentSize": 1000,
-    "selectionSize": 1000
+    "population": 150,
+    "parentSize": 50,
+    "selectionSize": 40
     "chosenParentSelection": {
-      "parent1": "pTournament",
-      "parent2": "dTournament",
-      "a": 0.8,
+      "parent1": "universal",
+      "parent2": "roulette",
+      "a": 0.5,
     },
     "chosenCrossover": {
       "name": "uniform"
     },
     "chosenMutation": {
-      "name": "limited",
-      "p_m": 0.8,
+      "name": "uniform",
+      "p_m": 0.2,
     },
     "chosenSubjectSelection": {
-      "subject1": "elite",
-      "subject2": "ranking",
+      "subject1": "ranking",
+      "subject2": "universal",
       "b": 0.5,
-      "fill": "fillParent"
+      "fill": "fillAll"
     },
     "chosenFinishCriteria": {
-      "name": "generations",
+      "name": "solution",
     },
 
     "parentSelection": {
@@ -60,13 +60,13 @@
       },
       "structure": {
           "generationsLimit": 10,
-          "percentage": 50
+          "percentage": 0.5
       },
       "generations": {
           "generationsLimit": 10
       },
       "solution": {
-          "fitness": 10.0
+          "fitness": 16.0
       },
     },
 }

@@ -16,7 +16,14 @@ public class GenMutation extends Mutation {
         Subject mutant = subject.cloneSubject();
         Random random = new Random();
         int selectedGen = random.nextInt(subject.getPropertyCount()); // generates random integer from 0 to 5
-        mutant.mutateProperty(selectedGen);
+        if(probability>=random.nextFloat()) {
+            mutant.mutateProperty(selectedGen);
+        }
         return mutant;
     }
+    @Override
+    public String toString() {
+        return "Gen Mutation";
+    }
+
 }

@@ -13,7 +13,7 @@ public class LimitedMultigeneMutation extends Mutation{
     }
 
     @Override
-    Subject mutate(Subject subject) {
+    public Subject mutate(Subject subject) {
         Subject mutatedSubj = subject.cloneSubject();
         int gensToMutate = random.nextInt(mutatedSubj.getPropertyCount());
         Set<Integer> mutateGens = new HashSet<>();
@@ -28,5 +28,10 @@ public class LimitedMultigeneMutation extends Mutation{
             }
         }
         return mutatedSubj;
+    }
+
+    @Override
+    public String toString() {
+        return "Limited Multigene Mutation";
     }
 }

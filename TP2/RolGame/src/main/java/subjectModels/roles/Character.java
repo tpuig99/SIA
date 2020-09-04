@@ -7,6 +7,8 @@ import subjectModels.Subject;
 import subjectModels.equipment.Item;
 import subjectModels.equipment.Items;
 
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 public class  Character implements Subject {
@@ -33,6 +35,16 @@ public class  Character implements Subject {
         fitness = role.getAttackId()*getAttack()+role.getDefenseId()*getDefense();
     }
     public double getFitness(){
+        if(fitness==0){
+            setStrength();
+            setResistance();
+            setLife();
+            setExpertise();
+            setAgility();
+            setATM();
+            setDEM();
+            setFitness();
+        }
         return fitness;
     }
     private double getDefense() {
@@ -167,7 +179,9 @@ public class  Character implements Subject {
         for (Item item: equipment) {
             subject.setEquipment(item);
         }
+        subject.ready = ready;
         subject.setHeight(height);
+
         return subject;
     }
 
@@ -207,6 +221,32 @@ public class  Character implements Subject {
     @Override
     public int compareTo(Subject o) {
         Character character = (Character)o;
-        return Double.compare(character.getFitness(), fitness);
+        return Double.compare(character.getFitness(),fitness);
+    }
+
+    @Override
+    public String toString() {
+        return "Character: \n" +
+                "role= " + role +
+                "\nfitness= " + fitness+
+                "\nheight= " + height +
+                "\nequipment= " + Arrays.toString(equipment) ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Character character = (Character) o;
+        return Math.abs(height-((Character) o).height)<=0.0005 &&
+                Arrays.equals(equipment, character.equipment) &&
+                role == character.role;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(height, role);
+        result = 31 * result + Arrays.hashCode(equipment);
+        return result;
     }
 }

@@ -13,5 +13,5 @@ public abstract class Mutation {
         this.probability = probability;
     }
 
-    abstract Subject mutate (Subject subject);
+    public abstract Subject mutate (Subject subject);
 }

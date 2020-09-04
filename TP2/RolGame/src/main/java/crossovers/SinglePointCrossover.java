@@ -30,4 +30,9 @@ public class SinglePointCrossover implements Crossover {
 
         return crossoverList;
     }
+
+    @Override
+    public String toString() {
+        return "Single Point Crossover";
+    }
 }

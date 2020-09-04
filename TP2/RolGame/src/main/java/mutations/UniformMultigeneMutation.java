@@ -11,7 +11,7 @@ public class UniformMultigeneMutation extends Mutation{
     }
 
     @Override
-    Subject mutate(Subject subject) {
+    public Subject mutate(Subject subject) {
         Subject mutatedSubj = subject.cloneSubject();
         for (int i = 0; i < mutatedSubj.getPropertyCount(); i++) {
             if(probability>=random.nextFloat()) {
@@ -19,5 +19,10 @@ public class UniformMultigeneMutation extends Mutation{
             }
         }
         return mutatedSubj;
+    }
+
+    @Override
+    public String toString() {
+        return "Uniform Multigene Mutation";
     }
 }

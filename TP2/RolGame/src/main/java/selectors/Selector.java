@@ -29,4 +29,7 @@ public abstract class Selector {
     int getSubjectsSize(){
         return subjects.size();
     }
+
+    @Override
+    public abstract String toString();
 }

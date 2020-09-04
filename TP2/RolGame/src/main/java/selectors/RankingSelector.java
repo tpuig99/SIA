@@ -24,4 +24,9 @@ public class RankingSelector extends RouletteSelector{
     double getFitnessR(int index) {
         return ((double) (index+1)/(double)x);
     }
+
+    @Override
+    public String toString() {
+        return "Ranking Selector";
+    }
 }

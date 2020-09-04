@@ -20,4 +20,9 @@ public class TimeCriteria implements FinishCriteria {
 
         return (System.currentTimeMillis() - startTimeMillis) >= durationMillis;
     }
+
+    @Override
+    public String toString() {
+        return "Time Criteria with time: "+durationMillis;
+    }
 }

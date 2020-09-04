@@ -26,4 +26,9 @@ public class EliteSelector extends Selector {
         }
         return selectionList;
     }
+
+    @Override
+    public String toString() {
+        return "Elite Selector";
+    }
 }
