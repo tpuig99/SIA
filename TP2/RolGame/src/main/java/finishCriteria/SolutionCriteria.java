@@ -16,7 +16,7 @@ public class SolutionCriteria implements FinishCriteria{
 
     @Override
     public boolean shouldFinish(List<Subject> subjects) {
-        return Collections.min(subjects).getFitness()>=fitnessCriteria;
+        return Collections.max(subjects).getFitness()>=fitnessCriteria;
     }
 
     @Override

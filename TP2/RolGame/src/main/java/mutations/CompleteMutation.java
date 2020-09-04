@@ -10,18 +10,18 @@ public class CompleteMutation extends Mutation {
         return "Complete Mutation";
     }
 
-    CompleteMutation(float probability) {
+    public CompleteMutation(float probability) {
         super(probability);
     }
 
     @Override
     public Subject mutate(Subject subject) {
         Subject mutant = subject.cloneSubject();
-
-        for (int i = 0; i < subject.getPropertyCount(); i++) {
-            mutant.mutateProperty(i);
+        if(probability>=random.nextFloat()) {
+            for (int i = 0; i < subject.getPropertyCount(); i++) {
+                mutant.mutateProperty(i);
+            }
         }
-
         return mutant;
     }
 }

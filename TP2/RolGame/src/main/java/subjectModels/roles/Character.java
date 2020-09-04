@@ -221,7 +221,7 @@ public class  Character implements Subject {
     @Override
     public int compareTo(Subject o) {
         Character character = (Character)o;
-        return Double.compare(fitness,character.getFitness());
+        return Double.compare(character.getFitness(),fitness);
     }
 
     @Override

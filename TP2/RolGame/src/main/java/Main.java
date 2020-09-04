@@ -1,9 +1,13 @@
 
-import crossovers.Crossover;
-import finishCriteria.FinishCriteria;
-import mutations.Mutation;
-import selectors.RankingSelector;
-import selectors.Selector;
+import crossovers.*;
+import finishCriteria.*;
+import implementations.FillAllImplementation;
+import implementations.FillParentImplementation;
+import implementations.Implementation;
+import mutations.*;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import selectors.*;
 import subjectModels.Constants.ItemType;
 import subjectModels.Constants.Role;
 import subjectModels.RandomSubject;
@@ -15,8 +19,6 @@ import subjectModels.roles.RandomCharacter;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,4 @@ public class Main {
         new TestMain().run();
 
     }
-
-
-
 }

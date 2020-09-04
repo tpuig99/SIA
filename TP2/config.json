@@ -1,0 +1,72 @@
+{
+    "population": 150,
+    "parentSize": 50,
+    "selectionSize": 40
+    "chosenParentSelection": {
+      "parent1": "universal",
+      "parent2": "roulette",
+      "a": 0.5,
+    },
+    "chosenCrossover": {
+      "name": "uniform"
+    },
+    "chosenMutation": {
+      "name": "uniform",
+      "p_m": 0.2,
+    },
+    "chosenSubjectSelection": {
+      "subject1": "ranking",
+      "subject2": "universal",
+      "b": 0.5,
+      "fill": "fillAll"
+    },
+    "chosenFinishCriteria": {
+      "name": "solution",
+    },
+
+    "parentSelection": {
+      "boltzmann": {
+          "t0": 10,
+          "tc": 2
+      },
+      "pTournament": {
+          "threshold": 0.6,
+      },
+      "dTournament": {
+          "threshold": 60,
+      },
+    },
+
+    "subjectSelection": {
+      "boltzmann": {
+          "t0": 10,
+          "tc": 2
+      },
+      "pTournament": {
+          "threshold": 0.6,
+      },
+      "dTournament": {
+          "threshold": 60,
+      },
+    },
+
+    "finishCriteria": {
+      "time": {
+          "seconds": 90,
+      },
+      "content": {
+          "generationsLimit": 10,
+          "epsilon": 0.2
+      },
+      "structure": {
+          "generationsLimit": 10,
+          "percentage": 0.5
+      },
+      "generations": {
+          "generationsLimit": 10
+      },
+      "solution": {
+          "fitness": 16.0
+      },
+    },
+}
