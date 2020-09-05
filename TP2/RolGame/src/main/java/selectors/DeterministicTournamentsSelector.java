@@ -28,17 +28,17 @@ public class DeterministicTournamentsSelector extends Selector {
         }
 
         while (selectedList.size() < K) {
-            Double bestFitness = null;
+            Subject bestSubject = null;
             Subject randomSubject = null;
 
             for (int i = 0; i < threshold; i++) {
                 randomSubject = subjects.get(randomGenerator.nextInt(subjects.size()));
-                if (bestFitness == null || randomSubject.getFitness() < bestFitness) {
-                    bestFitness = randomSubject.getFitness();
+                if (bestSubject == null || randomSubject.getFitness() > bestSubject.getFitness()) {
+                    bestSubject = randomSubject;
                 }
             }
-            if (randomSubject != null) {
-                selectedList.add(randomSubject);
+            if (bestSubject != null) {
+                selectedList.add(bestSubject);
             }
         }
 

@@ -40,7 +40,7 @@ public class TestMain {
 
     public void run(){
         readFromConfig();
-        role = Role.ARCHER;
+
         List<Subject> population = new ArrayList<>();
         RandomSubject rdm = new RandomCharacter();
         for (int i = 0; i < populationSize; i++) {
@@ -130,6 +130,7 @@ public class TestMain {
         }
 
         if (configObj != null) {
+            role = parseRole((String) configObj.get("role"));
             populationSize = (int) ((long) configObj.get("population"));
             parentSelectSize = (int) ((long) configObj.get("parentSize"));
             selectionSize = (int) ((long) configObj.get("selectionSize"));
@@ -150,6 +151,20 @@ public class TestMain {
         System.out.println("Finish Criteria: "+finishCriteria);
         System.out.println("-----------------------------------------------------------");
         System.out.println();
+    }
+
+    public static Role parseRole (String role) {
+        switch (role) {
+            case "archer":
+                return Role.ARCHER;
+            case "warrior":
+                return Role.WARRIOR;
+            case "infiltrate":
+                return Role.INFILTRATE;
+            case "defender":
+                return Role.DEFENDER;
+        }
+        return null;
     }
 
     private static Crossover parseCrossover(JSONObject crossoverObj){

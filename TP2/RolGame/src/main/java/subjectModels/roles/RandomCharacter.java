@@ -19,12 +19,11 @@ public class RandomCharacter implements RandomSubject {
     Items boots,weapon,helmets,armors,gloves;
 
     public RandomCharacter() {
-        boots = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\botas.tsv", ItemType.BOOTS);
-        weapon = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\armas.tsv", ItemType.WEAPON);
-        helmets = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\cascos.tsv", ItemType.HELMET);
-        armors = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\pecheras.tsv", ARMOR);
-        gloves = Parser("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\dataset\\prueba\\guantes.tsv", ItemType.GLOVES);
-
+        boots = Parser("../../../fulldata/botas.tsv", ItemType.BOOTS);
+        weapon = Parser("../../../fulldata/armas.tsv", ItemType.WEAPON);
+        helmets = Parser("../../../fulldata/cascos.tsv", ItemType.HELMET);
+        armors = Parser("../../../fulldata/pecheras.tsv", ARMOR);
+        gloves = Parser("../../../fulldata/guantes.tsv", ItemType.GLOVES);
     }
 
     @Override
