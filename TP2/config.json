@@ -1,11 +1,11 @@
 {
     "role": "archer",
-    "population": 150,
-    "parentSize": 50,
-    "selectionSize": 40
+    "population": 2000,
+    "parentSize": 500,
+    "selectionSize": 500
     "chosenParentSelection": {
       "parent1": "elite",
-      "parent2": "elite",
+      "parent2": "boltzmann",
       "a": 0.5,
     },
     "chosenCrossover": {
@@ -16,13 +16,13 @@
       "p_m": 0.2,
     },
     "chosenSubjectSelection": {
-      "subject1": "dTournament",
+      "subject1": "pTournament",
       "subject2": "dTournament",
       "b": 0.5,
       "fill": "fillAll"
     },
     "chosenFinishCriteria": {
-      "name": "content",
+      "name": "generations",
     },
 
     "parentSelection": {
@@ -44,10 +44,10 @@
           "tc": 2
       },
       "pTournament": {
-          "threshold": 0.6,
+          "threshold": 0.8,
       },
       "dTournament": {
-          "threshold": 60,
+          "threshold": 10,
       },
     },
 
@@ -64,10 +64,10 @@
           "percentage": 0.5
       },
       "generations": {
-          "generationsLimit": 10
+          "generationsLimit": 90
       },
       "solution": {
-          "fitness": 24.0
+          "fitness": 20.0
       },
     },
 }

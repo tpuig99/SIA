@@ -3,6 +3,18 @@ import finishCriteria.*;
 import implementations.FillAllImplementation;
 import implementations.FillParentImplementation;
 import implementations.Implementation;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.scene.Scene;
+import javafx.scene.chart.Axis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import mutations.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,8 +28,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
-public class TestMain {
+public class TestMain extends Application {
     private static Selector sParent1;
     private static Selector sParent2;
     private static double sParentPer;
@@ -38,7 +54,39 @@ public class TestMain {
     private static int generation = 0;
     private static JSONObject configObj;
 
-    public void run(){
+    private static ObservableList<XYChart.Data> aList, bList;
+    private static ObservableList<XYChart.Series> seriesList;
+
+    @Override
+    public void start(Stage primaryStage) {
+        Pane root = new Pane();
+        // Create empty series
+        seriesList = FXCollections.observableArrayList();
+
+        // XYChart.Data(8, 115)
+        aList = FXCollections.observableArrayList();
+        seriesList.add(new XYChart.Series("BestFitness", aList));
+
+        // XYChart.Data(8, 115)
+        bList = FXCollections.observableArrayList();
+        seriesList.add(new XYChart.Series("WorstFitness", bList));
+
+        // Create axes
+        Axis xAxis = new NumberAxis("Generations", 0, 100, 1);
+        Axis yAxis = new NumberAxis("Fitness", 5,40,0.2);
+
+        LineChart chart = new LineChart(xAxis, yAxis, seriesList);
+
+        root.getChildren().add(chart);
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+        run();
+    }
+
+    public void run() {
         readFromConfig();
 
         List<Subject> population = new ArrayList<>();
@@ -48,6 +96,9 @@ public class TestMain {
         }
         List<Subject> parentSelection;
         List<Subject> newGeneration;
+
+
+
         while (!finishCriteria.shouldFinish(population)){
                 generation++;
                 newGeneration = new ArrayList<>();
@@ -92,6 +143,11 @@ public class TestMain {
         }
         Double prom=aux/(double)population.size();
 
+        seriesList.get(0).getData().add(new XYChart.Data(generation, max));
+        seriesList.get(1).getData().add(new XYChart.Data(generation, min));
+
+        // aList.add(new XYChart.Data(generation, max));
+        // bList.add(new XYChart.Data(generation, min));
     }
 
     private void getConfiguration() {

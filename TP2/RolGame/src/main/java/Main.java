@@ -4,6 +4,8 @@ import finishCriteria.*;
 import implementations.FillAllImplementation;
 import implementations.FillParentImplementation;
 import implementations.Implementation;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import mutations.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -26,7 +28,6 @@ import static subjectModels.Constants.ItemType.ARMOR;
 
 public class Main {
     public static void main(String[] args){
-        new TestMain().run();
-
+        Application.launch(TestMain.class, args);
     }
 }
