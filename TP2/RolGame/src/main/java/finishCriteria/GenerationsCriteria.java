@@ -17,8 +17,7 @@ public class GenerationsCriteria implements FinishCriteria {
 
     @Override
     public boolean shouldFinish(List<Subject> subjects) {
-        currentGen++;
-        return generations==currentGen;
+        return generations==currentGen++;
     }
 
     @Override

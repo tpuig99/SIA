@@ -1,23 +1,23 @@
 {
     "role": "archer",
-    "population": 150,
-    "parentSize": 50,
-    "selectionSize": 40
+    "population": 3000,
+    "parentSize": 1800,
+    "selectionSize": 1200
     "chosenParentSelection": {
-      "parent1": "elite",
-      "parent2": "elite",
+      "parent1": "universal",
+      "parent2": "universal",
       "a": 0.5,
     },
     "chosenCrossover": {
-      "name": "double"
+      "name": "uniform"
     },
     "chosenMutation": {
       "name": "complete",
-      "p_m": 0.2,
+      "p_m": 0.6,
     },
     "chosenSubjectSelection": {
-      "subject1": "dTournament",
-      "subject2": "dTournament",
+      "subject1": "roulette",
+      "subject2": "ranking",
       "b": 0.5,
       "fill": "fillAll"
     },
@@ -44,10 +44,10 @@
           "tc": 2
       },
       "pTournament": {
-          "threshold": 0.6,
+          "threshold": 0.5,
       },
       "dTournament": {
-          "threshold": 60,
+          "threshold": 200,
       },
     },
 
@@ -56,15 +56,15 @@
           "seconds": 30,
       },
       "content": {
-          "generationsLimit": 10,
-          "epsilon": 0.2
+          "generationsLimit": 30,
+          "epsilon": 0.01
       },
       "structure": {
           "generationsLimit": 10,
           "percentage": 0.5
       },
       "generations": {
-          "generationsLimit": 10
+          "generationsLimit": 20
       },
       "solution": {
           "fitness": 24.0
