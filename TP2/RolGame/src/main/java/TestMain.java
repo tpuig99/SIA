@@ -49,7 +49,7 @@ public class TestMain {
 
     public void run(){
         readFromConfig();
-        path="C:\\\\Users\\\\tamyp\\\\OneDrive\\\\Desktop\\\\ITBA\\\\3ero\\\\SIA\\\\dataset\\\\fulldata";
+
         List<Subject> population = new ArrayList<>();
         RandomSubject rdm = new RandomCharacter(path);
         for (int i = 0; i < populationSize; i++) {
@@ -141,6 +141,7 @@ public class TestMain {
         }
 
         if (configObj != null) {
+            path = (String) configObj.get("path");
             role = parseRole((String) configObj.get("role"));
             populationSize = (int) ((long) configObj.get("population"));
             parentSelectSize = (int) ((long) configObj.get("parentSize"));

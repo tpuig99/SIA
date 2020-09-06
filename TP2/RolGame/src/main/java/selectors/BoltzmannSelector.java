@@ -4,7 +4,7 @@ import subjectModels.Subject;
 
 import java.util.*;
 
-public class BoltzmannSelector extends Selector {
+public class BoltzmannSelector extends RouletteSelector {
 
     private final double T0;
     private final double Tc;
@@ -24,16 +24,14 @@ public class BoltzmannSelector extends Selector {
         }
 
         double currentT = getT();
-        double sum = getSum(subjects, currentT);
+        double avg = getAvg(subjects, currentT);
         double[] roulette = new double[subjects.size()];
         double[] expectedValues = new double[subjects.size()];
 
         for (int i = 0; i < subjects.size(); i++) {
             roulette[i] = Math.random();
-            expectedValues[i] = Math.exp(subjects.get(i).getFitness()/currentT) / sum;
+            expectedValues[i] = Math.exp(subjects.get(i).getFitness()/currentT) / (avg * subjects.size());
         }
-
-        Arrays.sort(roulette);
 
         double currQ = 0;
         for(int i = 0; selectionList.size() < K && i < subjects.size(); i++) {
@@ -43,7 +41,7 @@ public class BoltzmannSelector extends Selector {
             }
         }
 
-        return selectionList;
+        return super.select(selectionList, K);
     }
 
     @Override
@@ -51,12 +49,12 @@ public class BoltzmannSelector extends Selector {
         return "Boltzmann Selector";
     }
 
-    private double getSum(List<Subject> subjects, double currentTemperature) {
+    private double getAvg(List<Subject> subjects, double currentTemperature) {
         double sum = 0;
         for (Subject subject : subjects) {
             sum += Math.exp(subject.getFitness()/currentTemperature);
         }
-        return sum;
+        return sum/subjects.size();
     }
 
     private double getT() {
