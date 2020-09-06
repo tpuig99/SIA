@@ -4,6 +4,7 @@ import subjectModels.Subject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class EliteSelector extends Selector {
@@ -17,6 +18,7 @@ public class EliteSelector extends Selector {
         }
 
         List<Subject> auxiliarySortedList = new ArrayList<>(subjects);
+
         Collections.sort(auxiliarySortedList);
 
         for (int i = 0; selectionList.size() <= K && i < auxiliarySortedList.size(); i++) {

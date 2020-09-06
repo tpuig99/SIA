@@ -18,12 +18,12 @@ import static subjectModels.Constants.ItemType.ARMOR;
 public class RandomCharacter implements RandomSubject {
     Items boots,weapon,helmets,armors,gloves;
 
-    public RandomCharacter() {
-        boots = Parser("../../../fulldata/botas.tsv", ItemType.BOOTS);
-        weapon = Parser("../../../fulldata/armas.tsv", ItemType.WEAPON);
-        helmets = Parser("../../../fulldata/cascos.tsv", ItemType.HELMET);
-        armors = Parser("../../../fulldata/pecheras.tsv", ARMOR);
-        gloves = Parser("../../../fulldata/guantes.tsv", ItemType.GLOVES);
+    public RandomCharacter(String path) {
+        boots = Parser(path+"\\botas.tsv", ItemType.BOOTS);
+        weapon = Parser(path+"\\armas.tsv", ItemType.WEAPON);
+        helmets = Parser(path+"\\cascos.tsv", ItemType.HELMET);
+        armors = Parser(path+"\\pecheras.tsv", ARMOR);
+        gloves = Parser(path+"\\guantes.tsv", ItemType.GLOVES);
     }
 
     @Override

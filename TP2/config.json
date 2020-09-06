@@ -1,23 +1,24 @@
 {
     "role": "archer",
-    "population": 2000,
-    "parentSize": 500,
-    "selectionSize": 500
+    "population": 3000,
+    "parentSize": 1800,
+    "path": "../../../fulldata/",	
+    "selectionSize": 1200
     "chosenParentSelection": {
-      "parent1": "elite",
-      "parent2": "boltzmann",
+      "parent1": "universal",
+      "parent2": "universal",
       "a": 0.5,
     },
     "chosenCrossover": {
-      "name": "double"
+      "name": "uniform"
     },
     "chosenMutation": {
       "name": "complete",
-      "p_m": 0.2,
+      "p_m": 0.6,
     },
     "chosenSubjectSelection": {
-      "subject1": "pTournament",
-      "subject2": "dTournament",
+      "subject1": "boltzmann",
+      "subject2": "boltzmann",
       "b": 0.5,
       "fill": "fillAll"
     },
@@ -44,10 +45,10 @@
           "tc": 2
       },
       "pTournament": {
-          "threshold": 0.8,
+          "threshold": 0.5,
       },
       "dTournament": {
-          "threshold": 10,
+          "threshold": 200,
       },
     },
 
@@ -56,15 +57,15 @@
           "seconds": 30,
       },
       "content": {
-          "generationsLimit": 10,
-          "epsilon": 0.2
+          "generationsLimit": 30,
+          "epsilon": 0.01
       },
       "structure": {
           "generationsLimit": 10,
           "percentage": 0.5
       },
       "generations": {
-          "generationsLimit": 90
+          "generationsLimit": 20
       },
       "solution": {
           "fitness": 20.0

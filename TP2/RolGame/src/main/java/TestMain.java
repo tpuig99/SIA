@@ -54,6 +54,15 @@ public class TestMain extends Application {
     private static int generation = 0;
     private static JSONObject configObj;
 
+    private Subject bestCharacter;
+    private int bestGen;
+
+    private Subject worstCharacter;
+    private int worstGen;
+
+    private Subject bestWorstCharacter;
+    private int bestWorstGen;
+
     private static ObservableList<XYChart.Data> aList, bList;
     private static ObservableList<XYChart.Series> seriesList;
 
@@ -90,7 +99,7 @@ public class TestMain extends Application {
         readFromConfig();
 
         List<Subject> population = new ArrayList<>();
-        RandomSubject rdm = new RandomCharacter();
+        RandomSubject rdm = new RandomCharacter(path);
         for (int i = 0; i < populationSize; i++) {
             population.add(rdm.randomCharacter(role));
         }
@@ -125,18 +134,45 @@ public class TestMain extends Application {
             population.addAll(fillImplementation.evolve(parentSelection,newGeneration,populationSize));
             getInformation(population);
         }
-        System.out.println("Best in generation "+generation);
-        System.out.println(Collections.min(population));
+        if(finishCriteria instanceof SolutionCriteria && worstCharacter.getFitness()<((SolutionCriteria) finishCriteria).getFitnessCriteria()){
+            System.out.println("Finished because of a limit, not fulfill the criteria.");
+        }
+        System.out.println("Best in generation "+bestGen);
+        System.out.println(bestCharacter);
+        System.out.println();
+        System.out.println("Worst in generation "+worstGen);
+        System.out.println(worstCharacter);
+        System.out.println();
+        System.out.println("Best minimum in generation "+bestWorstGen);
+        System.out.println(bestWorstCharacter);
 
     }
 
     private void getInformation(List<Subject> population) {
         System.out.println(generation);
-        System.out.println("Min fitness: "+Collections.max(population).getFitness());
-        System.out.println("Max fitness: "+Collections.min(population).getFitness());
+        Subject worstS =Collections.max(population);
+        Subject bestS =Collections.min(population);
+        System.out.println("Min fitness: "+worstS.getFitness());
+        System.out.println("Max fitness: "+bestS.getFitness());
+        System.out.println("Population Size: "+population.size());
         System.out.println();
-        Double min =Collections.max(population).getFitness();
-        Double max =Collections.min(population).getFitness();
+
+        if(bestCharacter == null||bestCharacter.getFitness()<bestS.getFitness()){
+            bestCharacter = bestS.cloneSubject();
+            bestGen=generation;
+        }
+
+        if(bestWorstCharacter == null||bestWorstCharacter.getFitness()<worstS.getFitness()){
+            bestWorstCharacter = worstS.cloneSubject();
+            bestWorstGen=generation;
+        }
+        if(worstCharacter == null||worstCharacter.getFitness()>worstS.getFitness()){
+            worstCharacter = worstS.cloneSubject();
+            worstGen=generation;
+        }
+
+        Double min =worstS.getFitness();
+        Double max =bestS.getFitness();
         int aux = 0;
         for (Subject subject: population) {
             aux+=subject.getFitness();
@@ -150,32 +186,7 @@ public class TestMain extends Application {
         // bList.add(new XYChart.Data(generation, min));
     }
 
-    private void getConfiguration() {
-        sParent1 = new UniversalSelector();
-        sParent2 = new RouletteSelector();
-        sParentPer = 0.5;
-        parentSelectSize = 50;
 
-        sReplace1 = new RankingSelector();
-        sReplace2 = new UniversalSelector();
-        sReplacePer = 0.5f;
-
-        mutation = new UniformMultigeneMutation(0.2f);
-
-        crossover = new UniformCrossover();
-        selectionSize = 40;
-
-        //fillImplementation = new FillAllImplementation(sReplace1,sReplace2,sReplacePer);
-        initialPopulationSize = 100;
-        populationSize = 150;
-
-        finishCriteria = new SolutionCriteria(16);
-
-        role = Role.ARCHER;
-
-        //path;
-
-    }
     void readFromConfig() {
         JSONParser jsonParser = new JSONParser();
         configObj = null;
@@ -186,6 +197,7 @@ public class TestMain extends Application {
         }
 
         if (configObj != null) {
+            path = (String) configObj.get("path");
             role = parseRole((String) configObj.get("role"));
             populationSize = (int) ((long) configObj.get("population"));
             parentSelectSize = (int) ((long) configObj.get("parentSize"));
@@ -197,7 +209,6 @@ public class TestMain extends Application {
             finishCriteria = parseFinishCriteria((JSONObject) configObj.get("chosenFinishCriteria"));
         }
         System.out.println("Configuration");
-        System.out.println("Initial Population Size: "+initialPopulationSize);
         System.out.println("Population Size: "+populationSize);
         System.out.println("Parents selectors: "+sParent1+", "+sParent2+". Percentage "+sParentPer+". Size "+parentSelectSize);
         System.out.println("Replacement selectors: "+sReplace1+", "+sReplace2+". Percentage "+sReplacePer);
