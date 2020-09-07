@@ -8,7 +8,6 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -52,7 +51,7 @@ public class GeneticAlgorithm extends Application {
     private final ConcurrentLinkedQueue<Double> avgQueue = new ConcurrentLinkedQueue<>();
     private final ConcurrentLinkedQueue<Integer> generationQueue = new ConcurrentLinkedQueue<>();
 
-    private Axis<Number> xAxis, yAxis;
+    private NumberAxis xAxis, yAxis;
 
     private ExecutorService executor;
 
@@ -67,8 +66,10 @@ public class GeneticAlgorithm extends Application {
         seriesList.add(new XYChart.Series<>("Worst Fitness", bList));
         seriesList.add(new XYChart.Series<>("Average Fitness", cList));
 
-        xAxis = new NumberAxis("Generations", 0, 50, 1);
+        xAxis = new NumberAxis("Generations", 1, 1, 1);
         yAxis = new NumberAxis("Fitness", 0,30,0.2);
+
+        yAxis.setAutoRanging(true);
 
         LineChart<Number, Number> chart = new LineChart<>(xAxis, yAxis, seriesList);
 
@@ -140,9 +141,22 @@ public class GeneticAlgorithm extends Application {
             return;
         }
         int currentGeneration = generationQueue.remove();
-        seriesList.get(0).getData().add(new XYChart.Data<>(currentGeneration, maxQueue.remove()));
-        seriesList.get(1).getData().add(new XYChart.Data<>(currentGeneration, minQueue.remove()));
+        double min = minQueue.remove();
+        double max = maxQueue.remove();
+
+        xAxis.setUpperBound(xAxis.getUpperBound() + 1);
+
+        if (yAxis.getUpperBound() < max) {
+            yAxis.setUpperBound(max + 1);
+        }
+        if (yAxis.getLowerBound() > min) {
+            yAxis.setLowerBound(min - 1);
+        }
+
+        seriesList.get(0).getData().add(new XYChart.Data<>(currentGeneration, max));
+        seriesList.get(1).getData().add(new XYChart.Data<>(currentGeneration, min));
         seriesList.get(2).getData().add(new XYChart.Data<>(currentGeneration, avgQueue.remove()));
+
     }
 
     public void startConfiguration() {
@@ -195,11 +209,11 @@ public class GeneticAlgorithm extends Application {
 
         min = worstS.getFitness();
         max = bestS.getFitness();
-        int aux = 0;
+        double aux = 0;
         for (Subject subject: population) {
             aux+=subject.getFitness();
         }
-        avg = aux/(double)population.size();
+        avg = aux/population.size();
     }
 
     private void executeNextGeneration() {
