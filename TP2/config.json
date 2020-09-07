@@ -23,7 +23,7 @@
       "fill": "fillAll"
     },
     "chosenFinishCriteria": {
-      "name": "content",
+      "name": "generations",
     },
 
     "parentSelection": {
@@ -68,7 +68,7 @@
           "generationsLimit": 20
       },
       "solution": {
-          "fitness": 24.0
+          "fitness": 20.0
       },
     },
 }
