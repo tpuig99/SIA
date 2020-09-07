@@ -52,6 +52,8 @@ public class GeneticAlgorithm extends Application {
     private final ConcurrentLinkedQueue<Double> avgQueue = new ConcurrentLinkedQueue<>();
     private final ConcurrentLinkedQueue<Integer> generationQueue = new ConcurrentLinkedQueue<>();
 
+    private Axis<Number> xAxis, yAxis;
+
     private ExecutorService executor;
 
     private void init(Stage primaryStage) {
@@ -65,8 +67,8 @@ public class GeneticAlgorithm extends Application {
         seriesList.add(new XYChart.Series<>("Worst Fitness", bList));
         seriesList.add(new XYChart.Series<>("Average Fitness", cList));
 
-        Axis<Number> xAxis = new NumberAxis("Generations", 0, 50, 1);
-        Axis<Number> yAxis = new NumberAxis("Fitness", 0,30,0.2);
+        xAxis = new NumberAxis("Generations", 0, 50, 1);
+        yAxis = new NumberAxis("Fitness", 0,30,0.2);
 
         LineChart<Number, Number> chart = new LineChart<>(xAxis, yAxis, seriesList);
 
@@ -79,6 +81,7 @@ public class GeneticAlgorithm extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+        executor.shutdownNow();
     }
 
     @Override
@@ -103,7 +106,6 @@ public class GeneticAlgorithm extends Application {
                     }
                     else {
                         printFinishInformation();
-                        executor = null;
                         return;
                     }
                     generationQueue.add(generation);
@@ -141,8 +143,6 @@ public class GeneticAlgorithm extends Application {
         seriesList.get(0).getData().add(new XYChart.Data<>(currentGeneration, maxQueue.remove()));
         seriesList.get(1).getData().add(new XYChart.Data<>(currentGeneration, minQueue.remove()));
         seriesList.get(2).getData().add(new XYChart.Data<>(currentGeneration, avgQueue.remove()));
-
-
     }
 
     public void startConfiguration() {
