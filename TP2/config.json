@@ -2,7 +2,7 @@
     "role": "archer",
     "population": 3000,
     "parentSize": 1800,
-    "path": "../../../fulldata/",	
+    "path": "../dataset",	
     "selectionSize": 1200
     "chosenParentSelection": {
       "parent1": "universal",
