@@ -26,6 +26,8 @@ FinishCriteria: {"time", "solution", "generations", "content", "structure"}
 
 El programa cuenta con un archivo ``` config.json ```. El mismo tiene el siguiente formato: (Es Case Sensitive).
 
+Para utilizar una de las configuraciones recomendadas, copiar el contenido de ```recommendedConfig1.json``` o ```recommendedConfig2.json``` en el archivo anteriormente mencionado, teniendo cuidado de colocar el path adeacuado. 
+
 ```sh
 {
     "role": "archer", -> Puede tomar los valores "archer", "warrior", "defender" e "infiltrate"
