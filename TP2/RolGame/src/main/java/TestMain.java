@@ -3,6 +3,7 @@ import finishCriteria.*;
 import implementations.FillAllImplementation;
 import implementations.FillParentImplementation;
 import implementations.Implementation;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -28,59 +29,44 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class TestMain extends Application {
-    private static Selector sParent1;
-    private static Selector sParent2;
-    private static double sParentPer;
-    private static Selector sReplace1;
-    private static Selector sReplace2;
-    private static double sReplacePer;
-    private static int parentSelectSize;
+    private static Selector sParent1, sParent2, sReplace1, sReplace2;
+    private static Subject bestCharacter, worstCharacter, bestWorstCharacter;
+    private static double sParentPer, sReplacePer, p_m;
+    private static int parentSelectSize, selectionSize, populationSize, generation = 0, bestGen, worstGen, bestWorstGen;
     private static Mutation mutation;
-    private static double p_m;
     private static Crossover crossover;
-    private static int selectionSize;
     private static Implementation fillImplementation;
     private static FinishCriteria finishCriteria;
     private static Role role;
     private static String path;
-    private static int populationSize;
-    private static int initialPopulationSize;
-    private static int generation = 0;
     private static JSONObject configObj;
 
-    private Subject bestCharacter;
-    private int bestGen;
+    private static List<Subject> population;
+    private static Double min, max, avg;
 
-    private Subject worstCharacter;
-    private int worstGen;
-
-    private Subject bestWorstCharacter;
-    private int bestWorstGen;
-
-    private static ObservableList<XYChart.Data> aList, bList;
     private static ObservableList<XYChart.Series> seriesList;
 
-    @Override
-    public void start(Stage primaryStage) {
+    private final ConcurrentLinkedQueue<Double> maxQueue = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Double> minQueue = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Double> avgQueue = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Integer> generationQueue = new ConcurrentLinkedQueue<>();
+
+    private ExecutorService executor;
+
+    private void init(Stage primaryStage) {
         Pane root = new Pane();
-        // Create empty series
         seriesList = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data> aList = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data> bList = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data> cList = FXCollections.observableArrayList();
 
-        // XYChart.Data(8, 115)
-        aList = FXCollections.observableArrayList();
-        seriesList.add(new XYChart.Series("BestFitness", aList));
+        seriesList.add(new XYChart.Series("Best Fitness", aList));
+        seriesList.add(new XYChart.Series("Worst Fitness", bList));
+        seriesList.add(new XYChart.Series("Average Fitness", cList));
 
-        // XYChart.Data(8, 115)
-        bList = FXCollections.observableArrayList();
-        seriesList.add(new XYChart.Series("WorstFitness", bList));
-
-        // Create axes
         Axis xAxis = new NumberAxis("Generations", 0, 100, 1);
         Axis yAxis = new NumberAxis("Fitness", 5,40,0.2);
 
@@ -90,53 +76,90 @@ public class TestMain extends Application {
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.show();
-
-        run();
     }
 
-    public void run() {
-        readFromConfig();
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+    }
 
-        List<Subject> population = new ArrayList<>();
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Genetic Algorithm Fitness comparison");
+        init(primaryStage);
+        primaryStage.show();
+        startConfiguration();
+
+        executor = Executors.newCachedThreadPool(r -> {
+            Thread thread = new Thread(r);
+            thread.setDaemon(true);
+            return thread;
+        });
+
+        Runnable calculateAlgorithm = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (!finishCriteria.shouldFinish(population)) {
+                        executeNextGeneration();
+                    }
+                    else {
+                        printFinishInformation();
+                        executor = null;
+                        return;
+                    }
+                    generationQueue.add(generation);
+                    maxQueue.add(max);
+                    minQueue.add(min);
+                    avgQueue.add(avg);
+
+                    Thread.sleep(500);
+                    executor.execute(this);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        };
+
+        executor.execute(calculateAlgorithm);
+        prepareTimeline();
+    }
+
+    private void prepareTimeline() {
+        // Every frame to take any data from queue and add to chart
+        new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                addDataToSeries();
+            }
+        }.start();
+    }
+
+    private void addDataToSeries() {
+        if (generationQueue.isEmpty() || maxQueue.isEmpty() || minQueue.isEmpty()) {
+            return;
+        }
+        int currentGeneration = generationQueue.remove();
+        seriesList.get(0).getData().add(new XYChart.Data<>(currentGeneration, maxQueue.remove()));
+        seriesList.get(1).getData().add(new XYChart.Data<>(currentGeneration, minQueue.remove()));
+        seriesList.get(2).getData().add(new XYChart.Data<>(currentGeneration, avgQueue.remove()));
+    }
+
+    public void startConfiguration() {
+        readFromConfig();
+        population = new ArrayList<>();
+
         RandomSubject rdm = new RandomCharacter(path);
         for (int i = 0; i < populationSize; i++) {
             population.add(rdm.randomCharacter(role));
         }
-        List<Subject> parentSelection;
-        List<Subject> newGeneration;
+    }
 
-
-
-        while (!finishCriteria.shouldFinish(population)){
-                generation++;
-                newGeneration = new ArrayList<>();
-                parentSelection = new ArrayList<>();
-
-                parentSelection.addAll(sParent1.select(population, (int) Math.ceil(parentSelectSize*sParentPer)));
-                parentSelection.addAll(sParent2.select(population, (int) Math.floor(parentSelectSize*(1-sParentPer))));
-
-                while (newGeneration.size()<selectionSize) {
-                    if (newGeneration.size() % parentSelectSize == 0) {
-                        Collections.shuffle(parentSelection);
-                    }
-                    Subject s1 = parentSelection.remove(0);
-                    Subject s2 = parentSelection.remove(0);
-                    parentSelection.add(s1);
-                    parentSelection.add(s2);
-                    newGeneration.addAll(crossover.cross(s1, s2));
-                }
-            for (int i = 0; i <newGeneration.size() ; i++) {
-                Subject subject = mutation.mutate(newGeneration.remove(i));
-                newGeneration.add(i,subject);
-            }
-            population = new ArrayList<>();
-            population.addAll(fillImplementation.evolve(parentSelection,newGeneration,populationSize));
-            getInformation(population);
-        }
+    public void printFinishInformation() {
         if(finishCriteria instanceof SolutionCriteria && worstCharacter.getFitness()<((SolutionCriteria) finishCriteria).getFitnessCriteria()){
             System.out.println("Finished because of a limit, not fulfill the criteria.");
         }
+
         System.out.println("Best in generation "+bestGen);
         System.out.println(bestCharacter);
         System.out.println();
@@ -145,7 +168,6 @@ public class TestMain extends Application {
         System.out.println();
         System.out.println("Best minimum in generation "+bestWorstGen);
         System.out.println(bestWorstCharacter);
-
     }
 
     private void getInformation(List<Subject> population) {
@@ -171,19 +193,40 @@ public class TestMain extends Application {
             worstGen=generation;
         }
 
-        Double min =worstS.getFitness();
-        Double max =bestS.getFitness();
+        min = worstS.getFitness();
+        max = bestS.getFitness();
         int aux = 0;
         for (Subject subject: population) {
             aux+=subject.getFitness();
         }
-        Double prom=aux/(double)population.size();
+        avg = aux/(double)population.size();
+    }
 
-        seriesList.get(0).getData().add(new XYChart.Data(generation, max));
-        seriesList.get(1).getData().add(new XYChart.Data(generation, min));
+    private void executeNextGeneration() {
+        generation++;
+        List<Subject> newGeneration = new ArrayList<>();
+        List<Subject> parentSelection = new ArrayList<>();
 
-        // aList.add(new XYChart.Data(generation, max));
-        // bList.add(new XYChart.Data(generation, min));
+        parentSelection.addAll(sParent1.select(population, (int) Math.ceil(parentSelectSize*sParentPer)));
+        parentSelection.addAll(sParent2.select(population, (int) Math.floor(parentSelectSize*(1-sParentPer))));
+
+        while (newGeneration.size()<selectionSize) {
+            if (newGeneration.size() % parentSelectSize == 0) {
+                Collections.shuffle(parentSelection);
+            }
+            Subject s1 = parentSelection.remove(0);
+            Subject s2 = parentSelection.remove(0);
+            parentSelection.add(s1);
+            parentSelection.add(s2);
+            newGeneration.addAll(crossover.cross(s1, s2));
+        }
+        for (int i = 0; i < newGeneration.size() ; i++) {
+            Subject subject = mutation.mutate(newGeneration.remove(i));
+            newGeneration.add(i,subject);
+        }
+        population = new ArrayList<>();
+        population.addAll(fillImplementation.evolve(parentSelection, newGeneration,populationSize));
+        getInformation(population);
     }
 
 
