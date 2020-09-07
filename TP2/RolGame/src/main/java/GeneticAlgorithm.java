@@ -5,10 +5,8 @@ import implementations.FillParentImplementation;
 import implementations.Implementation;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.scene.Scene;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
@@ -31,10 +29,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class TestMain extends Application {
+public class GeneticAlgorithm extends Application {
     private static Selector sParent1, sParent2, sReplace1, sReplace2;
     private static Subject bestCharacter, worstCharacter, bestWorstCharacter;
-    private static double sParentPer, sReplacePer, p_m;
+    private static double sParentPer, sReplacePer;
     private static int parentSelectSize, selectionSize, populationSize, generation = 0, bestGen, worstGen, bestWorstGen;
     private static Mutation mutation;
     private static Crossover crossover;
@@ -47,7 +45,7 @@ public class TestMain extends Application {
     private static List<Subject> population;
     private static Double min, max, avg;
 
-    private static ObservableList<XYChart.Series> seriesList;
+    private static ObservableList<XYChart.Series<Number, Number>> seriesList;
 
     private final ConcurrentLinkedQueue<Double> maxQueue = new ConcurrentLinkedQueue<>();
     private final ConcurrentLinkedQueue<Double> minQueue = new ConcurrentLinkedQueue<>();
@@ -59,18 +57,18 @@ public class TestMain extends Application {
     private void init(Stage primaryStage) {
         Pane root = new Pane();
         seriesList = FXCollections.observableArrayList();
-        ObservableList<XYChart.Data> aList = FXCollections.observableArrayList();
-        ObservableList<XYChart.Data> bList = FXCollections.observableArrayList();
-        ObservableList<XYChart.Data> cList = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data<Number, Number>> aList = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data<Number, Number>> bList = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data<Number, Number>> cList = FXCollections.observableArrayList();
 
-        seriesList.add(new XYChart.Series("Best Fitness", aList));
-        seriesList.add(new XYChart.Series("Worst Fitness", bList));
-        seriesList.add(new XYChart.Series("Average Fitness", cList));
+        seriesList.add(new XYChart.Series<>("Best Fitness", aList));
+        seriesList.add(new XYChart.Series<>("Worst Fitness", bList));
+        seriesList.add(new XYChart.Series<>("Average Fitness", cList));
 
-        Axis xAxis = new NumberAxis("Generations", 0, 100, 1);
-        Axis yAxis = new NumberAxis("Fitness", 5,40,0.2);
+        Axis<Number> xAxis = new NumberAxis("Generations", 0, 50, 1);
+        Axis<Number> yAxis = new NumberAxis("Fitness", 0,30,0.2);
 
-        LineChart chart = new LineChart(xAxis, yAxis, seriesList);
+        LineChart<Number, Number> chart = new LineChart<>(xAxis, yAxis, seriesList);
 
         root.getChildren().add(chart);
 
@@ -143,6 +141,8 @@ public class TestMain extends Application {
         seriesList.get(0).getData().add(new XYChart.Data<>(currentGeneration, maxQueue.remove()));
         seriesList.get(1).getData().add(new XYChart.Data<>(currentGeneration, minQueue.remove()));
         seriesList.get(2).getData().add(new XYChart.Data<>(currentGeneration, avgQueue.remove()));
+
+
     }
 
     public void startConfiguration() {
@@ -294,7 +294,7 @@ public class TestMain extends Application {
 
     private static Mutation parseMutation(JSONObject mutationObj){
         String name = (String) mutationObj.get("name");
-        p_m = (double) mutationObj.get("p_m");
+        double p_m = (double) mutationObj.get("p_m");
         switch (name) {
             case "complete":
                 return new CompleteMutation((float) p_m);
