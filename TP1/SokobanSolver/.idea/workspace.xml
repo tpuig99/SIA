@@ -24,8 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b1183ee0-0b47-4f14-893a-65264d793b32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TP2/RolGame/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/RolGame/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TP2/RolGame/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/RolGame/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TP2/RolGame/target/classes/GeneticAlgorithm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/RolGame/target/classes/GeneticAlgorithm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TP2/RolGame/target/classes/GeneticAlgorithm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/RolGame/target/classes/GeneticAlgorithm$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TP2/RolGame/target/classes/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/RolGame/target/classes/GeneticAlgorithm.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,15 +124,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,6 +183,7 @@
       <workItem from="1597874519188" duration="299000" />
       <workItem from="1597876095729" duration="35000" />
       <workItem from="1597876277038" duration="2542000" />
+      <workItem from="1599444772892" duration="92000" />
     </task>
     <servers />
   </component>
