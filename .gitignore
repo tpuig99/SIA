@@ -3,3 +3,9 @@ dataset
 TP2/.idea
 TP2/RolGame/.idea
 TP2/RolGame/RolGame.iml
+
+TP3/Perceptron/.idea
+TP3/Perceptron/*.iml
+TP3/Perceptron/target/
+TP3/.idea
+TP3/*.iml
