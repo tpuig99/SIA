@@ -13,7 +13,7 @@ public class Main {
         int i = 0;
         int fails = 0;
         while (i++ < 100) {
-            if (!Arrays.equals(simplePerceptron.train(input, expected_output_AND, 0.2, 100), expected_output_AND)) {
+            if (!Arrays.equals(simplePerceptron.train(input, expected_output_AND, 0.2, 10), expected_output_AND)) {
              fails ++;
             }
         }
