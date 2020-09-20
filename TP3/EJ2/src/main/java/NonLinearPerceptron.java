@@ -45,19 +45,19 @@ public class NonLinearPerceptron implements Perceptron {
     @Override
     public void train (double[][] input, double[] expected_output, double learning_rate, int steps) {
         Random rnd = new Random();
-        double error = expected_output.length*2;
-        double error_min = Integer.MAX_VALUE;
+        double error = 1;
+        double error_min = expected_output.length*2;
         double[] w_min = w.clone();
         int i = 0;
 
         while (error > 0 && i < steps) {
-//            if ( i > steps * learning_rate) {
-//                for (int j = 0; j < connections; j++) {
-//                    w[j] = Math.random() * 2 - 1;
-//                }
-//            }
+            if ( i < steps * 0.1) {
+                for (int j = 0; j < connections; j++) {
+                    w[j] = Math.random() * 2 - 1;
+                }
+            }
 
-            int curr = rnd.nextInt(expected_output.length);
+            int curr = rnd.nextInt(10);
 
             threshold += learning_rate * (expected_output[curr] - activationFunction(input[curr])) * g_prime(input[curr]) * (-1);
 

@@ -31,19 +31,19 @@ public class Main {
             }
         }
 
-        Perceptron linearPerceptron = new LinearPerceptron(3);
-        linearPerceptron.train(input,expected_output,0.01,20000);
-
-        for (int k = 0; k < 10; k++) {
-            double compare = linearPerceptron.activationFunction(input[k]) - expected_output[k];
-            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
-                    linearPerceptron.activationFunction(input[k]), expected_output[k], compare);
-        }
-
-        System.out.println("W: " + Arrays.toString(linearPerceptron.getW()));
+//        Perceptron linearPerceptron = new LinearPerceptron(3);
+//        linearPerceptron.train(input,expected_output,0.001,10000);
+//
+//        for (int k = 10; k < 200; k++) {
+//            double compare = linearPerceptron.activationFunction(input[k]) - expected_output[k];
+//            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
+//                    linearPerceptron.activationFunction(input[k]), expected_output[k], compare);
+//        }
+//
+//        System.out.println("W: " + Arrays.toString(linearPerceptron.getW()));
 
         Perceptron nonLinearPerceptron = new NonLinearPerceptron(3);
-        nonLinearPerceptron.train(input,expected_output,0.01,20000);
+        nonLinearPerceptron.train(input,expected_output,0.01,200000);
 
         for (int k = 0; k < 10; k++) {
             double compare = nonLinearPerceptron.activationFunction(input[k]) - expected_output[k];
