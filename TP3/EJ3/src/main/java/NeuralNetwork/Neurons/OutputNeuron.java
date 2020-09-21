@@ -9,8 +9,8 @@ public class OutputNeuron extends Neuron{
 
 
     @Override
-    public double calculateDelta(Double result) {
-        return g.derivative(h)*(result-V);
+    public void calculateDelta(Double result) {
+        this.delta= g.derivative(h)*(result-V);
     }
 
     @Override

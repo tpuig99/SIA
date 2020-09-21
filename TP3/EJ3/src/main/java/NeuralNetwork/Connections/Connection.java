@@ -4,22 +4,14 @@ import NeuralNetwork.Neurons.Neuron;
 
 import java.util.Random;
 
-public class Connection {
-    Neuron input;
+public abstract class Connection {
     Neuron output;
     double w;
 
-    public Connection(Neuron input, Neuron output) {
-        this.input = input;
+    public Connection(Neuron output) {
         this.output = output;
         Random random = new Random();
         w=random.nextDouble()-0.5;
-    }
-
-
-
-    public Neuron getInput() {
-        return input;
     }
 
     public Neuron getOutput() {
@@ -31,6 +23,8 @@ public class Connection {
     }
 
     public void updateW(){
-        w+= output.getLearnRate()*output.getDelta()*output.getV();
+        w+=output.getLearnRate()*output.getDelta()*getValue();
     };
+    abstract double getValue();
+    abstract public double getForHValue();
 }

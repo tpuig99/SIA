@@ -1,10 +1,13 @@
 package NeuralNetwork.Neurons;
 
 import NeuralNetwork.Connections.Connection;
+import NeuralNetwork.Connections.FixerInnerConnection;
+import NeuralNetwork.Connections.InnerConnection;
 import NeuralNetwork.Function.ActivationFunction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public abstract class Neuron {
     public List<Connection> input;
@@ -13,20 +16,24 @@ public abstract class Neuron {
     double h;
     double delta;
     double learnRate = 0.05;
-    double w0=1;
+    double w0;
+    double fixedValue=-1;
 
     public double getLearnRate() {
         return learnRate;
     }
 
     public void setV(double v) {
-        V = v;
+        this.V = v;
     }
 
     public Neuron(ActivationFunction function, double learnRate) {
         this.learnRate = learnRate;
         this.g = function;
         input = new ArrayList<>();
+        Random random = new Random();
+        w0=random.nextDouble()-0.5;
+        input.add(new FixerInnerConnection(this,-1));
     }
 
     public void setInput(List<Connection> input) {
@@ -43,12 +50,10 @@ public abstract class Neuron {
     }
 
     private double calculateh() {
-        double aux=0;
+        double aux=0.0;
         for (Connection c: input) {
-            c.getInput().process();
-            aux+=c.getW()*c.getInput().V;
+            aux+=c.getForHValue();
         }
-        //PREGUNTAR SI W0 SE SUMA
         return aux;
     }
 
@@ -64,7 +69,7 @@ public abstract class Neuron {
         return delta;
     }
 
-    public abstract double calculateDelta(Double r);
+    public abstract void calculateDelta(Double r);
     public abstract void connect(Neuron n);
 
 }

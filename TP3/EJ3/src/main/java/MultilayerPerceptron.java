@@ -1,4 +1,5 @@
 import NeuralNetwork.Connections.Connection;
+import NeuralNetwork.Connections.InnerConnection;
 import NeuralNetwork.Function.ActivationFunction;
 import NeuralNetwork.Function.TanhFunction;
 import NeuralNetwork.Neurons.HiddenNeuron;
@@ -25,6 +26,7 @@ public class MultilayerPerceptron {
             layers[i + 1] = newLayer(hiddenLayersSizes[i], layers[i], false);
         layers[layers.length - 1] = newLayer(outputLayerSize, layers[layers.length - 2], true);
     }
+
     private List<Neuron> newLayer(int size, List<Neuron> previousLayer, boolean last) {
         List<Neuron> l = new ArrayList<>();
         for(int i = 0; i < size; i++) {

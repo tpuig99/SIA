@@ -9,7 +9,7 @@ public class Main1 {
                 {0, 0},
                 {1, 1}
         };
-            MultilayerPerceptron nn = new MultilayerPerceptron(2, new int[]{2}, 1, 0.01);
+            MultilayerPerceptron nn = new MultilayerPerceptron(2, new int[]{3}, 1, 0.01);
 
             double[][] result_set = {{1}, {1}, {0}, {0}};
 
