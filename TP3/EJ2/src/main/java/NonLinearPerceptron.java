@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class NonLinearPerceptron implements Perceptron {
     private final int connections;
     private double[] w;
     private double threshold;
-    private final double beta = 0.5;
+    private final double beta = 4;
 
     public NonLinearPerceptron(int connections) {
         this.connections = connections;
@@ -16,31 +19,24 @@ public class NonLinearPerceptron implements Perceptron {
         }
     }
 
-    private double g_prime(double[] input) {
-        double output = 0;
-        for (int i = 0; i < w.length; i++) {
-            output += beta*(1-Math.pow(Math.tanh(w[i]*input[i]),2));
-        }
-        return output;
+
+    private double g_prime(double input) {
+        double tanh = Math.tanh(beta*input);
+        return beta*(1 - tanh * tanh);
+    }
+
+    private double g(double input) {
+        return Math.tanh(beta*input);
     }
 
     @Override
     public double activationFunction(double[] input) {
         double output = 0;
         for (int i = 0; i < w.length; i++) {
-            output += w[i]*input[i];
+            output += w[i] * input[i];
         }
-        return beta*(1-Math.pow(Math.tanh(output),2)) - threshold;
+        return output - threshold;
     }
-
-//    @Override
-//    public double costFunction(double[][] input, double[] expected_output) {
-//        double cost = 0;
-//        for (int i = 0; i < input.length; i++ ) {
-//            cost += Math.pow(expected_output[i] - activationFunction(input[i]), 2);
-//        }
-//        return cost/2;
-//    }
 
     @Override
     public void train (double[][] input, double[] expected_output, double learning_rate, int steps) {
@@ -57,12 +53,12 @@ public class NonLinearPerceptron implements Perceptron {
                 }
             }
 
-            int curr = rnd.nextInt(10);
-
-            threshold += learning_rate * (expected_output[curr] - activationFunction(input[curr])) * g_prime(input[curr]) * (-1);
+            int curr = rnd.nextInt(160);
+            double activation = activationFunction(input[curr]);
+            threshold += learning_rate * (expected_output[curr] - g(activation)) * g_prime(activation) * (-1);
 
             for (int j = 0; j < this.connections; j++) {
-                w[j] += learning_rate * (expected_output[curr] - activationFunction(input[curr])) * g_prime(input[curr])  * input[curr][j];
+                w[j] += learning_rate * (expected_output[curr] - g(activation)) * g_prime(activation)  * input[curr][j];
             }
 
             error = calculateError(input, expected_output);

@@ -24,15 +24,6 @@ public class LinearPerceptron implements Perceptron {
         return output - threshold;
     }
 
-//    @Override
-//    public double costFunction(double[][] input, double[] expected_output) {
-//        double cost = 0;
-//        for (int i = 0; i < input.length; i++ ) {
-//            cost += Math.pow(expected_output[i] - activationFunction(input[i]), 2);
-//        }
-//        return cost/2;
-//    }
-
     @Override
     public void train (double[][] input, double[] expected_output, double learning_rate, int steps) {
         Random rnd = new Random();
@@ -48,7 +39,7 @@ public class LinearPerceptron implements Perceptron {
                     }
             }
 
-            int curr = rnd.nextInt(10);
+            int curr = rnd.nextInt(160);
 
             threshold += learning_rate * (expected_output[curr] - activationFunction(input[curr])) * (-1);
 
