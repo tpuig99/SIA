@@ -1,17 +1,17 @@
-import java.io.IOException;
-import java.nio.file.Paths;
+import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.OptionalDouble;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         final int MAX_LENGTH = 200;
         double[][] input = new double[MAX_LENGTH][4];
         double[] expected_output = new double[MAX_LENGTH];
 
-        Scanner inputScanner = new Scanner(Paths.get("src/main/resources/TP3-ej2-Conjunto-entrenamiento.txt"));
-        Scanner outputScanner = new Scanner(Paths.get("src/main/resources/TP3-ej2-Salida-deseada.txt"));
+        Scanner inputScanner = new Scanner(new InputStreamReader(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("TP3-ej2-Conjunto-entrenamiento.txt"))));
+        Scanner outputScanner = new Scanner(new InputStreamReader(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("TP3-ej2-Salida-deseada.txt"))));
 
         for (int i = 0; i < MAX_LENGTH; i++) {
             if (inputScanner.hasNextLine()) {
