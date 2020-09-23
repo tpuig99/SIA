@@ -1,21 +1,17 @@
-import javafx.scene.shape.Path;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.OptionalDouble;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         final int MAX_LENGTH = 200;
         double[][] input = new double[MAX_LENGTH][4];
         double[] expected_output = new double[MAX_LENGTH];
 
-        Scanner inputScanner = new Scanner(Paths.get("src/main/resources/TP3-ej2-Conjunto-entrenamiento.txt"));
-        Scanner outputScanner = new Scanner(Paths.get("src/main/resources/TP3-ej2-Salida-deseada.txt"));
+        Scanner inputScanner = new Scanner(new InputStreamReader(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("TP3-ej2-Conjunto-entrenamiento.txt"))));
+        Scanner outputScanner = new Scanner(new InputStreamReader(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("TP3-ej2-Salida-deseada.txt"))));
 
         for (int i = 0; i < MAX_LENGTH; i++) {
             if (inputScanner.hasNextLine()) {
@@ -41,37 +37,33 @@ public class Main {
             normalized_output[i] = (expected_output[i] - X_MIN.getAsDouble())/(X_MAX.getAsDouble() - X_MIN.getAsDouble());
         }
 
-        int trainingSize = 150;
+        int trainingSize = 50;
 
         Perceptron lp = new LinearPerceptron(4);
         lp.train(input,normalized_output,0.01,500, trainingSize);
-        double maxLinear = 0;
+
         for (int k = trainingSize; k < 200; k++) {
             double compare = lp.activationFunction(input[k]) - normalized_output[k];
-            if (Math.abs(compare) > maxLinear) {
-                maxLinear = Math.abs(compare);
-            }
+
 //            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
 //                    lp.activationFunction(input[k]), normalized_output[k], compare);
         }
-        System.out.println("Max absolute error was: " + maxLinear);
-        System.out.println("W: " + Arrays.toString(lp.getW()));
+        System.out.println("Max squared error was: " + lp.calculateError(Arrays.copyOfRange(input, trainingSize, MAX_LENGTH),
+                Arrays.copyOfRange(normalized_output, trainingSize, MAX_LENGTH)));
 
-
+        System.out.println("////////////////////////////////////////////////////////////");
 
         Perceptron nlp = new NonLinearPerceptron(4);
         nlp.train(input,normalized_output,0.01,500, trainingSize);
 
-        double max = 0;
         for (int k = trainingSize; k < MAX_LENGTH; k++) {
             double compare = nlp.calculate(input[k]) - normalized_output[k];
-            if (Math.abs(compare) > max) {
-                max = Math.abs(compare);
-            }
+
 //            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
 //                    nlp.calculate(input[k]), normalized_output[k], compare);
         }
-        System.out.println("Max absolute error was: " + max);
-        System.out.println("W: " + Arrays.toString(nlp.getW()));
+        System.out.println("Max squared error was: " + nlp.calculateError(Arrays.copyOfRange(input, trainingSize, MAX_LENGTH),
+                Arrays.copyOfRange(normalized_output, trainingSize, MAX_LENGTH)));
+
     }
 }
