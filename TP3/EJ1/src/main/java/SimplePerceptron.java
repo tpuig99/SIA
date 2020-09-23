@@ -20,7 +20,7 @@ public class SimplePerceptron {
         for (int i = 0; i < w.length ; i++) {
             stimuli += w[i]*excitations[i];
         }
-        return stimuli > threshold ? ACTIVATE : DEACTIVATE;
+        return stimuli > w[0] ? ACTIVATE : DEACTIVATE;
     }
 
     public double[] train (double[][] input, double[] expected_output, double learning_rate, int steps ) {
@@ -30,15 +30,14 @@ public class SimplePerceptron {
         double[] w_min = new double[w.length];
         int i = 0;
         while (error > 0 && i < steps) {
-            if ( i < steps * learning_rate) {
+
+            if ( i < steps * 0.1) {
                 for (int j = 0; j < connections; j++) {
                     w[j] = Math.random() * 2 - 1;
                 }
             }
             int curr = rnd.nextInt(expected_output.length);
             double output = sign(input[curr]);
-
-            threshold += learning_rate * (expected_output[curr] - output) * (-1);
 
             for (int j = 0; j < this.connections; j++) {
                 w[j] += learning_rate * (expected_output[curr] - output) * input[curr][j];
@@ -49,7 +48,11 @@ public class SimplePerceptron {
                 error_min = error;
                 w_min = w.clone();
             }
+            else {
+                w = w_min;
+            }
             i++;
+
         }
         double [] toReturn = new double [input.length];
         for (int k = 0; k < input.length; k++) {
