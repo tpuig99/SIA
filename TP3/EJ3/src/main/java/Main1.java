@@ -14,7 +14,7 @@ public class Main1 {
             double[][] result_set = {{1}, {1}, {0}, {0}};
 
             for (int i = 0; i < 1000; i++) {
-                System.out.println("Error: " + nn.getError(training_set, result_set));
+                System.out.println("Error "+i+": " + nn.getError(training_set, result_set));
                 nn.train(training_set, result_set, 100);
             }
 
