@@ -1,19 +1,18 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
+import java.util.Objects;
 
 public class Main2 {
-    public static void main(String[] args) {
+    public static void ej2() {
         double [][] set = new double[10][35];
         double [][] training_result_set = {{1}, {0}, {1}, {0}, {1}};
         double [][] training_set = new double[5][35];
         double [][] testing_set = new double[5][35];
         double [][] testing_result_set = {{0}, {1}, {0}, {1}, {0}};
         try {
-            File sourceFile = new File("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\TP3\\EJ3\\src\\main\\resources\\numeros.txt");
-            BufferedReader reader = new BufferedReader(new FileReader(sourceFile));
+            // File sourceFile = new File("C:\\Users\\tamyp\\OneDrive\\Desktop\\ITBA\\3ero\\SIA\\TP3\\EJ3\\src\\main\\resources\\numeros.txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("numeros.txt"))));
+            // BufferedReader reader = new BufferedReader(new FileReader(sourceFile));
             String line;
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 7; j++) {

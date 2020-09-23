@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Main1 {
-    public static void main(String[] args) {
+    public static void ej1() {
 
         double[][] training_set = {
                 {0, 1},
@@ -24,6 +24,12 @@ public class Main1 {
 
                 System.out.println(Math.round(training_set[i][0]) + " XOR " + Math.round(training_set[i][1]) + " = " + Math.round(result) + " (" + result + ")");
             }
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 }
