@@ -15,9 +15,7 @@ public abstract class Neuron {
     double V;
     double h;
     double delta;
-    double learnRate = 0.05;
-    double w0;
-    double fixedValue=-1;
+    double learnRate;
 
     public double getLearnRate() {
         return learnRate;
@@ -31,8 +29,6 @@ public abstract class Neuron {
         this.learnRate = learnRate;
         this.g = function;
         input = new ArrayList<>();
-        Random random = new Random();
-        w0=random.nextDouble()-0.5;
         input.add(new FixerInnerConnection(this,-1));
     }
 
