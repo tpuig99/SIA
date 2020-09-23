@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -38,28 +40,28 @@ public class Main {
         for (int i = 0; i < 200; i++) {
             normalized_output[i] = (expected_output[i] - X_MIN.getAsDouble())/(X_MAX.getAsDouble() - X_MIN.getAsDouble());
         }
-//
-//        Perceptron linearPerceptron = new LinearPerceptron(4);
-//        linearPerceptron.train(input,normalized_output,0.000001,100000, 160);
-//
-//        for (int k = 160; k < 200; k++) {
-//            double compare = linearPerceptron.activationFunction(input[k]) - normalized_output[k];
-//            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
-//                    linearPerceptron.activationFunction(input[k]), normalized_output[k], compare);
-//        }
-//
-//        System.out.println("W: " + Arrays.toString(linearPerceptron.getW()));
 
-        Perceptron nonLinearPerceptron = new NonLinearPerceptron(4);
-        nonLinearPerceptron.train(input,normalized_output,0.001,100000, 160);
+        Perceptron lp = new LinearPerceptron(4);
+        lp.train(input,normalized_output,0.01,500, 160);
 
         for (int k = 160; k < 200; k++) {
-            double compare = nonLinearPerceptron.activationFunction(input[k]) - normalized_output[k];
+            double compare = lp.activationFunction(input[k]) - normalized_output[k];
             System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
-                    nonLinearPerceptron.activationFunction(input[k]), normalized_output[k], compare);
+                    lp.activationFunction(input[k]), normalized_output[k], compare);
         }
 
-        System.out.println("W: " + Arrays.toString(nonLinearPerceptron.getW()));
+        System.out.println("W: " + Arrays.toString(lp.getW()));
 
+
+        Perceptron nlp = new NonLinearPerceptron(4);
+        nlp.train(input,normalized_output,0.01,500, 160);
+
+        for (int k = 160; k < 200; k++) {
+            double compare = nlp.calculate(input[k]) - normalized_output[k];
+            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
+                    nlp.calculate(input[k]), normalized_output[k], compare);
+        }
+
+        System.out.println("W: " + Arrays.toString(nlp.getW()));
     }
 }

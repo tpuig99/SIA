@@ -30,13 +30,12 @@ public class LinearPerceptron implements Perceptron {
         int i = 0;
         double[][] epoch_input = Arrays.copyOf(input, epochSize);
 
-        while (error > 0 && i < steps) {
+        while (error > 0.01 && i < steps) {
             List<Integer> integerList = new ArrayList<>();
             for (int e = 0; e < epochSize; e++) {
                 integerList.add(e);
             }
             Collections.shuffle(integerList);
-
             for (int elem = 0; elem < integerList.size(); elem++) {
                 if ( i < 0.1*steps) {
                     for (int j = 0; j < connections; j++) {
@@ -58,10 +57,9 @@ public class LinearPerceptron implements Perceptron {
                     w = w_min;
                 }
             }
-
-
             i++;
         }
+        System.out.println("El valor del error absoluto fue " + error_min);
     }
 
     @Override
@@ -71,6 +69,11 @@ public class LinearPerceptron implements Perceptron {
             error += Math.abs(expected_output[i] - activationFunction(input[i]));
         }
         return error;
+    }
+
+    @Override
+    public double calculate(double[] input) {
+        return activationFunction(input);
     }
 
     @Override

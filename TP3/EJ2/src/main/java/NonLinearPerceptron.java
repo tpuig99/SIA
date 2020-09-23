@@ -11,18 +11,21 @@ public class NonLinearPerceptron implements Perceptron {
         for (int i = 0; i < connections; i++) {
             w[i] = Math.random() * 2 - 1;
         }
-        w[0] = 0;
     }
 
 
     private double g_prime(double input) {
-        double tanh = Math.tanh(beta*input);
-        return beta*(1 - tanh * tanh);
+        double exp = Math.exp(-beta*input);
+        return (beta * exp ) / Math.pow((1 + exp) ,2);
     }
 
     private double g(double input) {
-        return Math.tanh(beta*input);
+        return 1 / (1 + Math.exp(-beta*input));
     }
+
+
+    @Override
+    public double calculate(double[] input) {return g(activationFunction(input)); }
 
     @Override
     public double activationFunction(double[] input) {
@@ -42,7 +45,7 @@ public class NonLinearPerceptron implements Perceptron {
         int i = 0;
         double[][] epoch_input = Arrays.copyOf(input, epochSize);
 
-        while (error > 0 && i < steps) {
+        while (error > 0.01 && i < steps) {
             List<Integer> integerList = new ArrayList<>();
             for (int e = 0; e < epochSize; e++) {
                 integerList.add(e);
@@ -55,7 +58,6 @@ public class NonLinearPerceptron implements Perceptron {
                     for (int j = 0; j < connections; j++) {
                         w[j] = Math.random() * 2 - 1;
                     }
-                    w[0] = 0;
                 }
 
                 int curr = elem;
@@ -76,6 +78,7 @@ public class NonLinearPerceptron implements Perceptron {
 
             i++;
         }
+        System.out.println("El valor del error absoluto fue " + error_min);
     }
 
     @Override
