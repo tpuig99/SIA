@@ -41,27 +41,37 @@ public class Main {
             normalized_output[i] = (expected_output[i] - X_MIN.getAsDouble())/(X_MAX.getAsDouble() - X_MIN.getAsDouble());
         }
 
+        int trainingSize = 150;
+
         Perceptron lp = new LinearPerceptron(4);
-        lp.train(input,normalized_output,0.01,500, 160);
-
-        for (int k = 160; k < 200; k++) {
+        lp.train(input,normalized_output,0.01,500, trainingSize);
+        double maxLinear = 0;
+        for (int k = trainingSize; k < 200; k++) {
             double compare = lp.activationFunction(input[k]) - normalized_output[k];
-            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
-                    lp.activationFunction(input[k]), normalized_output[k], compare);
+            if (Math.abs(compare) > maxLinear) {
+                maxLinear = Math.abs(compare);
+            }
+//            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
+//                    lp.activationFunction(input[k]), normalized_output[k], compare);
         }
-
+        System.out.println("Max absolute error was: " + maxLinear);
         System.out.println("W: " + Arrays.toString(lp.getW()));
 
 
+
         Perceptron nlp = new NonLinearPerceptron(4);
-        nlp.train(input,normalized_output,0.01,500, 160);
+        nlp.train(input,normalized_output,0.01,500, trainingSize);
 
-        for (int k = 160; k < 200; k++) {
+        double max = 0;
+        for (int k = trainingSize; k < MAX_LENGTH; k++) {
             double compare = nlp.calculate(input[k]) - normalized_output[k];
-            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
-                    nlp.calculate(input[k]), normalized_output[k], compare);
+            if (Math.abs(compare) > max) {
+                max = Math.abs(compare);
+            }
+//            System.out.printf("Perceptron returned: %f \t Expected was: %f \t Comparison is: %f \t\n",
+//                    nlp.calculate(input[k]), normalized_output[k], compare);
         }
-
+        System.out.println("Max absolute error was: " + max);
         System.out.println("W: " + Arrays.toString(nlp.getW()));
     }
 }

@@ -85,7 +85,7 @@ public class NonLinearPerceptron implements Perceptron {
     public double calculateError (double[][] input, double[] expected_output) {
         double error = 0;
         for (int i = 0; i < input.length; i++) {
-            error += Math.abs(expected_output[i] - activationFunction(input[i]));
+            error += Math.abs(expected_output[i] - calculate(input[i]));
         }
         return error;
     }
@@ -95,7 +95,7 @@ public class NonLinearPerceptron implements Perceptron {
         double [] toReturn = new double [input.length];
 
         for (int k = 0; k < input.length; k++) {
-            toReturn[k] = activationFunction(input[k]);
+            toReturn[k] = calculate(input[k]);
         }
         return toReturn;
     }
