@@ -1,0 +1,5 @@
+{
+    "iterations": 100,
+    "eta": 0.2,
+    "steps": 40
+}

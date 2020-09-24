@@ -51,7 +51,7 @@ public class Main {
         System.out.println("Steps = " + steps);
         System.out.println("Beta = " + beta);
 
-
+        System.out.println("////////////////////////////////////////");
         Scanner inputScanner = new Scanner(new InputStreamReader(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("TP3-ej2-Conjunto-entrenamiento.txt"))));
         Scanner outputScanner = new Scanner(new InputStreamReader(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("TP3-ej2-Salida-deseada.txt"))));
 
@@ -85,7 +85,7 @@ public class Main {
         System.out.println("Max squared error was: " + lp.calculateError(Arrays.copyOfRange(input, trainingSize, MAX_LENGTH),
                 Arrays.copyOfRange(normalized_output, trainingSize, MAX_LENGTH)));
 
-        System.out.println("////////////////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////");
 
         Perceptron nlp = new NonLinearPerceptron(4, beta);
         nlp.train(input,normalized_output,eta,steps, trainingSize);
