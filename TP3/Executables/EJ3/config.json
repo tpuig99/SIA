@@ -1,0 +1,12 @@
+{
+    "iterations": 1001,
+    "eta": 0.02,
+    "neuronsByLayer": [3, 3],
+    "steps": 101,
+
+    "iterations2": 1000,
+    "eta2": 0.01,
+    "neuronsByLayer2": [40],
+    "trainingArray": [0, 1, 2, 3, 4],
+    "steps2": 100
+}
