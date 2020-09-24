@@ -23,7 +23,6 @@ public class LinearPerceptron implements Perceptron {
 
     @Override
     public void train (double[][] input, double[] expected_output, double learning_rate, int steps, int epochSize) {
-        Random rnd = new Random();
         double error = 1;
         double error_min = expected_output.length*2;
         double[] w_min = w.clone();
@@ -42,10 +41,9 @@ public class LinearPerceptron implements Perceptron {
                         w[j] = Math.random()  * 2 - 1;
                     }
                 }
-                int curr = elem;
 
                 for (int j = 0; j < this.connections; j++) {
-                    w[j] += learning_rate * (expected_output[curr] - activationFunction(epoch_input[curr])) * epoch_input[curr][j];
+                    w[j] += learning_rate * (expected_output[elem] - activationFunction(epoch_input[elem])) * epoch_input[elem][j];
                 }
 
                 error = calculateError(epoch_input, expected_output);
@@ -58,8 +56,6 @@ public class LinearPerceptron implements Perceptron {
                 }
             }
             i++;
-            System.out.println("Max squared error was: " + calculateError(Arrays.copyOfRange(input, epochSize, 200),
-                    Arrays.copyOfRange(expected_output, epochSize, 200)));
         }
     }
 

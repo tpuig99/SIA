@@ -1,0 +1,6 @@
+{
+    "trainingSize": 160,
+    "eta": 0.012,
+    "steps": 501,
+    "beta": 4.0
+}

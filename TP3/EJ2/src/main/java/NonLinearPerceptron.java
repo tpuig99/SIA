@@ -3,11 +3,12 @@ import java.util.*;
 public class NonLinearPerceptron implements Perceptron {
     private final int connections;
     private double[] w;
-    private final double beta = 2;
+    private final double beta;
 
-    public NonLinearPerceptron(int connections) {
+    public NonLinearPerceptron(int connections, double beta) {
         this.connections = connections;
         this.w = new double[connections];
+        this.beta = beta;
         for (int i = 0; i < connections; i++) {
             w[i] = Math.random() * 2 - 1;
         }
@@ -38,7 +39,6 @@ public class NonLinearPerceptron implements Perceptron {
 
     @Override
     public void train (double[][] input, double[] expected_output, double learning_rate, int steps, int epochSize) {
-        Random rnd = new Random();
         double error = 1;
         double error_min = expected_output.length*2;
         double[] w_min = w.clone();
@@ -60,11 +60,10 @@ public class NonLinearPerceptron implements Perceptron {
                     }
                 }
 
-                int curr = elem;
-                double activation = activationFunction(epoch_input[curr]);
+                double activation = activationFunction(epoch_input[elem]);
 
                 for (int j = 0; j < this.connections; j++) {
-                    w[j] += learning_rate * (expected_output[curr] - g(activation)) * g_prime(activation) * epoch_input[curr][j];
+                    w[j] += learning_rate * (expected_output[elem] - g(activation)) * g_prime(activation) * epoch_input[elem][j];
                 }
 
                 error = calculateError(epoch_input, expected_output);
@@ -77,8 +76,6 @@ public class NonLinearPerceptron implements Perceptron {
             }
 
             i++;
-            System.out.println("Max squared error was: " + calculateError(Arrays.copyOfRange(input, epochSize, 200),
-                    Arrays.copyOfRange(expected_output, epochSize, 200)));
         }
     }
 
