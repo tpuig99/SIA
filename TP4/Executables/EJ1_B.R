@@ -1,7 +1,7 @@
-library(ggplot2);
+library(ggplot2)
 
 # Análisis según la librería PRCOMP
-elements <- read.csv(file.path("C:\\Users\\lucia\\Desktop\\SIA\\europe.csv"))
+elements <- read.csv(file.path("europe.csv"))
 elements_pca <- prcomp(elements[, 2:8], scale. = TRUE)
 countries <- elements[,1]
 index <- elements_pca$x[,1]
@@ -15,7 +15,7 @@ pca_plot + labs( title = "First Component Analysis (Library Version)",
                  y = "Index By Country", x = "Country", fill = "Index")
 
 # Análisis según la Regla de Oja
-elements_oja <- read.csv(file.path("C:\\Users\\lucia\\Desktop\\SIA\\oja_rule.csv"))
+elements_oja <- read.csv(file.path("data/oja_rule.csv"))
 countries_oja <- elements_oja[,1]
 index_oja <- elements_oja[,2]
 result_oja.data <- data.frame(countries_oja, index_oja, stringsAsFactors=FALSE)
