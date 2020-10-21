@@ -6,6 +6,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -45,7 +46,7 @@ public class Main {
 
         kohonenNetwork.train(parsedData, eta, epochs, initialNeighbourhoodSize);
 
-        BufferedWriter writer1 = Files.newBufferedWriter(Paths.get("./distance_matrix.csv"), StandardCharsets.UTF_8);
+        BufferedWriter writer1 = Files.newBufferedWriter(Paths.get("./data/distance_matrix.csv"), StandardCharsets.UTF_8);
         CSVPrinter csvPrinter1 = new CSVPrinter(writer1, CSVFormat.DEFAULT);
         System.out.println("Final distance matrix:");
         for (double[] row : kohonenNetwork.getDistanceMatrix()) {
@@ -56,7 +57,7 @@ public class Main {
         System.out.println();
         csvPrinter1.close();
 
-        BufferedWriter writer2 = Files.newBufferedWriter(Paths.get("./countries_and_neurons.csv"), StandardCharsets.UTF_8);
+        BufferedWriter writer2 = Files.newBufferedWriter(Paths.get("./data/countries_and_neurons.csv"), StandardCharsets.UTF_8);
         CSVPrinter csvPrinter2 = new CSVPrinter(writer2, CSVFormat.DEFAULT.withHeader("country", "neuron"));
         System.out.println("Countries and Associated Neurons:");
         for (int country = 0; country < parsedData.length; country++) {
@@ -68,7 +69,7 @@ public class Main {
         System.out.println();
         csvPrinter2.close();
 
-        BufferedWriter writer3 = Files.newBufferedWriter(Paths.get("./registers_matrix.csv"), StandardCharsets.UTF_8);
+        BufferedWriter writer3 = Files.newBufferedWriter(Paths.get("./data/registers_matrix.csv"), StandardCharsets.UTF_8);
         CSVPrinter csvPrinter3 = new CSVPrinter(writer3, CSVFormat.DEFAULT);
         System.out.println("Registers by Neuron:");
         for (int[] row : kohonenNetwork.getRegistersMatrix(parsedData)) {
@@ -99,7 +100,7 @@ public class Main {
 
         ojaRulePerceptron.train(parsedData, eta, epochs);
 
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("./oja_rule.csv"), StandardCharsets.UTF_8);
+        BufferedWriter writer = Files.newBufferedWriter(Paths.get("./data/oja_rule.csv"), StandardCharsets.UTF_8);
         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("country", "index"));
 
         for (int i = 0; i < parsedData.length; i++) {
@@ -113,7 +114,19 @@ public class Main {
         double[][] parsedData = new double[28][7];
         int i = 0, j;
 
-        File csvData = new File("src/main/resources/normalized_data.csv");
+        File csvData = new File("./normalized_data.csv");
+
+        if (!csvData.exists()) {
+            csvData = new File("src/main/resources/normalized_data.csv");
+            if (!csvData.exists()) {
+                try {
+                    throw new FileNotFoundException();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         CSVParser parser = null;
 
         try {
@@ -122,12 +135,12 @@ public class Main {
             e.printStackTrace();
         }
 
-        if (parser !=  null) {
+        if (parser != null) {
             for (CSVRecord csvRecord : parser) {
                 Iterator<String> recordIterator = csvRecord.iterator();
                 j = 0;
                 recordIterator.next();
-                while(recordIterator.hasNext()) {
+                while (recordIterator.hasNext()) {
                     parsedData[i][j++] = Double.parseDouble(recordIterator.next());
                 }
                 i++;
@@ -142,7 +155,19 @@ public class Main {
         String[] parsedCountries = new String[28];
         int i = 0;
 
-        File csvData = new File("src/main/resources/europe.csv");
+        File csvData = new File("./europe.csv");
+
+        if (!csvData.exists()) {
+            csvData = new File("src/main/resources/europe.csv");
+            if (!csvData.exists()) {
+                try {
+                    throw new FileNotFoundException();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         CSVParser parser = null;
 
         try {
@@ -151,10 +176,10 @@ public class Main {
             e.printStackTrace();
         }
 
-        if (parser !=  null) {
+        if (parser != null) {
             Iterator<CSVRecord> csvRecordIterator = parser.iterator();
             csvRecordIterator.next();
-            while(csvRecordIterator.hasNext()) {
+            while (csvRecordIterator.hasNext()) {
                 parsedCountries[i++] = csvRecordIterator.next().get(0);
             }
         }
