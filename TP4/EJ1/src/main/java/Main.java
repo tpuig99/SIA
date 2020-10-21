@@ -3,11 +3,10 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.ArrayUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -21,21 +20,31 @@ public class Main {
     }
 
     public static void KohonenNetworkExercise() throws IOException {
+        JSONObject configObj = getJsonConfig();
 
         double eta = 0.1;
         int epochs = 100;
         double initialNeighbourhoodSize = 3;
-        int matrix_x_dim = 3;
-        int matrix_y_dim = 3;
-        int[] grid = new int[] {matrix_x_dim, matrix_y_dim};
+        int dimX = 3;
+        int dimY = 3;
+
+        if (configObj != null) {
+            eta = (double) configObj.get("eta_a");
+            epochs = (int) ((long) configObj.get("epochs_a"));
+            initialNeighbourhoodSize = (double) configObj.get("initialNeighbourhoodValue");
+            dimX = (int) ((long) configObj.get("dim_x"));
+            dimY = (int) ((long) configObj.get("dim_y"));
+        }
+
+        int[] grid = new int[] {dimX, dimY};
 
         System.out.println("############################################################");
         System.out.println("############################################################");
         System.out.println("Executing Kohonen Exercise with the following parameters:");
         System.out.println("Eta: " + eta);
         System.out.println("Epochs: " + epochs);
-        System.out.println("Initial Neighbour Size " + initialNeighbourhoodSize);
-        System.out.println("Epochs: " + epochs);
+        System.out.println("Initial Neighbourhood Value " + initialNeighbourhoodSize);
+        System.out.println("Matrix Ranges: " + Arrays.toString(grid));
         System.out.println("############################################################");
         System.out.println("############################################################\n");
 
@@ -83,8 +92,16 @@ public class Main {
     }
 
     public static void OjaRuleExercise() throws IOException {
-        double eta = 0.4;
-        int epochs = 100000;
+        JSONObject configObj = getJsonConfig();
+
+        double eta = 0.1;
+        int epochs = 100;
+
+        if (configObj != null) {
+            eta = (double) configObj.get("eta_b");
+            epochs = (int) ((long) configObj.get("epochs_b"));
+        }
+
         System.out.println("############################################################");
         System.out.println("############################################################");
         System.out.println("Executing Oja's Rule Exercise with the following parameters:");
@@ -103,9 +120,10 @@ public class Main {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get("./data/oja_rule.csv"), StandardCharsets.UTF_8);
         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("country", "index"));
 
+        double value = ojaRulePerceptron.calculate(parsedData[0]) > 0 ? -1 : 1;
         for (int i = 0; i < parsedData.length; i++) {
-            System.out.println(parsedCountries[i] + "\t" + ojaRulePerceptron.calculate(parsedData[i]));
-            csvPrinter.printRecord(parsedCountries[i], ojaRulePerceptron.calculate(parsedData[i]));
+            System.out.println(parsedCountries[i] + "\t" + ojaRulePerceptron.calculate(parsedData[i])*value);
+            csvPrinter.printRecord(parsedCountries[i], ojaRulePerceptron.calculate(parsedData[i])*value);
         }
         csvPrinter.close();
     }
@@ -185,6 +203,21 @@ public class Main {
         }
 
         return parsedCountries;
+    }
+
+    private static JSONObject getJsonConfig() {
+        JSONParser jsonParser = new JSONParser();
+        JSONObject configObj = null;
+        try {
+            configObj = (JSONObject) jsonParser.parse(new FileReader("./config_ej1.json"));
+        } catch (Exception e) {
+            try {
+                configObj = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/config_ej1.json"));
+            } catch (Exception e2) {
+                e.printStackTrace();
+            }
+        }
+        return configObj;
     }
 
 }

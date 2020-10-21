@@ -1,0 +1,10 @@
+{
+  "eta_a": 0.1,
+  "epochs_a": 1000,
+  "initialNeighbourhoodValue": 3.0,
+  "dim_x": 5,
+  "dim_y": 5,
+
+  "eta_b": 0.5,
+  "epochs_b": 10000
+}
