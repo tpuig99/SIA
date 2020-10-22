@@ -139,8 +139,8 @@ public enum Constants {
             1,-1,1,-1,-1,
             1,-1,1,-1,1,
             1,1,-1,1,-1});
-    private String name;
-    private int[] representation;
+    private final String name;
+    private final int[] representation;
     Constants(String s,int[] rep) {
         name = s;
         representation = rep;
@@ -154,7 +154,7 @@ public enum Constants {
         return representation;
     }
 
-    public Constants getByLetter(char a){
+    public static Constants getByLetter(char a){
         switch (Character.toUpperCase(a)){
             case 'T':{
                 return Constants.T;
@@ -180,7 +180,7 @@ public enum Constants {
         }
         return null;
     }
-    public Constants getByLetterAndLevel(char a,int level){
+    public static Constants getByLetterAndLevel(char a,int level){
         switch (Character.toUpperCase(a)){
             case 'T':{
                 if(level == 1)
