@@ -26,7 +26,7 @@ ggplot(longData2, aes(x = Var2, y = Var1)) +
 countries_and_neurons <- read.csv(file.path("data/countries_and_neurons.csv"))
 country <- countries_and_neurons[,1]
 neuron <- countries_and_neurons[,2]
-aux <- ones(length(c1))[,1]
+aux <- ones(length(country))[,1]
 countries_and_neurons.data <- data.frame(country, neuron, aux, stringsAsFactors=FALSE)
 
 ggplot(countries_and_neurons.data, aes(area = aux, fill = neuron, label = country,
