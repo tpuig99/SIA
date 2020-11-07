@@ -12,7 +12,7 @@ public class Font {
         for (int i = 0; i < height; i++) {
             boolean[] bits = new boolean[5];
             for (int k = 4; k >= 0; k--) {
-                bits[k] = (font[i] & (1 << k)) != 0;
+                bits[4-k] = (font[i] & (1 << k)) != 0;
             }
 
             for (int j = 0; j < width; j++) {
