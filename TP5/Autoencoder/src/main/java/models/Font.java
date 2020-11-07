@@ -2,13 +2,15 @@ package models;
 
 import org.apache.commons.lang3.Conversion;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Font {
-    private int[][] font;
+    private int[][] matrix;
 
     public Font(int[] font, int height, int width) {
-        this.font = new int[height][width];
+        this.matrix = new int[height][width];
         for (int i = 0; i < height; i++) {
             boolean[] bits = new boolean[5];
             for (int k = 4; k >= 0; k--) {
@@ -16,23 +18,34 @@ public class Font {
             }
 
             for (int j = 0; j < width; j++) {
-                this.font[i][j] = bits[j] ? 1 : 0;
+                this.matrix[i][j] = bits[j] ? 1 : 0;
             }
         }
     }
 
-    public int[][] getFont() {
-        return font;
+    public int[][] getMatrix() {
+        return matrix;
     }
 
-    public void setFont(int[][] font) {
-        this.font = font;
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
+    }
+
+    public int[] getAsArray(){
+        int[] toReturn = new int[matrix.length * matrix[0].length];
+        int k = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                toReturn[k++] = matrix[i][j];
+            }
+        }
+        return toReturn;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int[] f : font) {
+        for (int[] f : matrix) {
             for (int j : f) {
                 stringBuilder.append(j == 1 ? '*' : ' ').append(' ');
             }
