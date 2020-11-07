@@ -1,6 +1,7 @@
 import models.Font;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,16 +19,16 @@ public class Main {
             }
         }
 
-        MultilayerPerceptron nn = new MultilayerPerceptron(35, new int[]{40, 12, 2, 12, 40}, 35, 0.0012);
+        MultilayerPerceptron nn = new MultilayerPerceptron(35, new int[]{12, 2, 12}, 35, 0.0012);
 
         nn.train(trainingSet, trainingSet, 10000);
 
         for (double[] item : trainingSet) {
-            System.out.print("[");
-            for (double d : nn.calculate(item)) {
-                System.out.printf("%.2f ,", d);
+            List<Double> l = nn.calculate(item);
+            for (Double d : l) {
+                System.out.printf("%.2f ", d);
             }
-            System.out.println("]");
+            System.out.println();
         }
     }
 }
