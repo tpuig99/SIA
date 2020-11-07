@@ -33,3 +33,7 @@ TP4/EJ2/target/
 
 TP4/Executables/.idea
 TP4/Executables/data/*
+
+TP5/Autoencoder/.idea
+TP5/Autoencoder/*.iml
+TP5/Autoencoder/target
