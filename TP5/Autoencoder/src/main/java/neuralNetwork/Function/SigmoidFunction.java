@@ -1,6 +1,7 @@
 package neuralNetwork.Function;
 
 public class SigmoidFunction implements ActivationFunction{
+    final static double  BETA = 2;
     @Override
     public double derivative(double argument) {
         double value = calculate(argument);
@@ -9,6 +10,6 @@ public class SigmoidFunction implements ActivationFunction{
 
     @Override
     public double calculate(double argument) {
-        return (1.0 /( 1.0 + Math.exp(-argument)));
+        return (1.0 /( 1.0 + Math.exp(-BETA * argument)));
     }
 }

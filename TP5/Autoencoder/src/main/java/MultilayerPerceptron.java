@@ -1,5 +1,6 @@
 import neuralNetwork.Connections.Connection;
 import neuralNetwork.Function.ActivationFunction;
+import neuralNetwork.Function.SigmoidFunction;
 import neuralNetwork.Function.TanhFunction;
 import neuralNetwork.Neurons.HiddenNeuron;
 import neuralNetwork.Neurons.Neuron;
@@ -14,15 +15,16 @@ public class MultilayerPerceptron {
     private ActivationFunction g;
     private double learningRate;
 
-    public MultilayerPerceptron(int inputLayerSize, int[] hiddenLayersSizes, int outputLayerSize, double learningRate) {
+    public MultilayerPerceptron(int inputLayerSize, int[] hiddenLayersSizes, int outputLayerSize, double learningRate, ActivationFunction g) {
 
         this.learningRate = learningRate;
         layers = new ArrayList[ hiddenLayersSizes.length + 2];
-        g = new TanhFunction();
+        this.g = g;
 
         layers[0] = newLayer(inputLayerSize, null, false);
         for(int i = 0; i < hiddenLayersSizes.length; i++)
             layers[i + 1] = newLayer(hiddenLayersSizes[i], layers[i], false);
+
         layers[layers.length - 1] = newLayer(outputLayerSize, layers[layers.length - 2], true);
     }
 
@@ -88,7 +90,7 @@ public class MultilayerPerceptron {
         return resultSet;
     }
 
-    public void train(double[][] inputData, double[][] resultData, int epochs) {
+    public void train(double[][] inputData, double[][] resultData, int epochs, double momentum) {
         if(inputData.length != resultData.length || inputData[0].length != layers[0].size())
             return;
 
@@ -116,7 +118,7 @@ public class MultilayerPerceptron {
                             n.calculateDelta(0.0);
 
                         for(Connection c : n.input) {
-                            c.updateW();
+                            c.updateW(momentum);
                         }
                     }
                 }
