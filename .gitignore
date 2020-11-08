@@ -37,3 +37,6 @@ TP4/Executables/data/*
 TP5/Autoencoder/.idea
 TP5/Autoencoder/*.iml
 TP5/Autoencoder/target
+
+TP5/Executables/.idea
+TP5/Executables/data/*

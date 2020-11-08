@@ -68,6 +68,26 @@ public class MultilayerPerceptron {
         return e / inputData.length;
     }
 
+    public List<Double> getMiddleLayerForInput(double [] inputValues) {
+        if(inputValues.length != layers[0].size())
+            return null;
+
+        for(int i = 0; i < layers[0].size(); i++)
+            layers[0].get(i).setV(inputValues[i]);
+
+        int middleLayer = layers.length/2;
+
+        for(int i = 1; i <= middleLayer; i++)
+            for(Neuron n : layers[i])
+                n.process();
+
+        List<Double> resultSet = new ArrayList<>();
+        for(Neuron n : layers[middleLayer])
+            resultSet.add(n.getV());
+
+        return resultSet;
+    }
+
     public void train(double[][] inputData, double[][] resultData, int epochs) {
         if(inputData.length != resultData.length || inputData[0].length != layers[0].size())
             return;
