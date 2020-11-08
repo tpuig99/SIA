@@ -1,7 +1,7 @@
 package neuralNetwork.Function;
 
 public class TanhFunction implements ActivationFunction{
-    private double b = 3;
+    private double b = 2.3;
 
     @Override
     public double calculate(double value) {
