@@ -17,8 +17,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Ej1a();
-        Ej1b();
+        //Ej1a();
+       Ej1b();
     }
 
     public static void Ej1b () {
@@ -30,7 +30,7 @@ public class Main {
 
         for(int i = 0; i < fonts.length ; i++) {
             fonts[i] = new Font(Constants.font1[i], 7, 5);
-            noisyFonts[i] = new NoisyFont(Constants.font1[i], 7, 5, 1);
+            noisyFonts[i] = new NoisyFont(Constants.font1[i], 7, 5, 5);
             System.out.println("Clean font:");
             System.out.println(fonts[i].toString());
             System.out.println("Noisy font:");
@@ -79,26 +79,32 @@ public class Main {
 
         int[][] layers = {
                 {30,20,2,20,30},
-                {30,10,2,10,30},
-                {20,10,5,10,20},
         };
-
+        PrintLetterMethod printLetterMethod = new PrintLetterMethod();
         MLP nn = new MLP(35, layers[0], 35, 0.0012,tn);
-
-        for (int i = 0; i < 1; i++) {
-            System.out.println("Corrida: " +i);
-            for (int[] layerConfig : layers) {
-                System.out.println("Layer :" + Arrays.toString(layerConfig));
-
-                nn = new MLP(35, layerConfig, 35, 0.0012,tn);
-
-                nn.train(trainingSet, trainingSet, 10000,true,0.75);
-
-                System.out.printf("Error despues de entrenar %.3f\n\n",nn.getError(trainingSet,trainingSet));
-
-                System.out.println("///////////////////////////////////////////////////////////\n\n");
-            }
-        }
+        nn.train(trainingSet, trainingSet, 10000,true,0.75);
+//        int count = 0;
+//        for (double[] item:trainingSet) {
+//            List<Double> result = nn.calculate(item);
+//            double array_result[] = new double[item.length];
+//            boolean error = false;
+//            for (int i = 0; i < item.length; i++) {
+//                array_result[i]=result.get(i)<0.5?0:1;
+//                if(array_result[i]!=item[i]){
+//                    error=true;
+//                }
+//            }
+//            if(error) {
+//                System.out.println("original");
+//                System.out.println();
+//                printLetterMethod.printLetter(item, 5);
+//                System.out.println("error:");
+//                System.out.println();
+//                printLetterMethod.printLetter(array_result, 5);
+//                count++;
+//            }
+//        }
+//        System.out.println(count);
 
 
         BufferedWriter writer = Files.newBufferedWriter(Paths.get("./data/middle_layer.csv"), StandardCharsets.UTF_8);
