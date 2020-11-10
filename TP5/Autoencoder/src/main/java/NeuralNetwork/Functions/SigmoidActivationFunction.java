@@ -2,7 +2,7 @@ package NeuralNetwork.Functions;
 
 public class SigmoidActivationFunction implements ActivationFunction {
     @Override
-    public double evaluateDerivative(double argument) {
+    public double derivative (double argument) {
         double value = evaluate(argument);
         return value * (1-value);
     }

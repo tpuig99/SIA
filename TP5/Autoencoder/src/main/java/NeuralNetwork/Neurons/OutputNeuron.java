@@ -9,6 +9,6 @@ public class OutputNeuron extends Neuron {
 
     @Override
     public void calculateDelta(double expectedValue) {
-        delta = (expectedValue - V) * g.evaluateDerivative(h);
+        delta = (expectedValue - V) * g.derivative(H);
     }
 }

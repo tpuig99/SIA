@@ -1,7 +1,7 @@
 import NeuralNetwork.Functions.ActivationFunction;
 import NeuralNetwork.Functions.SigmoidActivationFunction;
 import NeuralNetwork.Functions.TanhActivationFunction;
-import NeuralNetwork.NeuralNetwork;
+import NeuralNetwork.MLP;
 import models.Font;
 
 public class Main {
@@ -21,7 +21,7 @@ public class Main {
             }
         }
 
-        ActivationFunction tn = new TanhActivationFunction();
+        ActivationFunction tn = new TanhActivationFunction(2);
         ActivationFunction sig = new SigmoidActivationFunction();
         /*
         List<double[]> one_layer_s = new ArrayList<>();
@@ -45,17 +45,17 @@ public class Main {
         System.out.println(one_layer_s);
         System.out.println(one_layer_t);
        */
-        NeuralNetwork nn = new NeuralNetwork(35, new int[]{40,12,2,12,40}, 35, 0.0012,tn);
+        MLP nn = new MLP(35, new int[]{40,12,2,12,40}, 35, 0.0012,tn);
         System.out.printf("Error antes de entrenar %.3f\n",nn.getError(trainingSet,trainingSet));
         nn.train(trainingSet, trainingSet, 10000,false,0.75);
         System.out.printf("Error despues de entrenar %.3f\n\n",nn.getError(trainingSet,trainingSet));
 
-        NeuralNetwork nn1 = new NeuralNetwork(35, new int[]{20,3,2,3,20}, 35, 0.001,sig);
+        MLP nn1 = new MLP(35, new int[]{20,3,2,3,20}, 35, 0.001,sig);
         System.out.printf("Error antes de entrenar %.3f\n",nn1.getError(trainingSet,trainingSet));
         nn1.train(trainingSet, trainingSet, 10000,false,0.80);
         System.out.printf("Error despues de entrenar %.3f\n\n",nn1.getError(trainingSet,trainingSet));
 
-        NeuralNetwork nn2 = new NeuralNetwork(35, new int[]{10,2,10}, 35, 0.001,tn);
+        MLP nn2 = new MLP(35, new int[]{10,2,10}, 35, 0.001,tn);
         System.out.printf("Error antes de entrenar %.3f\n",nn2.getError(trainingSet,trainingSet));
         nn2.train(trainingSet, trainingSet, 10000,false,0.80);
         System.out.printf("Error despues de entrenar %.3f\n\n",nn2.getError(trainingSet,trainingSet));

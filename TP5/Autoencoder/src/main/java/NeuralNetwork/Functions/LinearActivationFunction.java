@@ -7,7 +7,7 @@ public class LinearActivationFunction implements ActivationFunction{
     }
 
     @Override
-    public double evaluateDerivative(double value) {
+    public double derivative(double value) {
         return 1;
     }
 }

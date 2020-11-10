@@ -1,7 +1,7 @@
 package NeuralNetwork.Neurons;
 
 import NeuralNetwork.Connections.Connection;
-import NeuralNetwork.Connections.FixedValueConnection;
+import NeuralNetwork.Connections.ConstantValueConnection;
 import NeuralNetwork.Connections.NeuronConnection;
 import NeuralNetwork.Functions.ActivationFunction;
 
@@ -14,26 +14,26 @@ public class Neuron {
     protected ActivationFunction g;
 
     protected double V;
-    protected double h;
+    protected double H;
 
     protected double delta;
 
-    public double learningRate = 0.05;
+    protected double eta;
 
     public int layerIndex;
 
-    public Neuron(int layerIndex, ActivationFunction g, double learningRate, Integer bias) {
+    public Neuron(int layerIndex, ActivationFunction g, double eta, Integer bias) {
         output = new ArrayList<>();
         input = new ArrayList<>();
 
-        this.learningRate = learningRate;
+        this.eta = eta;
         this.g = g;
 
         this.layerIndex = layerIndex;
 
-        //bias //TODO valor?
-        if(bias != null)
-            input.add(new FixedValueConnection(this, bias));
+        if(bias != null) {
+            input.add(new ConstantValueConnection(this, bias));
+        }
     }
 
     public double getValue() {
@@ -52,23 +52,19 @@ public class Neuron {
 
     private double getWeightedInput() {
         double val = 0;
-        for(Connection c : input)
+        for(Connection c : input) {
             val += c.getWeightedValue();
-
+        }
         return val;
     }
 
     public void process() {
-        this.h = getWeightedInput();
-        this.V = g.evaluate(h);
+        this.H = getWeightedInput();
+        this.V = g.evaluate(H);
     }
 
     public void addInput(Connection c) {
         input.add(c);
-    }
-
-    public void addOutput(NeuronConnection c) {
-        output.add(c);
     }
 
     public double getDelta() {
@@ -78,10 +74,9 @@ public class Neuron {
     public void calculateDelta(double expectedValue) {
         double otherSum = 0;
 
-        //TODO y las FixedValueCollections? No juegan?
-        for(NeuronConnection c : output)
+        for(NeuronConnection c : output) {
             otherSum += c.getWeight() * c.getOutput().getDelta();
-
-        delta = g.evaluateDerivative(h) * otherSum;
+        }
+        delta = g.derivative(H) * otherSum;
     }
 }

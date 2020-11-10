@@ -10,12 +10,12 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class NeuralNetwork {
-    private List<Neuron>[] layers;
-    private ActivationFunction g;
-    private double learningRate;
+public class MLP {
+    private final List<Neuron>[] layers;
+    private final ActivationFunction g;
+    private final double learningRate;
 
-    public NeuralNetwork(int inputLayerSize, int[] hiddenLayersSizes, int outputLayerSize, double learningRate,ActivationFunction activationFunction) {
+    public MLP(int inputLayerSize, int[] hiddenLayersSizes, int outputLayerSize, double learningRate, ActivationFunction g) {
 
         this.learningRate = learningRate;
 
@@ -23,7 +23,7 @@ public class NeuralNetwork {
         int layerCount = hiddenLayersSizes.length + 2;
         layers = new ArrayList[layerCount];
 
-        g = activationFunction;
+        this.g = g;
 
         //Input layer
         layers[0] = createLayer(inputLayerSize, null, false);

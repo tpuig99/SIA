@@ -1,16 +1,20 @@
 package NeuralNetwork.Functions;
 
 public class TanhActivationFunction implements ActivationFunction {
-    private double BETA = 2;
+    private final double beta;
 
-    @Override
-    public double evaluate(double value) {
-        return 0.5 * Math.tanh(BETA * value) + 0.5;
+    public TanhActivationFunction(double beta) {
+        this.beta = beta;
     }
 
     @Override
-    public double evaluateDerivative(double value) {
+    public double evaluate(double value) {
+        return 0.5 * Math.tanh(beta * value) + 0.5;
+    }
+
+    @Override
+    public double derivative(double value) {
         double tanh = Math.tanh(value);
-        return 0.5 * BETA * (1 - tanh * tanh);
+        return 0.5 * beta * (1 - tanh * tanh);
     }
 }
