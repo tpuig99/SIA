@@ -3,6 +3,7 @@ import NeuralNetwork.Functions.SigmoidActivationFunction;
 import NeuralNetwork.Functions.TanhActivationFunction;
 import NeuralNetwork.MLP;
 import models.Font;
+import models.NoisyFont;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -16,6 +17,47 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        Ej1a();
+        Ej1b();
+    }
+
+    public static void Ej1b () {
+        Font[] fonts = new Font[Constants.font1.length];
+        NoisyFont[] noisyFonts = new NoisyFont[Constants.font1.length];
+
+        double[][] trainingSet = new double[32][35];
+        double[][] expectedResultSet = new double[32][35];
+
+        for(int i = 0; i < fonts.length ; i++) {
+            fonts[i] = new Font(Constants.font1[i], 7, 5);
+            noisyFonts[i] = new NoisyFont(Constants.font1[i], 7, 5, 1);
+            System.out.println("Clean font:");
+            System.out.println(fonts[i].toString());
+            System.out.println("Noisy font:");
+            System.out.println(noisyFonts[i].toString());
+            System.out.println("/////////////////\n\n");
+        }
+
+        int from=0;
+        int to=32;
+        for (int k = from; k < to ; k++) {
+            for (int j = 0; j < fonts[k].getAsArray().length ; j++) {
+                trainingSet[k][j] = noisyFonts[k].getAsArray()[j];
+                expectedResultSet[k][j] = fonts[k].getAsArray()[j];
+            }
+        }
+
+        ActivationFunction tn = new TanhActivationFunction(2.3);
+
+        MLP nn = new MLP(35, new int[] {30,20,2,20,30}, 35, 0.0012,tn);
+
+        nn.train(trainingSet, expectedResultSet, 10000,true,0.75);
+
+        System.out.printf("Error despues de entrenar %.3f\n\n",nn.getError(trainingSet, expectedResultSet));
+
+    }
+
+    public static void Ej1a () throws IOException {
         Font[] fonts = new Font[Constants.font1.length];
 
         double[][] trainingSet = new double[32][35];
@@ -23,6 +65,7 @@ public class Main {
         for(int i = 0; i < fonts.length ; i++) {
             fonts[i] = new Font(Constants.font1[i], 7, 5);
         }
+
         int from=0;
         int to=32;
         for (int k = from; k < to ; k++) {
@@ -35,22 +78,14 @@ public class Main {
         ActivationFunction sig = new SigmoidActivationFunction();
 
         int[][] layers = {
-//                {25, 10, 2, 10, 25},
-//                {20, 15, 2, 15, 20},
                 {30,20,2,20,30},
                 {30,10,2,10,30},
-//                {10,2,10},
-//                {20,2,20},
-//                {17,7,2,7,17},
-//                {30,3,2,3,30},
-//                {15,5,2,5,15},
                 {20,10,5,10,20},
-//                {30,20,5,20,30}
         };
 
         MLP nn = new MLP(35, layers[0], 35, 0.0012,tn);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             System.out.println("Corrida: " +i);
             for (int[] layerConfig : layers) {
                 System.out.println("Layer :" + Arrays.toString(layerConfig));
@@ -64,11 +99,6 @@ public class Main {
                 System.out.println("///////////////////////////////////////////////////////////\n\n");
             }
         }
-
-//        MLP nn = new MLP(35, new int[]{40,12,2,12,40}, 35, 0.0012,tn);
-//        System.out.printf("Error antes de entrenar %.3f\n",nn.getError(trainingSet,trainingSet));
-//        nn.train(trainingSet, trainingSet, 10000,false,0.75);
-//        System.out.printf("Error despues de entrenar %.3f\n\n",nn.getError(trainingSet,trainingSet));
 
 
         BufferedWriter writer = Files.newBufferedWriter(Paths.get("./data/middle_layer.csv"), StandardCharsets.UTF_8);
