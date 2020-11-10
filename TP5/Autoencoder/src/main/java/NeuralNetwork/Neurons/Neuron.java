@@ -18,7 +18,7 @@ public class Neuron {
 
     protected double delta;
 
-    protected double eta;
+    public double eta;
 
     public int layerIndex;
 

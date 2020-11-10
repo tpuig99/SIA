@@ -10,6 +10,6 @@ plot(x, y,
      main= "Plot of the middle layer of Autoencoder",
      xlab= "X Axis",
      ylab= "Y Axis",
-     col= "red", pch = 19, cex = 1, lty = "solid", lwd = 1)
+     col= "transparent", pch = 19, cex = 1, lty = "solid", lwd = 1)
 
-text(x, y, labels=lab, cex= 0.7, col="green")
+text(x, y, labels=lab, cex= 1.2, col="orange")

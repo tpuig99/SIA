@@ -58,6 +58,10 @@ public class MLP {
         return resultSet;
     }
 
+    public List<Double> calculateMiddleLayer(double [] inputValues) {
+        return calculate(inputValues, 0, layers.length/2);
+    }
+
     public double getError(double[][] inputData, double[][] resultData) {
         double e = 0;
 

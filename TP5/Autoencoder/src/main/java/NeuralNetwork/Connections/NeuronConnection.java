@@ -17,6 +17,6 @@ public class NeuronConnection extends Connection {
 
     @Override
     public void updateDeltaWeight() {
-        deltaWeight += output.learningRate * output.getDelta() * input.getValue();
+        deltaWeight += output.eta * output.getDelta() * input.getValue();
     }
 }

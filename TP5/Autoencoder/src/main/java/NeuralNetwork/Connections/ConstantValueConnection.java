@@ -13,7 +13,7 @@ public class ConstantValueConnection extends Connection {
 
     @Override
     public void updateDeltaWeight() {
-        deltaWeight += output.learningRate * output.getDelta() * value;
+        deltaWeight += output.eta * output.getDelta() * value;
     }
 
     public ConstantValueConnection(Neuron output, double value) {
