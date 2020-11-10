@@ -1,22 +1,17 @@
+import NeuralNetwork.Functions.ActivationFunction;
+import NeuralNetwork.Functions.SigmoidActivationFunction;
+import NeuralNetwork.Functions.TanhActivationFunction;
+import NeuralNetwork.NeuralNetwork;
 import models.Font;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Font[] fonts = new Font[Constants.font1.length];
 
         double[][] trainingSet = new double[32][35];
 
         for(int i = 0; i < fonts.length ; i++) {
-            fonts[i] = new Font(Constants.font2[i], 7, 5);
+            fonts[i] = new Font(Constants.font1[i], 7, 5);
         }
         int from=0;
         int to=32;
@@ -25,32 +20,46 @@ public class Main {
                 trainingSet[k][j] = fonts[k].getAsArray()[j];
             }
         }
-        ActivationFunction tn = new TanhFunction();
-        ActivationFunction sig = new SigmoidFunction();
 
-        MultilayerPerceptron nn = new MultilayerPerceptron(35, new int[]{40,12,2,12,40}, 35, 0.001,sig);
+        ActivationFunction tn = new TanhActivationFunction();
+        ActivationFunction sig = new SigmoidActivationFunction();
+        /*
+        List<double[]> one_layer_s = new ArrayList<>();
+        List<double[]> one_layer_t = new ArrayList<>();
+
+        for (int i = 0; i < 35; i++) {
+            MultilayerPerceptron nn_s = new MultilayerPerceptron(35, new int[]{i,2,i}, 35, 0.001,sig);
+            MultilayerPerceptron nn_t = new MultilayerPerceptron(35, new int[]{i,2,i}, 35, 0.001,tn);
+            nn_s.train(trainingSet, trainingSet, 10000,0.70);
+            nn_t.train(trainingSet, trainingSet, 10000,0.70);
+            double t[] = new double[2];
+            double s[] = new double[2];
+            t[0]=i;
+            t[1]= nn_t.getError(trainingSet,trainingSet);
+            one_layer_t.add(t);
+            s[0]=i;
+            s[1]= nn_s.getError(trainingSet,trainingSet);
+            one_layer_s.add(s);
+            System.out.println("Con "+i+": t->"+t[1]+" | s->"+s[1]);
+        }
+        System.out.println(one_layer_s);
+        System.out.println(one_layer_t);
+       */
+        NeuralNetwork nn = new NeuralNetwork(35, new int[]{40,12,2,12,40}, 35, 0.0012,tn);
         System.out.printf("Error antes de entrenar %.3f\n",nn.getError(trainingSet,trainingSet));
-        nn.train(trainingSet, trainingSet, 10000,0.70);
+        nn.train(trainingSet, trainingSet, 10000,false,0.75);
         System.out.printf("Error despues de entrenar %.3f\n\n",nn.getError(trainingSet,trainingSet));
 
-        MultilayerPerceptron nn1 = new MultilayerPerceptron(35, new int[]{12,8,2,8,12}, 35, 0.001,tn);
+        NeuralNetwork nn1 = new NeuralNetwork(35, new int[]{20,3,2,3,20}, 35, 0.001,sig);
         System.out.printf("Error antes de entrenar %.3f\n",nn1.getError(trainingSet,trainingSet));
-        nn1.train(trainingSet, trainingSet, 10000,0.80);
+        nn1.train(trainingSet, trainingSet, 10000,false,0.80);
         System.out.printf("Error despues de entrenar %.3f\n\n",nn1.getError(trainingSet,trainingSet));
 
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("./data/middle_layer.csv"), StandardCharsets.UTF_8);
-        CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("x", "y", "value"));
-
-        String values = " !\"#$%&'()*+,-./0123456789:;<=>?";
-
-        for (int i = 0; i < trainingSet.length; i++) {
-            List<Double> l = nn.getMiddleLayerForInput(trainingSet[i]);
-            csvPrinter.printRecord(l.get(0), l.get(1), values.charAt(i));
-        }
-
-        csvPrinter.close();
-
-        for (double[] item : trainingSet) {
+        NeuralNetwork nn2 = new NeuralNetwork(35, new int[]{10,2,10}, 35, 0.001,tn);
+        System.out.printf("Error antes de entrenar %.3f\n",nn2.getError(trainingSet,trainingSet));
+        nn2.train(trainingSet, trainingSet, 10000,false,0.80);
+        System.out.printf("Error despues de entrenar %.3f\n\n",nn2.getError(trainingSet,trainingSet));
+        /*for (double[] item : trainingSet) {
             List<Double> l = nn.calculate(item);
             for (Double d : l) {
                 //System.out.printf("%.2f ", d);
