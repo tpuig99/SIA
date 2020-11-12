@@ -17,12 +17,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Ej1a();
-        Ej1b();
+//        Ej1a();
+//        Ej1b();
         Ej2();
     }
 
-    public static void Ej2 () {
+    public static void Ej2 () throws IOException {
         Font[] fonts = new Font[Constants.font1.length];
 
         double[][] trainingSet = new double[32][35];
@@ -46,12 +46,16 @@ public class Main {
 
         nn.train(trainingSet, trainingSet, 10000,true,0.75);
 
+        printCSVData(nn, trainingSet, "./data/ej2.csv");
+
         System.out.printf("Error despues de entrenar %.3f\n\n",nn.getError(trainingSet, trainingSet));
 
-        List<Double> nine = nn.calculateMiddleLayer(trainingSet[16]);
-        List<Double> questionMark = nn.calculateMiddleLayer(trainingSet[25]);
+        List<Double> zero = nn.calculateMiddleLayer(trainingSet[16]);
+        List<Double> nine = nn.calculateMiddleLayer(trainingSet[25]);
+        List<Double> eight = nn.calculateMiddleLayer(trainingSet[24]);
+        List<Double> three = nn.calculateMiddleLayer(trainingSet[19]);
 
-        double x1 = nine.get(0), y1 = nine.get(1), x2 = questionMark.get(0), y2 = questionMark.get(1);
+        double x1 = zero.get(0), y1 = zero.get(1), x2 = nine.get(0), y2 = nine.get(1);
 
         double midX = (x1+x2)/2;
         double midY = (y1+y2)/2;
@@ -66,93 +70,64 @@ public class Main {
             rightX = (x2 + midX)/2;
             rightY = (y2 + midY)/2;
 
-            System.out.println("0:  (" + x1 + "; " + y1 + ")");
-            System.out.println("Segundo punto (" + leftX + "; " + leftY + ")");
-            System.out.println("Punto medio (" + midX + "; " + midY + ")");
-            System.out.println("Cuarto punto (" + rightX + "; " + rightY + ")");
-            System.out.println("9:  (" + x2 + "; " + y2 + ")");
+            System.out.println("0:\t(" + x1 + "\t;\t " + y1 + ")");
+            System.out.println("Segundo punto (" + leftX + "\t;\t " + leftY + ")");
+            System.out.println("Punto medio (" + midX + "\t;\t " + midY + ")");
+            System.out.println("Cuarto punto (" + rightX + "\t; " + rightY + ")");
+            System.out.println("9:\t(" + x2 + "\t;\t " + y2 + ")");
         } else {
             leftX = (x2 + midX)/2;
             leftY = (y2 + midY)/2;
             rightX = (x1 + midX)/2;
             rightY = (y1 + midY)/2;
 
-            System.out.println("9:  (" + x2 + "; " + y2 + ")");
-            System.out.println("Segundo punto (" + leftX + "; " + leftY + ")");
-            System.out.println("Punto medio (" + midX + "; " + midY + ")");
-            System.out.println("Cuarto punto (" + rightX + "; " + rightY + ")");
-            System.out.println("0:  (" + x1 + "; " + y1 + ")");
+            System.out.println("9:\t(" + x2 + "\t;\t " + y2 + ")");
+            System.out.println("Segundo punto (" + leftX + "\t;\t " + leftY + ")");
+            System.out.println("Punto medio (" + midX + "\t;\t " + midY + ")");
+            System.out.println("Cuarto punto (" + rightX + "\t;\t " + rightY + ")");
+            System.out.println("0:\t(" + x1 + "\t;\t " + y1 + ")");
         }
 
+        System.out.println("8:\t(" + eight.get(0) + "\t;\t " + eight.get(1) + ")");
+        System.out.println("3:\t(" + three.get(0) + "\t;\t " + three.get(1) + ")");
+
+        System.out.println("First Letter:");
         if (x1 < x2) {
-            List<Double> f_letter = nn.calculate(new double[]{x1, y1}, 3, 6);
-            System.out.println("First Letter:");
-            double [] array = new double[35];
-            for (int i = 0; i < 35 ; i++) {
-                array[i] = f_letter.get(i) > 0.5 ? 1 : 0;
-            }
-            PrintLetterMethod.printLetter(array, 5);
-
+            printLetterFromList(nn.calculate(new double[]{x1, y1},3,6));
         } else {
-            List<Double> f_letter = nn.calculate(new double[]{x2, y2}, 3, 6);
-            System.out.println("First Letter:");
-
-            double [] array = new double[35];
-            for (int i = 0; i < 35 ; i++) {
-                array[i] = f_letter.get(i) > 0.5 ? 1 : 0;
-            }
-            PrintLetterMethod.printLetter(array, 5);
+            printLetterFromList(nn.calculate(new double[]{x2, y2},3,6));
         }
 
-
-        List<Double> left = nn.calculate(new double[]{leftX, leftY}, 3, 6);
         System.out.println("Left hibrid:");
+        printLetterFromList(nn.calculate(new double[]{leftX, leftY},3,6));
 
-        double [] array_left = new double[35];
-        for (int i = 0; i < 35 ; i++) {
-            array_left[i] = left.get(i) > 0.5 ? 1 : 0;
-        }
-        PrintLetterMethod.printLetter(array_left, 5);
-
-        List<Double> mid = nn.calculate(new double[]{midX, midY}, 3, 6);
         System.out.println("Middle hibrid:");
+        printLetterFromList(nn.calculate(new double[]{midX, midY},3,6));
 
-        double [] array_mid = new double[35];
-        for (int i = 0; i < 35 ; i++) {
-            array_mid[i] = mid.get(i) > 0.5 ? 1 : 0;
-        }
-        PrintLetterMethod.printLetter(array_mid, 5);
-
-        List<Double> right = nn.calculate(new double[]{rightX, rightY}, 3, 6);
         System.out.println("Right hibrid:");
+        printLetterFromList(nn.calculate(new double[]{rightX, rightY},3,6));
 
-        double [] array_right = new double[35];
-        for (int i = 0; i < 35 ; i++) {
-            array_right[i] = right.get(i) > 0.5 ? 1 : 0;
-        }
-        PrintLetterMethod.printLetter(array_right, 5);
-
+        System.out.println("Last Letter:");
         if (x1 < x2) {
-            List<Double> f_letter = nn.calculate(new double[]{x2, y2}, 3, 6);
-            System.out.println("Last Letter:");
-
-            double [] array_last = new double[35];
-            for (int i = 0; i < 35 ; i++) {
-                array_last[i] = f_letter.get(i) > 0.5 ? 1 : 0;
-            }
-            PrintLetterMethod.printLetter(array_last, 5);
-
+            printLetterFromList(nn.calculate(new double[]{x2, y2},3,6));
         } else {
-            List<Double> f_letter = nn.calculate(new double[]{x1, y1}, 3, 6);
-            System.out.println("Last Letter:");
-            double [] array_last = new double[35];
-            for (int i = 0; i < 35 ; i++) {
-                array_last[i] = f_letter.get(i) > 0.5 ? 1 : 0;
-            }
-            PrintLetterMethod.printLetter(array_last, 5);
-
+            printLetterFromList(nn.calculate(new double[]{x1, y1},3,6));
         }
 
+        System.out.println("Letter: 3");
+        printLetterFromList(nn.calculate(new double[]{three.get(0), three.get(1)},3,6));
+
+        System.out.println("Letter: 8");
+        printLetterFromList(nn.calculate(new double[]{eight.get(0), eight.get(1)},3,6));
+
+    }
+
+    public static void printLetterFromList(List<Double> list) {
+        double [] array_list = new double[35];
+        for (int i = 0; i < 35 ; i++) {
+            array_list[i] = list.get(i) > 0.5 ? 1 : 0;
+        }
+        PrintLetterMethod.printLetter(array_list, 5);
     }
 
     public static void Ej1b () {
@@ -234,8 +209,24 @@ public class Main {
             }
         }
 
+        printCSVData(nn, trainingSet, "./data/ej1a");
 
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("./data/middle_layer.csv"), StandardCharsets.UTF_8);
+//        BufferedWriter writer = Files.newBufferedWriter(Paths.get("./data/middle_layer.csv"), StandardCharsets.UTF_8);
+//        CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("x", "y", "value"));
+//
+//        String values = " !\"#$%&'()*+,-./0123456789:;<=>?";
+//
+//        for (int i = 0; i < trainingSet.length; i++) {
+//            List<Double> l = nn.calculateMiddleLayer(trainingSet[i]);
+//            csvPrinter.printRecord(l.get(0), l.get(1), values.charAt(i));
+//        }
+//
+//        csvPrinter.close();
+
+    }
+
+    public static void printCSVData(MLP nn, double[][] trainingSet, String fileName) throws IOException {
+        BufferedWriter writer = Files.newBufferedWriter(Paths.get(fileName), StandardCharsets.UTF_8);
         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("x", "y", "value"));
 
         String values = " !\"#$%&'()*+,-./0123456789:;<=>?";
@@ -246,6 +237,5 @@ public class Main {
         }
 
         csvPrinter.close();
-
     }
 }
