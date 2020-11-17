@@ -1,10 +1,5 @@
 package models;
 
-import org.apache.commons.lang3.Conversion;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Font {
     private int[][] matrix;
